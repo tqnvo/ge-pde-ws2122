@@ -1,0 +1,1570 @@
+\documentclass[12pt]{article}
+\usepackage{anysize}
+\usepackage[ngerman,english]{babel}
+\marginsize{3.5cm}{2.5cm}{1cm}{2cm}
+
+\input{packages_styles.tex}
+%Page numbering in style 1/3...
+\usepackage{lastpage}  
+\usepackage{hyperref}
+\makeatletter
+\renewcommand{\@oddfoot}{\hfil 
+% Aachen, November $04^{th}$, 2021 \hspace{300pt} 
+\thepage/\pageref{LastPage}\hfil}
+\makeatother
+%------------------------------------------------------------------------------
+
+\begin{document}
+\begin{center}
+	\section*{Global Exercise - 12}
+\end{center}
+\begin{center}
+	Tuan Vo
+\end{center}
+\begin{center}
+	$12^{\text{th}}$ January 2022
+\end{center}
+%------------------------------------------------------------------------------
+\section{A remark about the derivation from coupled to decoupled form of linear hyperbolic systems}
+\begin{enumerate}
+	\item Case 1: $W:=R^{-1}U$ as the scheme shown in exercise
+	      \begin{equation*}
+		      \boxed{
+			      \begin{aligned}
+				      U_{t} + AU_{x} = 0                     \\
+				      U_{t} + R\Lambda R^{-1} U_{x} = 0      \\
+				      R^{-1}U_{t} + \Lambda R^{-1} U_{x} = 0 \\
+				      W_{t} + \Lambda W_{x} = 0                     
+			      \end{aligned}
+		      }
+	      \end{equation*}
+	      where the matrix $A$ is diagonalizable with a transformation matrix $R \in \mathbb{R}^{N\times N}$ in the form 
+	      $$A=R\Lambda R^{-1}.$$
+	      
+	\item Case 2: $W:=TU$ as the scheme shown in lecture note
+	      \begin{equation*}
+		      \boxed{
+			      \begin{aligned}
+				      U_{t} + AU_{x} = 0                \\
+				      U_{t} + T^{-1}\Lambda T U_{x} = 0 \\
+				      TU_{t} + \Lambda TU_{x} = 0       \\
+				      W_{t} + \Lambda W_{x} = 0                     
+			      \end{aligned}
+		      }
+	      \end{equation*}
+	      where the matrix $A$ is diagonalizable with a transformation matrix $T \in \mathbb{R}^{N\times N}$ in the form 
+	      $$A= T^{-1} \Lambda T.$$
+\end{enumerate}
+
+\begin{checkexample}
+	Let matrix $A$ be given as 
+	\begin{align*}
+		A = \begin{pmatrix} 2 &-1 \\ -1 &2 \end{pmatrix}
+	\end{align*}
+	then the diagonalization with transformation matrix $R$ and $T$ goes as follows
+	\begin{align*}
+		A = R\Lambda R^{-1} = \begin{pmatrix} 2 &-1 \\ -1 &2 \end{pmatrix}
+	\end{align*}
+\end{checkexample}
+
+% \begin{example}
+% 	Let $u$ be a scalar-valued function in $C^1(\mathbb{R}\times\mathbb{R^+})$ and defined as follows 
+% 	\begin{align}
+% 		u:
+% 		\begin{cases}
+% 			\mathbb{R}\times\mathbb{R^+} \rightarrow \mathbb{R}, \\
+% 			(x,t) \mapsto u(x,t).                                
+% 		\end{cases}
+% 	\end{align}
+% 	Consider the natural 1D second-order wave equation 
+% 	\begin{equation}\label{eq:wave1D}
+% 		u_{tt} = \alpha^2 u_{xx},\quad \forall\alpha\in\mathbb{R}, 
+% 	\end{equation}
+% 	with initial conditions given 
+% 	\begin{align}
+% 		\begin{cases}
+% 			\begin{aligned}
+% 				u(x,0)     & = u_{0}(x), \\
+% 				u_{t}(x,0) & = u_{1}(x). \\
+% 			\end{aligned}
+% 		\end{cases}
+% 	\end{align}
+% 	Find solution to \eqref{eq:wave1D} by means of linear hyperbolic system of conservation laws.
+% \end{example}
+
+% Approach: By introducing two new variables called $v$ and $w$ defined as follows
+% \begin{align}\label{eq:vwdefined}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			v & := u_{x}, \\
+% 			w & := u_{t},
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% we obtain the following relations
+% \begin{align}\label{eq:systemraw}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			v_{x} 
+% 			 & 
+% 			\stackrel{\eqref{eq:vwdefined}}{=} u_{xx}
+% 			\stackrel{\eqref{eq:wave1D}}{=} \frac{1}{\alpha^2} u_{tt}
+% 			\stackrel{\eqref{eq:vwdefined}}{=} \frac{1}{\alpha^2} w_{t}, \\
+% 			w_{x}
+% 			 & 
+% 			\stackrel{\eqref{eq:vwdefined}}{=} u_{tx}
+% 			\stackrel{\eqref{eq:vwdefined}}{=} u_{xt}
+% 			\stackrel{\eqref{eq:vwdefined}}{=} v_{t},
+% 		\end{aligned}
+% 	\end{cases}
+% 	\Leftrightarrow
+% 	\begin{cases}
+% 		v_{t} - w_{x} = 0, \\
+% 		w_{t} - \alpha^2 v_{x} = 0.
+% 	\end{cases}
+% \end{align}
+% Note in passing that $u_{tx}=u_{xt}$ since $u\in C^1(\mathbb{R}\times\mathbb{R^+})$.
+% The later system in \eqref{eq:systemraw} can be rewritten in form of a system, whose derivative term
+% w.r.t. time $t$ and space $x$ follows with each other
+% \begin{align}\label{eq:system1}
+% 	\begin{pmatrix} v\\ w\end{pmatrix}_{t}
+% 	+
+% 	\begin{pmatrix} -w \\ -\alpha^2 v \end{pmatrix}_{x}
+% 	= 0.
+% \end{align}
+% In order to mimic explicitly the form of a system of conservation laws, the system in \eqref{eq:system1}
+% is recast into the following system
+% \begin{align}\label{eq:system2}
+% 	\begin{pmatrix} v\\ w\end{pmatrix}_{t}
+% 	+
+% 	\begin{pmatrix} 0 & -1 \\ -\alpha^2 & 0 \end{pmatrix}
+% 	\begin{pmatrix} v\\ w\end{pmatrix}_{x}
+% 	= 0.
+% \end{align}
+% The initial condition becomes
+% \begin{align}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			v(x,0) & = u'_{0}(x), \\
+% 			w(x,0) & = u_{1}(x).  \\
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% By defining the new variables
+% \begin{align}
+% 	U := \begin{pmatrix} v\\w\end{pmatrix}
+% 	\quad\text{and}\quad
+% 	A := \begin{pmatrix} 0 &-1\\-\alpha^2 &0 \end{pmatrix},
+% \end{align}
+% we now write \eqref{eq:system2} as 
+% \begin{equation}\label{eq:system3}
+% 	U_{t} + AU_{x} = 0
+% \end{equation}
+% Next, we realize that the system \eqref{eq:system2} is not ready to solve since the two PDEs are 
+% interlocked with each other. The approach for solution to \eqref{eq:system3} goes as follows
+% \begin{enumerate}
+% 	\item Eigenvalue problem for matrix $A$ yields
+% 	      \begin{align}\label{eq:eigenvalueproblem}
+% 		      A
+% 		      % \begin{pmatrix} v^{A}_{1} \\ v^{A}_{2} \end{pmatrix}
+% 		      v^{A}
+% 		      =\lambda
+% 		      v^{A}
+% 		      \Leftrightarrow
+% 		      (A-\lambda I)v^{A}=0
+% 		      \Leftrightarrow
+% 		      \begin{pmatrix} -\lambda &-1\\-\alpha^2 & -\lambda \end{pmatrix}
+% 		      \begin{pmatrix} v^{A}_{1} \\ v^{A}_{2} \end{pmatrix}
+% 		      =
+% 		      \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+% 	      \end{align}
+% 	      where $\lambda$ is eigenvalue and $v^{A} = (v^{A}_{1},v^{A}_{2})^{\top}$ eigenvector.
+% 	\item Characteristic polynomial
+% 	      \begin{align}
+% 		      \det(A-\lambda I) = 0 
+% 		      \Leftrightarrow
+% 		      \lambda^2 - \alpha^2 = 0 
+% 		      \Leftrightarrow 
+% 		      \begin{cases}
+% 			      \lambda_{1}   = +\alpha \\
+% 			      \lambda_{2}   = -\alpha
+% 		      \end{cases}
+% 	      \end{align}
+% 	      \begin{enumerate}
+% 		      \item For the $1^{st}$ eigenvalue $\lambda_{1} = +\alpha$, we obtain its corresponding eigenvector
+% 		            \begin{align}
+% 			            \eqref{eq:eigenvalueproblem}
+% 			            \Leftrightarrow
+% 			            \begin{pmatrix} -\alpha &-1\\-\alpha^2 & -\alpha \end{pmatrix}
+% 			            \begin{pmatrix} v^{A}_{1} \\ v^{A}_{2} \end{pmatrix}
+% 			            =
+% 			            \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+% 		            \end{align}
+% 		            \emph{Gaussian}-elimination leads to
+% 		            \begin{align}
+% 			            \begin{pmatrix} -\alpha &-1\\-\alpha^2 & -\alpha \end{pmatrix}
+% 			            %   \lelem{s_{1} \leftrightarrow s_{2},\\ s_{2} \leftrightarrow s_{4},\\ s_{3} \leftrightarrow s_{4}}
+% 			             & \lelem{r_{1} \leftrightarrow r_{2}}
+% 			            \begin{pmatrix} -\alpha^2 & -\alpha\\ -\alpha &-1 \end{pmatrix}\notag            \\
+% 			             & \lelem{r_{1}:=-\frac{1}{\alpha^2} r_{1}}
+% 			            \begin{pmatrix} 1 &1/\alpha\\-\alpha & -1 \end{pmatrix}
+% 			            \lelem{r_{2}:=\alpha r_{1}+r_{2} }
+% 			            \begin{pmatrix} 1 &1/\alpha\\0 & 0 \end{pmatrix}
+% 		            \end{align}
+% 		            Hence, eigenvector for $\lambda_{1} = +\alpha$ reads
+% 		            \begin{align}
+% 			            v^{A(\lambda_{1})}
+% 			            =\begin{pmatrix} v^{A(\lambda_{1})}_{1}\\v^{A(\lambda_{1})}_{2} \end{pmatrix}
+% 			            =\begin{pmatrix} 1\\ -\alpha \end{pmatrix}
+% 		            \end{align}
+
+% 		      \item Similarly, for the $2^{nd}$ eigenvalue $\lambda_{1} = -\alpha$,
+% 		            we obtain its corresponding eigenvector as follows
+% 		            \begin{align}
+% 			            \eqref{eq:eigenvalueproblem}
+% 			            \Leftrightarrow
+% 			            \begin{pmatrix} +\alpha &-1\\-\alpha^2 & +\alpha \end{pmatrix}
+% 			            \begin{pmatrix} v^{A}_{1} \\ v^{A}_{2} \end{pmatrix}
+% 			            =
+% 			            \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+% 		            \end{align}
+% 		            \emph{Gaussian}-elimination leads to
+% 		            \begin{align}
+% 			            \begin{pmatrix} +\alpha &-1\\-\alpha^2 & +\alpha \end{pmatrix}
+% 			             & \lelem{r_{1} \leftrightarrow r_{2}}
+% 			            \begin{pmatrix} -\alpha^2 & +\alpha\\ +\alpha &-1 \end{pmatrix}\notag            \\
+% 			             & \lelem{r_{1}:=-\frac{1}{\alpha^2} r_{1}}
+% 			            \begin{pmatrix} 1 &-1/\alpha\\+\alpha & -1 \end{pmatrix}
+% 			            \lelem{r_{2}:=-\alpha r_{1}+r_{2} }
+% 			            \begin{pmatrix} 1 &-1/\alpha\\0 & 0 \end{pmatrix}
+% 		            \end{align}
+% 		            Hence, eigenvector for $\lambda_{1} = -\alpha$ reads
+% 		            \begin{align}
+% 			            v^{A(\lambda_{2})}
+% 			            =\begin{pmatrix} v^{A(\lambda_{2})}_{1}\\v^{A(\lambda_{2})}_{2} \end{pmatrix}
+% 			            =\begin{pmatrix} 1\\ \alpha \end{pmatrix}
+% 		            \end{align}
+% 	      \end{enumerate}
+% 	\item Diagonalizable
+% 	      \begin{align}
+% 		      A & = T\Lambda T^{-1}\notag            \\
+% 		        & =
+% 		      \begin{pmatrix}\begin{array}{c|c} v^{A(\lambda_{1})} & v^{A(\lambda_{2})}\end{array}\end{pmatrix}
+% 		      \begin{pmatrix} \lambda_{1} &0 \\ 0&\lambda_{2}\end{pmatrix}
+% 		      \begin{pmatrix}\begin{array}{c|c} v^{A(\lambda_{1})} & v^{A(\lambda_{2})}\end{array}\end{pmatrix}^{-1}\notag \\
+% 		        & =
+% 		      \begin{pmatrix}\begin{array}{c|c} 1 & 1\\ -\alpha&\alpha \end{array}\end{pmatrix}
+% 		      \begin{pmatrix} +\alpha &0 \\ 0&-\alpha\end{pmatrix}
+% 		      \begin{pmatrix}\begin{array}{c|c} 1 & 1\\ -\alpha&\alpha \end{array}\end{pmatrix}^{-1}\notag \\
+% 		        & =
+% 		      \begin{pmatrix} 1 & 1\\ -\alpha&\alpha \end{pmatrix}
+% 		      \begin{pmatrix} +\alpha &0 \\ 0&-\alpha\end{pmatrix}
+% 		      \begin{pmatrix} 1 & 1\\ -\alpha&\alpha \end{pmatrix}^{-1}\notag 
+% 	      \end{align}
+% 	\item Derivation
+% 	      \begin{align}\label{eq:system4}
+% 		      U_{t} + AU_{x} = 0 
+% 		       & \Leftrightarrow
+% 		      T^{-1}U_{t} + T^{-1}AU_{x} = 0\notag               \\
+% 		       & \Leftrightarrow
+% 		      T^{-1}U_{t} + T^{-1}T\Lambda T^{-1}U_{x} = 0\notag \\
+% 		       & \Leftrightarrow
+% 		      T^{-1}U_{t} + \Lambda T^{-1}U_{x} = 0\notag        \\
+% 		       & \Leftrightarrow
+% 		      W_{t} + \Lambda W_{x} = 0\notag                    \\
+% 		       & \Leftrightarrow
+% 		      \begin{pmatrix} \xi \\ \eta \end{pmatrix}_{t}
+% 		      + \Lambda
+% 		      \begin{pmatrix} \xi \\ \eta \end{pmatrix}_{x}
+% 		      = 0 \notag                                         \\
+% 		       & \Leftrightarrow
+% 		      \begin{pmatrix} \xi \\ \eta \end{pmatrix}_{t}
+% 		      + 
+% 		      \begin{pmatrix} +\alpha &0 \\ 0&-\alpha\end{pmatrix}
+% 		      \begin{pmatrix} \xi \\ \eta \end{pmatrix}_{x}
+% 		      = 0 \notag                                         \\
+% 		       & \Leftrightarrow
+% 		      \begin{cases}
+% 			      \xi_{t} + \alpha\xi_{x} = 0   \\
+% 			      \eta_{t} - \alpha\eta_{x} = 0 \\
+% 		      \end{cases}
+% 		      \Leftrightarrow
+% 		      \begin{cases}
+% 			      \xi(x,t) = \xi_{0}(x-\alpha t)   \\
+% 			      \eta(x,t) = \eta_{0}(x+\alpha t) \\
+% 		      \end{cases}
+% 	      \end{align}
+% 	      Note in passing that 
+% 	      \begin{align}
+% 		      \begin{pmatrix} \xi \\ \eta \end{pmatrix} =   
+% 		      W := T^{-1}U 
+% 		       & = \begin{pmatrix} 1 & 1\\ -\alpha&\alpha \end{pmatrix}^{-1}
+% 		      \begin{pmatrix} v\\w\end{pmatrix}           \\
+% 		       & = \frac{1}{\alpha-(-\alpha)}
+% 		      \begin{pmatrix} \alpha & -1\\ \alpha&1 \end{pmatrix}
+% 		      \begin{pmatrix} v\\w\end{pmatrix}\notag     \\
+% 		       & =
+% 		      \begin{pmatrix} 1/2 & -1/(2\alpha)\\ 1/2&1/(2\alpha) \end{pmatrix}
+% 		      \begin{pmatrix} v\\w\end{pmatrix} \notag    \\
+% 		       & = 
+% 		      \begin{pmatrix} (1/2) v - 1/(2\alpha) w \\ (1/2) v + 1/(2\alpha) w \end{pmatrix}.
+% 	      \end{align}
+% 	      The initial conditions are as follows
+% 	      \begin{align}
+% 		      \xi_{0}(x)
+% 		      = \xi(x,0)
+% 		       & = \frac{1}{2}v(x,0)-\frac{1}{2\alpha}w(x,0)
+% 		      = \frac{1}{2}u'_{0}(x)-\frac{1}{2\alpha}u_{1}(x) \\
+% 		      \eta_{0}(x) = \eta(x,0)
+% 		       & = \frac{1}{2}v(x,0)+\frac{1}{2\alpha}w(x,0) 
+% 		      = \frac{1}{2}u'_{0}(x)+\frac{1}{2\alpha}u_{1}(x)
+% 	      \end{align}
+% 	      Likewise,
+% 	      \begin{align}
+% 		      U = TW 
+% 		       & \Leftrightarrow 
+% 		      \begin{pmatrix} v\\w\end{pmatrix}
+% 		      =
+% 		      \begin{pmatrix} 1 & 1\\ -\alpha&\alpha \end{pmatrix}
+% 		      \begin{pmatrix} \xi\\\eta \end{pmatrix} \notag \\
+% 		       & \Leftrightarrow 
+% 		      \begin{cases}
+% 			      \begin{aligned}
+% 				      v(x,t) & = \xi(x,t) + \eta(x,t)              \\
+% 				      w(x,t) & = -\alpha\xi(x,t) + \alpha\eta(x,t)
+% 			      \end{aligned}
+% 		      \end{cases}       \\
+% 		       & \Leftrightarrow 
+% 		      \begin{cases}
+% 			      \begin{aligned}
+% 				      v(x,t) & = \xi_{0}(x-\alpha\,t) + \eta_{0}(x+\alpha\,t)              \\
+% 				      w(x,t) & = -\alpha\xi_{0}(x-\alpha\,t) + \alpha\eta_{0}(x+\alpha\,t)
+% 			      \end{aligned}
+% 		      \end{cases}
+% 	      \end{align}
+% 	      Therefore, the final solutions explicitly reads
+% 	      \begin{align}
+% 		      \begin{cases}
+% 			      \begin{aligned}
+% 				      v(x,t) & = 
+% 				      \frac{1}{2}u'_{0}(x-\alpha\,t)-\frac{1}{2\alpha}u_{1}(x-\alpha\,t)
+% 				      +
+% 				      \frac{1}{2}u'_{0}(x+\alpha\,t)+\frac{1}{2\alpha}u_{1}(x+\alpha\,t) \\
+% 				      w(x,t) & = 
+% 				      -\frac{\alpha}{2}u'_{0}(x-\alpha\,t)+\frac{1}{2}u_{1}(x-\alpha\,t) 
+% 				      + 
+% 				      \frac{\alpha}{2}u'_{0}(x+\alpha\,t)+\frac{1}{2}u_{1}(x+\alpha\,t)
+% 			      \end{aligned}
+% 		      \end{cases}
+% 	      \end{align}
+% \end{enumerate}
+
+% \begin{example}
+% 	Consider the \textbf{linearized shallow water equations}
+% 	\begin{align}
+% 		\begin{pmatrix} u\\ \varphi\end{pmatrix}_{t}
+% 		+
+% 		\begin{pmatrix} \bar{u} & 1 \\ \bar{\varphi} & \bar{u} \end{pmatrix}
+% 		\begin{pmatrix} u \\ \varphi\end{pmatrix}_{x}
+% 		= 0,
+% 	\end{align}
+% 	where $\bar{u}, \bar{\varphi} \in \mathbb{R}$ are given, 
+% 	and sufficient initial conditions for $u$ and $\varphi$ are provided.
+% \end{example}
+\clearpage
+%------------------------------------------------------------------------------
+\begin{example}
+	Consider
+	\begin{align*}
+		u_t + Au_x = 0 \qquad\text{for}\quad (x,t)\in \mathbb{R} \times \mathbb{R}^+,
+	\end{align*}
+	where the unknown vector $u(x,t)$ is defined, and the matrix $A$ is given as follows
+	\begin{align*}
+		\begin{array}{l}
+			u(x, t) :=
+			\begin{pmatrix} u_1(x,t) \\ u_2(x,t) \end{pmatrix},
+			\quad\text{and}\quad
+			A = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}, \\
+		\end{array}
+	\end{align*}
+	and the initial conditions are given by
+	\begin{align*}
+		\begin{cases}
+			u_1(x, 0) & = 1, \\
+			u_2(x, 0) & =
+			\begin{cases}
+				1,  & x < 0, \\
+				-1, & x > 0.
+			\end{cases}
+		\end{cases}
+	\end{align*}
+\end{example}
+Approach: Eigenvalue decomposition of matrix $A$ is given as follows
+\begin{align*}
+	A = R \Lambda R^{-1}, \quad
+	R =
+	\begin{pmatrix}
+		-1 & -1 \\ -1 & 1
+	\end{pmatrix}, \quad
+	R^{-1} = \frac{1}{2} R, \quad
+	\Lambda =
+	\begin{pmatrix}
+		1 & 0 \\ 0 & 3
+	\end{pmatrix}.
+\end{align*}
+Hence, we can now change variable $u$ to a new variable $w$ as follows
+\begin{align*}
+	w := R^{-1}u = \frac{1}{2} R u, \quad\text{so}\quad u = Rw.
+\end{align*}
+Then, the initial problem can be rewritten as
+\begin{align*}
+	w_t + \Lambda w_x = 0
+	\Leftrightarrow
+	\begin{cases}
+		(w_{1})_{t} +  \lambda_{1}(w_{1})_{x} = 0, \\
+		(w_{2})_{t} +  \lambda_{2}(w_{2})_{x} = 0,
+	\end{cases}
+\end{align*}
+with the diagonal matrix $\Lambda$. This step simply means that variables $w_1$ and
+$w_2$ are independent of each other, i.e. the original system has been fully decoupled.
+Next, let us find the initial condition in terms
+of $w$ as follows
+\begin{align*}
+	w(x, 0)
+	= \frac{1}{2} R u(x, 0)
+	= \frac{1}{2}
+	\begin{pmatrix}
+		-1 & -1 \\ -1 & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		u_{1}(x,0) \\ u_{2}(x,0)
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		-\left(u_1(x, 0) + u_2(x, 0)\right)/2 \\
+		-\left(u_1(x, 0) - u_2(x, 0)\right)/2
+	\end{pmatrix},
+\end{align*}
+which yields the following relation
+\begin{align*}
+	\begin{pmatrix}
+		w_{1}(x,0) \\ w_{2}(x,0)
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		-\left(u_1(x, 0) + u_2(x, 0)\right)/2 \\
+		-\left(u_1(x, 0) - u_2(x, 0)\right)/2
+	\end{pmatrix}.
+\end{align*}
+Therefore, the initial conditions for the transformed variable $w_1$ read
+\begin{align*}
+	w_1(x, 0) =
+	\begin{cases}
+		-(1+1)/2=-1, & x < 0, \\
+		-(1-1)/2=0,  & x > 0,
+	\end{cases}
+\end{align*}
+and for the variable $w_2$ read
+\begin{align*}
+	w_2(x, 0) =
+	\begin{cases}
+		-(1-1)/2=0,     & x < 0, \\
+		-(1-(-1))/2=-1, & x > 0.
+	\end{cases}
+\end{align*}
+Since we have the advection problem with speeds
+$a_1=1$ and $a_2=3$, which are the diagonal values of the diagonal matrix $\Lambda$, for both $w_1$ and $w_2$,
+we can derive explicit solution to each equation. The explicit solution $w_1$ reads
+\begin{align*}
+	w_1(x, t)
+	= w_1(x-t, 0)
+	=
+	\begin{cases}
+		-1, & x-t < 0, \\
+		0,  & x-t > 0,
+	\end{cases}
+	\Leftrightarrow
+	w_1(x, t) =
+	\begin{cases}
+		-1, & x<t, \\
+		0,  & x>t,
+	\end{cases}
+\end{align*}
+and, likewise, the explicit solution $w_2$ reads
+\begin{align*}
+	w_2(x, t)
+	= w_2(x-3t,0)
+	=
+	\begin{cases}
+		0,  & x-3t < 0, \\
+		-1, & x-3t > 0,
+	\end{cases}
+	\Leftrightarrow
+	w_2(x, t) =
+	\begin{cases}
+		0,  & x<3t, \\
+		-1, & x>3t.
+	\end{cases}
+\end{align*}
+Now we trace back to variable $u$ from variable $w$ by taking into the consideration of the relation
+\begin{align*}
+	u(x,t) = Rw(x,t) =
+	\begin{pmatrix}
+		-1 & -1 \\ -1 & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		w_{1}(x,t) \\ w_{2}(x,t)
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		-\left(w_{1}(x,t) + w_{2}(x,t)\right) \\
+		-\left(w_{1}(x,t) - w_{2}(x,t)\right)
+	\end{pmatrix},
+\end{align*}
+which means the following relation holds
+\begin{align*}
+	\begin{pmatrix}
+		u_{1}(x,t) \\ u_{2}(x,t)
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		-\left(w_{1}(x,t) + w_{2}(x,t)\right) \\
+		-\left(w_{1}(x,t) - w_{2}(x,t)\right)
+	\end{pmatrix}.
+\end{align*}
+Therefore, the solution for $u_{1}(x,t)$ is computed as follows
+\begin{align*}
+	u_1(x, t)
+	=
+	\begin{cases}
+		-(-1+0)=1,   & x < t,      \\
+		-(0+0)=0,    & t < x < 3t, \\
+		-(0+(-1))=1, & x > 3t,
+	\end{cases}
+\end{align*}
+and, likewise, the solution for $u_{2}(x,t)$ is
+\begin{align*}
+	u_2(x, t)
+	=
+	\begin{cases}
+		-(-1-0)=1,    & x < t,      \\
+		-(0-0)=0,     & t < x < 3t, \\
+		-(0-(-1))=-1, & x > 3t.
+	\end{cases}
+\end{align*}
+Finally, the solution to $u_{1}(x,t)$ and $u_{2}(x,t)$ read
+\begin{equation*}
+	\therefore\quad
+	\boxed{
+		\begin{cases}
+			\begin{aligned}
+				u_1(x, t)
+				=
+				\begin{cases}
+					1, & x < t,      \\
+					0, & t < x < 3t, \\
+					1, & x > 3t,
+				\end{cases}
+			\end{aligned} \\
+			\begin{aligned}
+				u_2(x, t)
+				=
+				\begin{cases}
+					1,  & x < t,      \\
+					0,  & t < x < 3t, \\
+					-1, & x > 3t.
+				\end{cases}
+			\end{aligned}
+		\end{cases}
+	}
+\end{equation*}
+\clearpage
+%------------------------------------------------------------------------------
+\section{Remark on step-by-step derivation: Weak formulation of conservation laws}
+\begin{example}
+	Consider the conservation law
+	\begin{align}\label{eq:conser}
+		u_{t} + f(u)_{x} = 0\quad\text{for}\quad(x,t)\in\mathbb{R}\times\mathbb{R}^{+},
+	\end{align}
+	with initial condition given by 
+	\begin{align*}
+		u(x,0) = u_{0}(x).
+	\end{align*}
+	Find the weak solution.
+\end{example}
+Approach: The weak formulation is obtained by multiplying both sides of \eqref{eq:conser}
+with a test function 
+$\varphi \in C^{1}_{0}(\mathbb{R}\times\mathbb{R})$,
+and, then, integrating both sides over $\mathbb{R}\times\mathbb{R}^{+}$
+\begin{align}\label{eq:conweak}
+	\int_{\mathbb{R}^{+}\times\mathbb{R}} \varphi \left(u_{t} + f(u)_{x}\right)dxdt = 0 .
+\end{align}
+The derivation goes as follows
+\begin{align*}
+	\eqref{eq:conweak}
+	 & \Leftrightarrow
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi \left(u_{t} + f(u)_{x}\right)dxdt = 0 \\
+	 & \Leftrightarrow
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi \left(u_{t}\right)dxdt+ 
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi \left(f(u)_{x}\right)dxdt
+	= 0                                                                                    \\
+	 & \Leftrightarrow
+	\int_{\mathscr{D}}\int_{0}^{\mathscr{T}} \varphi \left(u_{t}\right)dtdx + 
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi \left(f(u)_{x}\right)dxdt
+	= 0                                                                                    \\
+	 & \Leftrightarrow
+	\left[
+	\int_{\mathscr{D}} \left. \varphi\, u \right|_{t=0}^{t=+\infty} dx -
+	\int_{\mathscr{D}}\int_{0}^{\mathscr{T}} \varphi_{t}\,u\, dtdx
+	\right]                                                                                \\
+	 & \quad +
+	\left[
+	\int_{0}^{\mathscr{T}} \left. \varphi\,f(u)\right|_{x=-\infty}^{x=+\infty} dxdt -
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi_{x}\, f(u)\,dxdt
+	\right]
+	= 0                                                                                    \\
+	 & \Leftrightarrow
+	\left[
+	\int_{\mathscr{D}} \left(
+	\varphi(x,\stackrel{t\rightarrow +\infty}{\mathscr{T}})
+	u(x,\stackrel{t\rightarrow+\infty}{\mathscr{T}})-\varphi(x,0)u(x,0)\right) dx  -
+	\int_{\mathscr{D}}\int_{0}^{\mathscr{T}} \varphi_{t}\,u\, dtdx
+	\right]                                                                                \\ 
+	 & \quad +
+	\left[
+	\int_{0}^{\mathscr{T}} \left(
+	\varphi(\stackrel{x \rightarrow +\infty}{\mathscr{D}},t)\,
+	f(u(\stackrel{x \rightarrow +\infty}{\mathscr{D}},t)) 
+	- \varphi(\underset{x \rightarrow -\infty}{\mathscr{D}},t)\,
+	f(u(\underset{x \rightarrow -\infty}{\mathscr{D}},t)) 
+	\right)dt \right.                                                                      \\
+	 & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad - 
+	\left. 
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi_{x}\, f(u)\,dxdt
+	\right]
+	= 0                                                                                    \\
+	 & \Leftrightarrow
+	\left[
+	\int_{\mathscr{D}} \left(
+	\cancelto{0}{\varphi(x,\stackrel{t\rightarrow +\infty}{\mathscr{T}})}
+	u(x,\stackrel{t\rightarrow+\infty}{\mathscr{T}})-\varphi(x,0)u(x,0)\right) dx  -
+	\int_{\mathscr{D}}\int_{0}^{\mathscr{T}} \varphi_{t}\,u\, dtdx
+	\right]                                                                                \\ 
+	 & \quad +
+	\left[
+	\int_{0}^{\mathscr{T}} \left(
+	\cancelto{0}{\varphi(\stackrel{x \rightarrow +\infty}{\mathscr{D}},t)}\,
+	f(u(\stackrel{x \rightarrow +\infty}{\mathscr{D}},t)) 
+	- \cancelto{0}{\varphi(\underset{x \rightarrow -\infty}{\mathscr{D}},t)}\,
+	f(u(\underset{x \rightarrow -\infty}{\mathscr{D}},t)) 
+	\right)dt \right.                                                                      \\
+	 & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad - 
+	\left. 
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi_{x}\, f(u)\,dxdt
+	\right]
+	= 0                                                                                    \\
+	%  & \Leftrightarrow
+	% \left[
+	% \int_{\mathscr{D}} \left(\cancelto{0}{
+	% 	\varphi(x,\mathscr{T}^{(t\rightarrow +\infty)})}
+	% u(x,\mathscr{T}^{(x\rightarrow+\infty)})-\varphi(x,0)u(x,0)\right) dx  -
+	% \int_{\mathscr{D}}\int_{0}^{\mathscr{T}} \varphi_{t}\,u\, dtdx
+	% \right]                                                                                \\ 
+	%  & \quad +
+	% \left[
+	% \int_{0}^{\mathscr{T}} \left(\cancelto{0}{
+	% 	\varphi(\mathscr{D}^{\left(x \rightarrow +\infty\right)},t)}\,
+	% f(u(\mathscr{D}^{\left(x \rightarrow +\infty\right)},t)) 
+	% - \cancelto{0}{
+	% 	\varphi(\mathscr{D}_{\left(x \rightarrow -\infty\right)},t)}\,
+	% f(u(\mathscr{D}_{\left(x \rightarrow -\infty\right)},t)) 
+	% \right)dt \right.                                                                      \\
+	%  & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad - 
+	% \left. 
+	% \int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi_{x}\, f(u)\,dxdt
+	% \right]
+	% = 0                                                                                    \\
+	 & \Leftrightarrow
+	-\int_{\mathscr{D}}\varphi(x,0)u(x,0)dx
+	-\int_{\mathscr{D}}\int_{0}^{\mathscr{T}}\varphi_{t}u\,dtdx
+	-\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi_{x}\, f(u)\,dxdt
+	=0                                                                                     \\
+	 & \Leftrightarrow
+	-\int_{\mathscr{D}}\varphi(x,0)u_{0}(x)dx
+	-\int_{0}^{\mathscr{T}}\int_{\mathscr{D}}\varphi_{t}u\,dxdt
+	-\int_{0}^{\mathscr{T}}\int_{\mathscr{D}} \varphi_{x}\, f(u)\,dxdt
+	=0.
+\end{align*}
+Therefore, the weak formulation reads
+\begin{equation*}
+	\therefore\quad
+	\boxed{
+	\int_{0}^{\mathscr{T}}\int_{\mathscr{D}}
+	\left(
+	u\varphi_{t} + f(u)\varphi_{x}\right) dxdt
+	+\int_{\mathscr{D}}\varphi(x,0)u_{0}(x)dx
+	=0.
+	}
+\end{equation*}
+Note in passing that the derivation above has taken
+into consideration the swapping order of integral limits between time $t\in[0,+\infty]$
+and space $x\in[-\infty,+\infty]$, which 
+results in indifference as shown in 
+\rFig{orderintegral}.
+\inputfig{floats/orderintegral}{orderintegral}
+\clearpage
+%------------------------------------------------------------------------------
+\section{Remark on step-by-step derivation: Weak solution of inviscid Burgers' equation in Riemann's problem}
+\inputfig{floats/orderintegraluLR}{orderintegraluLR}
+\inputfig{floats/orderintegraluR}{orderintegraluR}
+\begin{example}
+	Given Burgers' equation with initial condition 
+	\begin{align*}
+		u_{0}(x) = 
+		\begin{cases}
+			u_{L},\quad x<0, \\
+			u_{R},\quad x>0.
+		\end{cases}
+	\end{align*}
+	Then
+	\begin{align*}
+		u(x,t) = 
+		\begin{cases}
+			u_{L},\quad x<st, \\
+			u_{R},\quad x>st,
+		\end{cases}
+	\end{align*}
+	is the weak solution to Burgers' equation.
+\end{example}
+\begin{proof}
+	RHS term
+	\begin{align*}
+		RHS & = -\int_{\mathscr{D}}\varphi(x,0)u_{0}(x)dx \\
+		    & = -u_{L}\int_{-\infty}^{0}\varphi(x,0)dx 
+		-u_{R}\int^{+\infty}_{0}\varphi(x,0)dx
+	\end{align*}
+	LHS term
+	\begin{align*}
+		LHS 
+		 & = 
+		\int_{0}^{\mathscr{T}}\int_{-\infty}^{st}\varphi_{t}u\,dxdt
+		+\int_{0}^{\mathscr{T}}\int_{st}^{+\infty}\varphi_{t}u\,dxdt                            \\
+		 & \quad +\int_{0}^{\mathscr{T}}\int_{-\infty}^{st}\varphi_{x}f(u)\,dxdt
+		+\int_{0}^{\mathscr{T}}\int_{st}^{+\infty}\varphi_{x}f(u)\,dxdt                         \\
+		 & =
+		u_{L}\int_{0}^{\mathscr{T}}\int_{-\infty}^{st}\varphi_{t}\,dxdt
+		+u_{R}\int_{0}^{\mathscr{T}}\int_{st}^{+\infty}\varphi_{t}\,dxdt                        \\
+		 & \quad + \frac{u_{L}^2}{2}\int_{0}^{\mathscr{T}}\int_{-\infty}^{st}\varphi_{x}\,dxdt
+		+\frac{u_{R}^2}{2}\int_{0}^{\mathscr{T}}\int_{st}^{+\infty}\varphi_{x}\,dxdt            \\
+		 & =
+		\left(
+		u_{L}\int_{-\infty}^{0}\int_{0}^{+\infty}\varphi_{t}\,dtdx
+		+u_{L}\int_{0}^{+\infty}\int_{x/s}^{+\infty}\varphi_{t}\,dtdx
+		\right)                                                                                 \\
+		 & \quad +u_{R}\int_{0}^{+\infty}\int_{0}^{x/s}\varphi_{t}\,dtdx                        \\
+		 & \quad + \frac{u_{L}^2}{2}\int_{0}^{\mathscr{T}}\int_{-\infty}^{st}\varphi_{x}\,dxdt
+		+ \frac{u_{R}^2}{2}\int_{0}^{\mathscr{T}}\int_{st}^{+\infty}\varphi_{x}\,dxdt           \\
+		 & =      
+		u_{L}\int_{-\infty}^{0} \left. \varphi\right|_{t=0}^{t=+\infty}dx
+		+u_{L}\int_{0}^{+\infty} \left. \varphi\right|_{t=x/s}^{t=+\infty}dx
+		+u_{R}\int_{0}^{+\infty} \left. \varphi\right|_{t=0}^{t=x/s}dx                          \\
+		 & \quad +\frac{u_{L}^2}{2}\int_{0}^{+\infty}\left. \varphi\right|_{x=-\infty}^{x=st}dt
+		+\frac{u_{R}^2}{2}\int_{0}^{+\infty}\left. \varphi\right|_{x=st}^{x=+\infty}dt          \\
+		 & =
+		u_{L}\int_{-\infty}^{0} \left(-\varphi(x,0)\right) dx 
+		+ u_{L}\int_{0}^{+\infty} \left(-\varphi(x,x/s)\right) dx                               \\
+		 & \quad + u_{R}\int_{0}^{+\infty}\left(\varphi(x,x/s)-\varphi(x,0)\right) dx           \\
+		 & \quad + \frac{u_{L}^2}{2}\int_{0}^{+\infty} \varphi(st,t)dt 
+		+ \frac{u_{R}^2}{2}\int_{0}^{+\infty} \left(-\varphi(st,t)\right)dt                     \\
+		 & = -u_{L}\int_{-\infty}^{0}\varphi(x,0)dx 
+		-u_{R}\int^{+\infty}_{0}\varphi(x,0)dx                                                  \\
+		 & \quad 
+		- \left(u_{L}-u_{R}\right)\int_{0}^{+\infty}\varphi(x,x/s)dx
+		+ \left(u_{L}-u_{R}\right)\int_{0}^{+\infty}\varphi(w,w/s)dw                            \\
+		 & = -u_{L}\int_{-\infty}^{0}\varphi(x,0)dx 
+		-u_{R}\int^{+\infty}_{0}\varphi(x,0)dx      
+		= RHS
+	\end{align*}
+	Note in passing that we have used the following relation
+	\begin{align*}
+		\frac{u_{L}^2}{2}\int_{0}^{+\infty} \varphi(st,t)dt 
+		+ \frac{u_{R}^2}{2}\int_{0}^{+\infty} \left(-\varphi(st,t)\right)dt       
+		 & = \frac{u_{L}^2-u_{R}^2}{2}\int_{0}^{+\infty} \varphi(st,t)\,dt \\
+		 & = \frac{u_{L}^2-u_{R}^2}{2s}\int_{0}^{+\infty}\varphi(w,w/s)dw  \\
+		 & = \left(u_{L}-u_{R}\right)\int_{0}^{+\infty}\varphi(w,w/s)dw
+	\end{align*}
+	where $w:=st$ and $dw=sdt$, and the RH condition for \emph{Burgers}' equation $s=1/2(u_{L}+u_{R})$.
+\end{proof}
+\clearpage
+%------------------------------------------------------------------------------
+\section{Consistency order}
+% \begin{example}
+% 	Order of consistency for Lax-Wendroff. 
+% \end{example}
+\begin{example}
+	Leapfrog scheme for the linear advection equation reads
+	\begin{align*}
+		% \text{Lax-Wendroff:}\qquad u_j^{n+1} & = u_j^n + \frac{a \Delta t}{2\Delta x} \left( u_{j-1}^n - u_{j+1}^n \right) + \frac{a^2 (\Delta t)^2}{2(\Delta x)^2} \left( u_{j+1}^n -2 u_j^n + u_{j-1}^n \right) \\
+		u_j^{n+1}  = u_j^{n-1} + \frac{a \Delta t}{\Delta x} \left( u_{j-1}^n - u_{j+1}^n \right).
+	\end{align*}
+	Show that the local consistency error $L_{\Delta t}$
+	\begin{align*}
+		% \text{Lax-Wendroff:}\qquad \|L_{\Delta t}(\cdot,t)\| & \leq C (\Delta t)^2\qquad \text{f\"ur } \Delta t \to 0 \\
+		\|L_{\Delta t}(\cdot,t)\| & \leq C (\Delta t)^2\qquad \text{for } \Delta t \to 0,
+	\end{align*}
+	hold for a linear solution and $\Delta t/\Delta x=const.$
+\end{example}
+
+% Zeigen Sie, dass im Fall glatter L\"osungen und $\Delta t/\Delta x=const.$  
+% f\"ur die lokalen Abschneidefehler $L_{\Delta t}$
+% gilt und somit beide Verfahren Konsistenzordnung zwei haben.
+
+
+
+% Der lokale Abschneidefehler ist definiert als
+% \begin{align*}
+% 	L_{\Delta t} (x,t) = \frac{1}{\Delta t} \left[ u(x, t + \Delta t) - H_{\Delta t} (u(\cdot,t),x) \right],
+% \end{align*}
+% wobei $u(x,t)$ eine gen"ugend glatte L"osung von $u_t + a u_x = 0$ ist. \\
+
+% Wir betrachten zuerst das \underline{Lax-Wendroff} Verfahren. F\"ur dieses ist der lokale Abschneidefehler gegeben durch
+% \begin{align*}
+% 	L_{\Delta t} (x,t) = \frac{1}{\Delta t} \Big[ u(x, t + \Delta t) & - \Big(u(x,t) + \frac{a \Delta t}{2\Delta x} \Big( u(x-\Delta x,t) - u(x+\Delta x,t) \Big)                   \\
+% 	                                                                 & + \frac{a^2 (\Delta t)^2}{2(\Delta x)^2} \Big( u(x+\Delta x,t) -2u(x,t) + u(x-\Delta x,t) \Big) \Big) \Big].
+% \end{align*}
+% Folgend approximieren wir $u(x,t+\Delta t)$ durch eine Taylorentwicklung und verwenden dann, dass $u$ eine L\"osung der Advektionsgleichung ist und somit  $u_t = -au_x, u_{tt}=a^2u_{xx}$ gilt
+% \begin{align*}
+% 	u(x, t + \Delta t)
+% 	 & = u(x,t) + u_t(x,t)\Delta t + u_{tt}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3)      \\
+% 	 & = u(x,t) -au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3).
+% \end{align*}
+% F\"ur $u(x\pm\Delta x,t)$ erhalten wir durch Taylorentwicklung
+% \begin{align*}
+% 	u(x+\Delta x,t)
+% 	 & = u(x,t) + u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3)  \\
+% 	u(x-\Delta x,t)
+% 	 & = u(x,t) - u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3).
+% \end{align*}
+% Mit $\mathcal{O}((\Delta t)^n)=\mathcal{O}((\Delta x)^n)$, da $\Delta t/\Delta x=const.$ folgt f\"ur den lokalen Abschneidefehler
+% \begin{align*}
+% 	L_{\Delta t} (x,t) 
+% 	 & = \frac{1}{\Delta t} \Big[ u(x,t) -au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3) - \Big(u(x,t)                        \\
+% 	 & + \frac{a \Delta t}{2\Delta x} \Big( \Big(u(x,t) - u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3) \Big)                     \\
+% 	 & \qquad\quad- \Big( u(x,t) + u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3) \Big) \Big)                                      \\
+% 	 & + \frac{a^2 (\Delta t)^2}{2(\Delta x)^2} \Big( \Big( u(x,t) + u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3) \Big) -2u(x,t) \\
+% 	 & \qquad\qquad +\Big(u(x,t) - u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3) \Big) \Big) \Big) \Big]                          \\
+% 	 & = \frac{1}{\Delta t} \Big[-au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3) - \Big(                                      \\
+% 	 & + \frac{a \Delta t}{2\Delta x} \Big( -2u_x(x,t)\Delta x + \mathcal{O}((\Delta x)^3) \Big)                                                                      \\
+% 	 & + \frac{a^2 (\Delta t)^2}{2(\Delta x)^2} \Big( 2u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3) \Big) \Big) \Big]                               \\
+% 	 & = \frac{1}{\Delta t} \Big[-au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3)                                              \\
+% 	 & \quad - \Big( -au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta x)^3) \Big) \Big) \Big]                                        \\
+% 	 & = \frac{1}{\Delta t} \mathcal{O}((\Delta t)^3) = \mathcal{O}((\Delta t)^2)
+% \end{align*}
+% Somit gilt f\"ur den lokalen Abschneidefehler 
+% \begin{align*}
+% 	\|L_{\Delta t}(\cdot,t)\| & \leq C (\Delta t)^2\qquad \text{f\"ur } \Delta t \to 0.
+% \end{align*}
+\inputfig{floats/leapfrog}{leapfrog}
+Consider the local truncation error
+\begin{align*}
+	L_{\Delta t} (x,t) = \frac{1}{\Delta t} \left[ u(x, t + \Delta t) - H_{\Delta t} (u(\cdot,t),x) \right],
+\end{align*}
+which reads for the considered problem
+\begin{align*}
+	L_{\Delta t} (x,t) = \frac{1}{\Delta t} \Big[ u(x, t + \Delta t)  - \Big(u(x,t-\Delta t) + \frac{a \Delta t}{\Delta x} \left( u(x-\Delta x,t) - u(x+\Delta x,t) \right) \Big) \Big].
+\end{align*}
+% Analog zu $u(x,t+\Delta t)$ oben erhalten wir f\"ur $u(x,t-\Delta t)$
+Applying Taylor's expansion for $u(x,t+\Delta t)$
+\begin{align*}
+	u(x, t + \Delta t)
+	 & = u(x,t) + u_t(x,t)\Delta t + u_{tt}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3)      \\
+	 & = u(x,t) -au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3).
+\end{align*}
+Applying Taylor's expansion for $u(x,t-\Delta t)$
+\begin{align*}
+	u(x, t - \Delta t)
+	 & = u(x,t) - u_t(x,t)\Delta t + u_{tt}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3)       \\
+	 & = u(x,t) + au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3).
+\end{align*}
+Furthermore, applying Taylor's expansion for $u(x+\Delta x,t)$ and $u(x-\Delta x,t)$
+\begin{align*}
+	u(x+\Delta x,t)
+	 & = u(x,t) + u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3)  \\
+	u(x-\Delta x,t)
+	 & = u(x,t) - u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3).
+\end{align*}
+% Durch einsetzen der Taylorreihen erhalten wir f\"ur den lokalen Abschneidefehler
+Local truncation error 
+\begin{align*}
+	L_{\Delta t} (x,t) = \frac{1}{\Delta t} & \Big[ u(x,t) -au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3)                                                  \\ &- \Big( u(x,t) + au_x(x,t)\Delta t + a^2 u_{xx}(x,t) \frac{(\Delta t)^2}{2} + \mathcal{O}((\Delta t)^3)\\
+	                                        & + \frac{a \Delta t}{\Delta x} \Big( \Big(  u(x,t) - u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3) \Big)           \\
+	                                        & \qquad\quad - \Big( u(x,t) + u_x(x,t)\Delta x + u_{xx}(x,t) \frac{(\Delta x)^2}{2} + \mathcal{O}((\Delta x)^3) \Big) \Big) \Big) \Big]                \\
+	= \frac{1}{\Delta t}                    & \Big[ -2au_x(x,t)\Delta t + \mathcal{O}((\Delta t)^3) - \frac{a \Delta t}{\Delta x} \Big( - 2u_x(x,t)\Delta x + \mathcal{O}((\Delta x)^3) \Big) \Big] \\
+	                                        & = \frac{1}{\Delta t} \mathcal{O}((\Delta t)^3)                                                                                                        \\
+	                                        & = \mathcal{O}((\Delta t)^2).
+\end{align*}
+% Somit gilt auch f\"ur das Leapfrog Verfahren 
+Therefore, order of consistency for Leapfrog scheme is of order 2
+\begin{align*}
+	\|L_{\Delta t}(\cdot,t)\| & \leq C (\Delta t)^2\qquad \text{for } \Delta t \to 0.
+\end{align*}
+Note in passing that $u_{t} = -au_{x}$ and $u_{tt} = a^2u_{xx}$ are from the linear advection equation.
+% \section{Breaking time for an arbitrary flux function}
+% Consider arbitrary convex scalar equation of conservation laws 
+% \begin{equation}
+% 	u_{t} + f(u)_{x} = 0, 
+% \end{equation}
+% where $f(u)$ is convex, i.e. $f''(u) > 0$. Then, smooth flux function $f(u)$ leads to
+% \begin{equation}
+% 	u_{t} + f'(u) u_{x} = 0.
+% \end{equation}
+% Arbitrarily consider one characteristic line passing the point with initial condition in space and time $x_{0}(t=0)$. 
+% % Likewise, the neighborhood of this point reads $x_{0} + \delta x$.\\
+% The first characteristic line passing point $(x_{0_{1}}, 0)$ reads
+% \begin{equation}\label{eq:firstline}
+% 	x =  x_{0_{1}} + f'(u_{0}(x_{0_{1}}))\,t                                                              
+% \end{equation}
+% The second characteristic line passing point $(x_{0_{2}}, 0)$  reads
+% \begin{equation}\label{eq:secondline}
+% 	x =  x_{0_{2}} + f'(u_{0}(x_{0_{2}}))\,t                                                              
+% \end{equation}
+% % \begin{align}\label{eq:secondline}
+% % 	x & = (x_{0} + \delta x) + f'(u_{0}(x_{0} + \delta x))\,t                                       \notag \\
+% % 	  & = (x_{0} + \delta x) + f'(u_{0}(x_{0}) + u'_{0}(x_{0})\delta x + \mathcal{O}(\delta x^2))t \notag  \\
+% % 	  & = (x_{0} + \delta x) + f'(u_{0}(x_{0}) + u'_{0}(x_{0})\delta x + \mathcal{O}(\delta x^2))t
+% % \end{align}
+% Equalizing the two characteristic lines from \eqref{eq:firstline} and \eqref{eq:secondline} yields
+% % \begin{align*}
+% % 	x_{0} + f'(u_{0}(x_{0})) \, t = 
+% % 	(x_{0} + \delta x) + f'(u_{0}(x_{0}) + u'_{0}(x_{0})\delta x + \mathcal{O}(\delta x^2)) \, t
+% % \end{align*}
+% \begin{align}
+% 	x_{0_{1}} + f'(u_{0}(x_{0_{1}}))\,t = x_{0_{2}} + f'(u_{0}(x_{0_{2}}))\,t  
+% \end{align}
+% which leads to
+% \begin{equation}
+% 	t=-\frac{x_{0_{1}} - x_{0_{2}}}{f'(u_{0}(x_{0_{1}})-f'(u_{0}(x_{0_{2}})}
+% \end{equation}
+% The breaking time requires the following condition
+% \begin{align}
+% 	t & =-\frac{1}{\displaystyle \frac{f'(u_{0}(x_{0_{1}})-f'(u_{0}(x_{0_{2}})}{x_{0_{1}} - x_{0_{2}}}} \notag \\
+% 	  & =-\frac{1}{\displaystyle \frac{d}{dx}f'(u_{0}(x))}
+% \end{align}
+% The \emph{first} breaking time yields
+% \begin{equation}
+% 	\therefore\quad
+% 	\boxed{
+% 		T_{b}=-\frac{1}{\displaystyle \min_{x\in\mathbb{R}} \frac{d}{dx}f'(u_{0}(x))}
+% 	}
+% \end{equation}
+% \clearpage
+% \begin{example}
+% 	Compute the breaking time of Burgers' equation given different initial conditions as follows.
+% \end{example}
+% \inputfig{floats/characsin}{characsin}
+% \clearpage
+% %------------------------------------------------------------------------------
+% \section{Riemann's problem}
+% \begin{example}
+% 	Non-zero initial condition applied on $u_{L}$ and $u_{R}$.
+% \end{example}
+% Consider the two cases as follows
+% \begin{align}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			u_{L} = \alpha, \qquad x<0, \\
+% 			u_{R} = \beta, \qquad x>0,   
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% and
+% \begin{align}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			u_{L} = \beta, \qquad x<0, \\
+% 			u_{R} = \alpha, \qquad x>0,   
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% where $\alpha,\beta \in \mathbb{R}\backslash\left\{0\right\}$.
+% \inputfig{floats/charac12182181}{charac12182181}
+% \clearpage
+% \begin{example}
+% 	Zero initial condition applied either on $u_{L}$ or $u_{R}$.
+% \end{example}
+% Consider the two cases as follows
+% \begin{align}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			u_{L} = \alpha, \qquad x<0, \\
+% 			u_{R} = 0, \qquad x>0,   
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% and
+% \begin{align}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			u_{L} = 0, \qquad x<0, \\
+% 			u_{R} = \alpha, \qquad x>0,   
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% where $\alpha \in \mathbb{R}\backslash\left\{0\right\}$.
+% \inputfig{floats/charac02082080}{charac02082080}
+% % %------------------------------------------------------------------------------
+% % \section{Riemann's problem}
+% % %------------------------------------------------------------------------------
+% % \section{Krushkov}
+% \clearpage
+% %------------------------------------------------------------------------------
+% \section{Total variation (TV)}
+% (Useful later on for structure of FVM, i.e. Total-variation-diminishing (TVD))
+% \begin{example}
+% 	Let $f$ be defined as follows
+% 	\begin{align}
+% 		f:
+% 		\begin{cases}
+% 			\mathbb{R} \rightarrow \mathbb{R}, \\
+% 			x \mapsto
+% 			f(x) := 
+% 			\begin{cases}
+% 				x, \quad   & \quad  0<x<1,                 \\
+% 				2, \quad   & \quad  1\leq x < 2,           \\
+% 				1+x, \quad & \quad  2\leq x < 4,           \\
+% 				0, \quad   & \quad \text{everywhere else}.
+% 			\end{cases}
+% 		\end{cases}
+% 	\end{align}
+% 	Find the total variation of $f$.
+
+% \end{example}
+% \inputfig{floats/totalvariation}{totalvariation}
+
+% The total variation of $f$ is computed as follows
+% \begin{equation}
+% 	\begin{aligned}
+% 		TV(f)   = \int_{0}^1|f^{'}|dx                                                                
+% 		 & + \lim_{h\to 0} \int_{1-h}^1\frac{|f(x+h) - f(x)|}{h}dx
+% 		+\int_{1}^2|f^{'}|dx                                                                    \\
+% 		 & + \lim_{h\to 0} \int_{2-h}^{2}\frac{|f(x+h) - f(x)|}{h}dx  +  \int_{2}^{4}|f^{'}|dx  \\
+% 		 & + \lim_{h\to 0} \int_{4-h}^{4}\frac{|f(x+h) - f(x)|}{h}dx                           
+% 		= 1 + 1 + 0 + 1 + 2 + 5  = 10 \notag
+% 	\end{aligned}
+% \end{equation}
+% \begin{equation}
+% 	\therefore\quad
+% 	\boxed{
+% 		TV(f) = 10.
+% 	}
+% \end{equation}
+% %------------------------------------------------------------------------------
+% \begin{example}
+% 	Let $f$ be defined as follows
+% 	\begin{align}
+% 		f:
+% 		\begin{cases}
+% 			\mathbb{R} \rightarrow \mathbb{R}, \\
+% 			x \mapsto
+% 			f(x) := 
+% 			\begin{cases}
+% 				-x+1, \quad & \quad  0<x<1,                 \\
+% 				2, \quad    & \quad  1\leq x < 2,           \\
+% 				-x+7, \quad & \quad  2\leq x < 4,           \\
+% 				0, \quad    & \quad \text{everywhere else}.
+% 			\end{cases}
+% 		\end{cases}
+% 	\end{align}
+% 	Find the total variation of $f$.
+% \end{example}
+% \inputfig{floats/totalvariation_inv}{totalvariation_inv}
+
+% The total variation of $f$ is computed as follows
+% \begin{equation}
+% 	\begin{aligned}
+% 		TV(f)  = \dots
+% 		%  & = \int_{0}^1|f^{'}|dx                                                               \\
+% 		%  & + \lim_{h\to 0} \int_{1-h}^1\frac{|f(x+h) - f(x)|}{h}dx
+% 		% +\int_{1}^2|f^{'}|dx                                                                   \\
+% 		%  & + \lim_{h\to 0} \int_{2-h}^{2}\frac{|f(x+h) - f(x)|}{h}dx  +  \int_{2}^{4}|f^{'}|dx \\
+% 		%  & + \lim_{h\to 0} \int_{4-h}^{4}\frac{|f(x+h) - f(x)|}{h}dx                           \\
+% 		%  & = 1 + 1 + 2 + 3 + 2 + 3 = 12.
+% 	\end{aligned}
+% \end{equation}
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \begin{equation}
+% 	\therefore\quad
+% 	\boxed{
+% 		TV(f) = 12
+% 	}
+% \end{equation}
+% %------------------------------------------------------------------------------
+% \begin{example}
+% 	Let $f$ be defined as follows
+% 	\begin{align}
+% 		f:
+% 		\begin{cases}
+% 			\mathbb{R} \rightarrow \mathbb{R}, \\
+% 			x \mapsto
+% 			f(x) := 
+% 			\begin{cases}
+% 				-x+1, \quad           & \quad  0<x<1,                 \\
+% 				2, \quad              & \quad  1\leq x < 2,           \\
+% 				\sin(-\pi x)+4, \quad & \quad  2\leq x < 4,           \\
+% 				0, \quad              & \quad \text{everywhere else}.
+% 			\end{cases}
+% 		\end{cases}
+% 	\end{align}
+% 	Find the total variation of $f$.
+% \end{example}
+% \inputfig{floats/totalvariation_sin}{totalvariation_sin}
+
+% The total variation of $f$ is computed as follows
+% \begin{equation}
+% 	\begin{aligned}
+% 		TV(f)  = \dots
+% 		% 	 & = \int_{0}^1|f^{'}|dx                                                               \\
+% 		% 	 & + \lim_{h\to 0} \int_{1-h}^1\frac{|f(x+h) - f(x)|}{h}dx
+% 		% 	+\int_{1}^2|f^{'}|dx                                                                   \\
+% 		% 	 & + \lim_{h\to 0} \int_{2-h}^{2}\frac{|f(x+h) - f(x)|}{h}dx  +  \int_{2}^{4}|f^{'}|dx \\
+% 		% 	 & + \lim_{h\to 0} \int_{4-h}^{4}\frac{|f(x+h) - f(x)|}{h}dx                           \\
+% 		% 	 & = 1 + 1 + 2 + 0 + 2 + 1 + 2 + 1 + 4 = 14.
+% 	\end{aligned}
+% \end{equation}
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \newline
+% \begin{equation}
+% 	\therefore\quad
+% 	\boxed{
+% 		TV(f) = 14
+% 	}
+% \end{equation}
+% %------------------------------------------------------------------------------
+% % \section{Domain of dependence}
+% \clearpage
+% %------------------------------------------------------------------------------
+% \section{Manipulating conservation laws}
+% \emph{Manipulation of conservation laws} by transforming the differential form into another differential equation, 
+% which appears lately as equivalently as the original one, \textbf{may not} result in an equivalent differential
+% equation with respect to weak solutions.
+% \begin{example}
+% 	Manipulating conservation laws
+% \end{example}
+% Consider the Burgers' equation
+% \begin{equation}\label{eq:Burgers}
+% 	u_{t} + \left(\frac{1}{2}u^2\right)_{x} = 0.
+% \end{equation}
+% \emph{Manipulation} of this PDE by multiplying \eqref{eq:Burgers} by $2u$ we obtain
+% \begin{equation}\label{eq:Burgers1}
+% 	2uu_{t} + 2u\left(\frac{1}{2}u^2\right)_{x} = 0,
+% \end{equation}
+% which can be recast into
+% \begin{equation}\label{eq:Burgers2}
+% 	w_{t} + \left(\frac{2}{3}w^{\frac{3}{2}}\right)_{x} = 0
+% \end{equation}
+% where $w:=u^2$, and the flux function become $\displaystyle f(w) = \frac{2}{3}w^{\frac{3}{2}}$. 
+% The solutions to \eqref{eq:Burgers} and \eqref{eq:Burgers2}, respectively, read
+% \begin{align}
+% 	u(x,t) & = g_{0}(x-ut),       \\
+% 	w(x,t) & = g_{0}(x-w^{1/2}t),
+% \end{align}
+% which are precisely the same. Note in passing that $w^{1/2} = u$. Although \eqref{eq:Burgers} and \eqref{eq:Burgers2}
+% have the same solution, their weak solutions are different from each other,
+% i.e. by considering the \emph{Riemann}'s problem with $u_{L}>u_{R}$
+% together with checking the \emph{Rankine-Hugoniot} condition, we obtain unique weak solution 
+% with a shock travelling at speeds computed as follows
+% \begin{equation}
+% 	s_{\text{Burgers}} = \frac{[f(u)]}{[u]} = \dots
+% \end{equation}
+% Likewise, for the \emph{manipulated Burgers} we obtain
+% \begin{equation}
+% 	s_{\text{manipulated Burgers}} = \frac{[f(w)]}{[w]} = \dots
+% \end{equation}
+% \clearpage
+% %------------------------------------------------------------------------------
+% \section{Linear hyperbolic systems}
+% \begin{example}
+% 	Consider the natural 1D second order wave equation 
+% 	\begin{equation}
+% 		u_{tt} = \alpha^2 u_{xx},\quad x\in\mathbb{R}, 
+% 	\end{equation}
+% 	with initial condition
+% 	\begin{align}
+% 		\begin{cases}
+% 			\begin{aligned}
+% 				u(x,0)     & = u_{0}(x), \\
+% 				u_{t}(x,0) & = u_{1}(x). \\
+% 			\end{aligned}
+% 		\end{cases}
+% 	\end{align}
+% \end{example}
+% Approach: By introducing 
+% \begin{align}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			v & = u_{x}, \\
+% 			w & = u_{t},
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% one obtains 
+% \begin{align}
+% 	\begin{pmatrix} v\\ w\end{pmatrix}_{t}
+% 	+
+% 	\begin{pmatrix} -w \\ -\alpha^2 v \end{pmatrix}_{x}
+% 	= 0,
+% \end{align}
+% which can be recast into
+% \begin{align}
+% 	\begin{pmatrix} v\\ w\end{pmatrix}_{t}
+% 	+
+% 	\begin{pmatrix} 0 & -1 \\ -\alpha^2 & 0 \end{pmatrix}
+% 	\begin{pmatrix} v\\ w\end{pmatrix}_{x}
+% 	= 0.
+% \end{align}
+% The initial condition becomes
+% \begin{align}
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			v(x,0) & = u'_{0}(x), \\
+% 			w(x,0) & = u_{1}(x).  \\
+% 		\end{aligned}
+% 	\end{cases}
+% \end{align}
+% %------------------------------------------------------------------------------
+% \clearpage
+% \begin{example}
+% 	Consider the \textbf{linearized shallow water equations}
+% 	\begin{align}
+% 		\begin{pmatrix} u\\ \varphi\end{pmatrix}_{t}
+% 		+
+% 		\begin{pmatrix} \bar{u} & 1 \\ \bar{\varphi} & \bar{u} \end{pmatrix}
+% 		\begin{pmatrix} u \\ \varphi\end{pmatrix}_{x}
+% 		= 0,
+% 	\end{align}
+% 	where $\bar{u}, \bar{\varphi} \in \mathbb{R}$ are given, 
+% 	and sufficient initial conditions for $u$ and $\varphi$ are provided.
+% \end{example}
+
+% % Integral form
+% % \begin{equation}
+% % 	\frac{d}{dt}\int_{\Omega}u\,d\Omega 
+% % 	= -\int_{\partial\Omega}f(u)\cdot n\,d\partial\Omega
+% % \end{equation}
+% % Differential form
+% % \begin{equation}
+% % 	u_{t} + \nabla\cdot f(u) = 0 
+% % \end{equation}
+% \emph{Master balance principle}: due to the fact that the mathematical structure of the fundamental balance relations,
+% namely of mass, linear momentum, moment of momentum, energy and entropy, is in principle identical, they can be 
+% formulated within the concise shape of a master balance. To begin with, let $\Psi$ and $\BPsi$ be volume specific
+% scalar and vector value densities of a physical quantity to be balanced, respectively. Then, the general balance relations take 
+% the global \textbf{integral form} as follows 
+% \begin{align}
+% 	\frac{d}{dt}\int_{\Omega} \Psi \,d\Omega  & = 
+% 	-\int_{\partial\Omega}\Bphi\cdot\Bn\,d\partial\Omega 
+% 	+ \int_{\Omega}\sigma\,d\Omega
+% 	+ \int_{\Omega}\hat{\Psi}\,d\Omega             \\
+% 	\frac{d}{dt}\int_{\Omega} \BPsi \,d\Omega & = 
+% 	-\int_{\partial\Omega}\BPhi\cdot\Bn\,d\partial\Omega 
+% 	+ \int_{\Omega}\Bsigma\,d\Omega
+% 	+ \int_{\Omega}\hat{\BPsi}\,d\Omega
+% \end{align}
+% where $(\Bphi\cdot\Bn)$ and $(\BPhi\cdot\Bn)$ describe action at the vicinity; $\sigma$ and 
+% $\Bsigma$ present for action from a distance; and $\hat{\Psi}$ and $\hat{\BPsi}$ for production or nucleation.
+% \begin{example}
+% 	Conservation of mass: A derivation from integral to differential form.
+% \end{example}
+% \inputfig{floats/massx1x2}{massx1x2}
+% Let $x$ represent the distance along the tube and let $\rho(x,t)$ be the mass density of the 
+% fluid at point $x$ and time $t$. Then, the total mass $M$ in the section 
+% $[x_{1},x_{2}]$ at time $t$ is defined as follows
+% \begin{equation}
+% 	M := \int_{x_{1}}^{x_{2}} \rho(x,t)\,dx.
+% \end{equation}
+% Assume that the walls of the tube are impermeable and mass is neither created nor destroyed, 
+% this total mass $M$ in this interval $[x_1,x_2]$ varies over time only due to the fluid flowing
+% across at the boundaries $x=x_{1}$ and $x=x_{2}$. 
+% % Besides, the flow rate (also called \emph{rate of flow}, or \emph{flux}) is denoted as $f(\rho)$.
+% Now let $v(x,t)$ be the measured velocity of flow at point $x$ and time $t$.
+% Then, the flow rate (also called \emph{rate of flow}, or \emph{flux})
+% passing the end points of the interval $[x_{1},x_{2}]$ at time $t$ is given by
+% \begin{equation}
+% 	\rho(x_{1},t)v(x_{1},t)-\rho(x_{2},t)v(x_{2},t).
+% \end{equation}
+% The rate of change of mass in $[x_{1},x_{2}]$ given by the difference of fluxes at 
+% $x_1$ and $x_2$ flow rate has to be equal with the time rate of change of total mass
+% \begin{equation}\label{eq:relation0}
+% 	\boxed{
+% 		\frac{d}{dt}\int_{x_{1}}^{x_{2}} \rho(x,t)\,dx 
+% 		% \stackrel{!}{=} f(\rho(x_{1},t))-f(\rho(x_{2},t))
+% 		= \rho(x_{1},t)v(x_{1},t)-\rho(x_{2},t)v(x_{2},t)
+% 	}
+% \end{equation}
+% which is the \textbf{integral form} of the conservation law. Next, note that the following relation holds
+% \begin{equation}\label{eq:relation1}
+% 	\int_{x_{1}}^{x_{2}} \frac{\partial}{\partial x}f(\rho)\,dx 
+% 	= f(\rho(x_{2},t))-f(\rho(x_{1},t)).
+% \end{equation}
+% Substitution of \eqref{eq:relation1} into \eqref{eq:relation0} leads to
+% \begin{equation}\label{eq:relation2}
+% 	\frac{d}{dt}\int_{x_{1}}^{x_{2}} \rho(x,t)\,dx 
+% 	= -\int_{x_{1}}^{x_{2}}\frac{\partial}{\partial x}f(\rho)\,dx.
+% \end{equation}
+% If $\rho(x,t)$ is sufficiently smooth, time derivative on the LHS of \eqref{eq:relation2}
+% can be brought inside the integral. Then, an arrangement of \eqref{eq:relation2} yields
+% \begin{equation}\label{eq:relation3}
+% 	\int_{x_{1}}^{x_{2}}
+% 	\left(\frac{\partial}{\partial t}\rho(x,t) + \frac{\partial}{\partial x}f(\rho)\right)\,dx 
+% 	= 0.
+% \end{equation}
+% Since \eqref{eq:relation3} holds for any choice of $x_{1}$ and $x_{2}$, the integrant must be vanished
+% everywhere. Therefore, one obtains the \textbf{differential form} of the conservation law
+% \begin{equation}\label{eq:deri}
+% 	\therefore \quad
+% 	\boxed{\rho_{t} + f(\rho)_{x} = 0}
+% \end{equation}
+% % \begin{enumerate}
+% % 	\item gas dynamics
+% % 	\item oil-water mixtures
+% % 	\item plasmas
+% % 	\item shallow water flows
+% % 	\item meteology
+% % 	\item traffic
+% % 	\item ...
+% % \end{enumerate}
+% % \begin{definition}
+% % 	Cauchy problem
+% % \end{definition}
+% % Cauchy problem\\
+% % Riemann problem\\
+% % \begin{equation}
+% % 	u_{t} + f(u)_{x} = 0 
+% % \end{equation}
+% \begin{example}
+% 	Different definitions of flux function yields different applications
+% \end{example}
+% \begin{enumerate}
+% 	\item Advection equation: \eqref{eq:deri} with flux function
+% 	      $\displaystyle  f(\rho) =  a\rho, \ a\in \mathbb{R^+}$, taking form
+% 	      \begin{equation}
+% 		      \boxed{
+% 			      \rho_{t} + a\rho_{x} = 0
+% 		      }
+% 	      \end{equation}
+% 	\item \emph{Inviscid} Burgers' equation: \eqref{eq:deri} with flux function
+% 	      $\displaystyle  f(\rho) =  \frac{1}{2}\rho^2$, yielding
+% 	      \begin{equation}
+% 		      \boxed{
+% 			      \rho_{t} + \rho\rho_{x} = 0
+% 		      }
+% 	      \end{equation}
+% 	      which is used to illustrate the distortion of waveform in simple waves.
+% 	      Meanwhile, \emph{viscous} Burgers' equation is a scalar parabolic PDE, taking the form
+% 	      $$\rho_t + \rho\rho_{x} = \varepsilon\rho_{xx}$$
+% 	      which is the simplest differential model for a fluid flow.
+% 	\item Lighthill-Whitham-Richards (LWR) equation: \eqref{eq:deri} with flux function
+% 	      $$\displaystyle  f(\rho) =  u_{max}\,\rho\left(1-\frac{\rho}{\rho_{max}}\right)$$
+% 	      which is used to model traffic flow; $u_{max}$ is the given maximal speed of vehicle to be allowed, 
+% 	      $\rho_{max}$ the given maximal density of vehicle; taking the form
+% 	      \begin{equation}
+% 		      \rho_{t} + \left(u_{max}-\frac{2u_{max}}{\rho_{max}}\rho\right)\rho_{x} = 0
+% 	      \end{equation}
+% 	\item (Typical) Buckley-Leverett petroleum equation: \eqref{eq:deri} with flux function
+% 	      $$\displaystyle f(\rho) =  \frac{\rho^2}{\rho^2 + (1-\rho)^2\mu_{\text{water}}/\mu_{\text{oil}}}$$
+% 	      which is a one-dimensional model for a two-phase flow; $\rho$ stands for water saturation
+% 	      and takes the value in the interval $[0,1]$.
+% 	\item \emph{Euler} equations of gas dynamics in 1D
+% 	      %   \begin{align}
+% 	      %       \begin{cases}
+% 	      % 	      \begin{aligned}
+% 	      % 		      \rho_{t}     & + (\rho v)_x & = 0 \\
+% 	      % 		      (\rho v)_{t} & + (\rho v^2 + p)_x & = 0 \\
+% 	      % 		      E_{t}        & + (v(E+p))_x & = 0
+% 	      % 	      \end{aligned}
+% 	      %       \end{cases}
+% 	      %   \end{align}
+% 	      \begin{align}
+% 		      \begin{pmatrix} \rho\\\rho v \\ E \end{pmatrix}_{t}
+% 		      +
+% 		      \begin{pmatrix} \rho v\\\rho v^2 + p \\ v(E+p) \end{pmatrix}_{x}
+% 		      =
+% 		      \begin{pmatrix} 0\\ 0 \\ 0 \end{pmatrix}
+% 	      \end{align}
+% 	      $\rightarrow$ The pressure $p$ should be specified as a given function of 
+% 	      mass density $\rho$, linear momentum $\rho v$ and/or energy $E$ in order to 
+% 	      fulfill the \emph{closure} problem.
+% 	      Such additional equation is called \emph{equation of state} (normally in fluid), or 
+% 	      \emph{constitutive equation} (normally in solid). 
+% 	\item \emph{Euler} equations of gas dynamics in 2D
+% 	      \begin{align}
+% 		      \begin{pmatrix} \rho\\ \rho u\\ \rho v \\ E \end{pmatrix}_{t}
+% 		      +
+% 		      \begin{pmatrix} \rho u\\ \rho u^2 + p \\ \rho uv \\ u(E+p) \end{pmatrix}_{x}
+% 		      + 
+% 		      \begin{pmatrix} \rho v\\ \rho uv \\ \rho v^2 + p \\ v(E+p) \end{pmatrix}_{y}
+% 		      =
+% 		      \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}
+% 	      \end{align}
+% \end{enumerate}
+% % \begin{recall}
+% % 	Convexity
+% % \end{recall}
+% \begin{definition}
+% 	Cauchy problem and Riemann problem
+% \end{definition}
+% Let $u$ be a conserved unknown quantity to be modelled and defined as follows
+% \begin{align}\label{eq:conservedquantity}
+% 	u:
+% 	\begin{cases}
+% 		\mathbb{R}\times\mathbb{R}^+ \rightarrow \mathbb{R}, \\
+% 		(x,t) \mapsto u(x,t).
+% 	\end{cases}
+% \end{align}
+% \emph{Cauchy's problem} is simply the pure initial value problem (IVP), e.g. 
+% find a function $u$ holding \eqref{eq:conservedquantity} that is a solution of
+% $\eqref{eq:cauchy}_1$ satisfying the initial condition $\eqref{eq:cauchy}_2$:
+% \begin{equation}\label{eq:cauchy}
+% 	\boxed{
+% 		\begin{aligned}
+% 			\partial_{t}u + \partial_{x}f(u) & = 0,        \\
+% 			u(x,0)                           & = u_{0}(x).
+% 		\end{aligned}
+% 	}
+% \end{equation}
+% \emph{Riemann's problem} is simply the conservation law together with particular initial data
+% consisting of two constant states separated by a single discontinuity, e.g.
+% find a function $u$ holding \eqref{eq:conservedquantity} that is a solution of
+% $\eqref{eq:riemann}_1$ satisfying the initial condition $\eqref{eq:riemann}_2$:
+% \begin{equation}\label{eq:riemann}
+% 	\boxed{
+% 		\begin{aligned}
+% 			\partial_{t}u + \partial_{x}f(u) & = 0,        \\
+% 			u(x,0)                           & = u_{0}(x)=
+% 			\begin{cases}
+% 				u_{L}, \quad x<0, \\
+% 				u_{R}, \quad x>0.
+% 			\end{cases}
+% 		\end{aligned}
+% 	}
+% \end{equation}
+% % \begin{definition}
+% % 	Hyperbolic
+% % \end{definition}
+% % Let $\Omega$ be 
+% % \inputfig{floats/comparehyperbolic}{comparehyperbolic}
+
+% Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a $C^1$ function. We consider the \emph{Cauchy} problem
+% \begin{align}\label{eq:charac}
+% 	\frac{\partial u}{\partial t} + \frac{\partial}{\partial x}f(u) & = 0,        \qquad  x\in\mathbb{R}, t>0, \\
+% 	u(x,0)                                                          & = u_{0}(x), \qquad  x\in\mathbb{R}.
+% \end{align}
+% By setting $a(u) = f'(u)$, and letting $u$ be a classical solution of \eqref{eq:charac},
+% one obtains from \eqref{eq:charac} the \emph{non-conservative} form as follows
+% \begin{equation}
+% 	\frac{\partial u}{\partial t} + a(u)\frac{\partial u}{\partial x} = 0.
+% \end{equation}
+% The characteristic curves associated with \eqref{eq:charac} are defined as the integral curves
+% of the differential equation
+% \begin{equation}
+% 	\frac{dx}{dt} = a(u(x(t),t)).
+% \end{equation}
+% \begin{proposition}
+% 	Assume that u is a smooth solution of the Cauchy problem. The characteristic curves 
+% 	are straight lines along which u is constant.
+% \end{proposition}
+% \begin{proof}
+% 	Consider a characteristic curve passing through the point $(x_{0},0)$, i.e.
+% 	a solution of the ordinary differential system
+% 	\begin{align}
+% 		\begin{cases}\displaystyle
+% 			\frac{dx}{dt} & = a(u(x(t),t)), \\
+% 			x(0)          & = x_{0}.
+% 		\end{cases}
+% 	\end{align}
+% 	It exists at least on a small time interval $[0,t_{0})$. 
+% 	Along such a curve, u is constant since
+% 	\begin{align*}
+% 		\frac{d}{dt}u(x(t),t) 
+% 		 & = \frac{\partial u}{\partial t}(x(t),t)
+% 		+ \frac{\partial u}{\partial x}(x(t),t) \frac{dx}{dt}(t)                                    \\
+% 		 & =\left(\frac{\partial u}{\partial t} + a(u)\frac{\partial u}{\partial x}\right)(x(t),t) 
+% 		= 0.
+% 	\end{align*}
+% 	Therefore, the characteristic curves are straight lines whose constant slopes depend
+% 	on the initial data. As a result, the characteristic straight line passing through
+% 	the point $(x_{0},0)$ is defined by the equation
+% 	\begin{equation}
+% 		\boxed{
+% 			x = x_{0} + ta(u_{0}(x_{0}))
+% 		}
+% 	\end{equation}
+% \end{proof}
+% \begin{example}
+% 	Determine characteristics of the inviscid Burgers' equation with initial conditions given as
+% 	\begin{equation}
+% 		u(x,0) = u_{0}(x) =
+% 		\begin{cases}
+% 			\begin{aligned}
+% 				 & 1,   & x\leq 0,        &                        \\
+% 				 & 1-x, & 0\leq x \leq 1, & \quad x\in \mathbb{R}, \\
+% 				 & 0,   & x\geq 1.        & 
+% 			\end{aligned}
+% 		\end{cases}
+% 	\end{equation}
+% \end{example}
+% By using the method of characteristics, the solution can be solved up to the time when
+% those characteristics first intersect with each other, i.e. so-called breaking time or shock.
+% Since the $f'(u) = u$ in the inviscid Burgers' equation, it yields the characteristics 
+% passing through the point $(x_{0},t)$
+% \begin{equation}
+% 	x = x_{0} + t\,u_{0}(x_{0})
+% \end{equation}
+% which leads to
+% \begin{equation}
+% 	x(x_{0},t) = 
+% 	\begin{cases}
+% 		\begin{aligned}
+% 			 & x_{0}+t,          & x_{0}\leq 0,          \\
+% 			 & x_{0}+t(1-x_{0}), & 0\leq x_{0} \leq 1,   \\
+% 			 & x_{0},            & x_{0}\geq 1.         
+% 		\end{aligned}
+% 	\end{cases}
+% \end{equation}
+% (Sketch)
+% %------------------------------------------------------------------------------
+% % \section{General strategy for solving the first-order PDE}
+% % Supposed 
+% %------------------------------------------------------------------------------
+% % \section{Rankine-Hugoniot (RH) jump condition}
+
+% % Characteristic curves
+% % \begin{equation}
+% % 	\dot{x} = f'(u)\\
+% % \end{equation}
+% % \begin{align*}
+% % 	\frac{d}{dt}u(x(t),t) 
+% % 	= \frac{\partial u}{\partial t}(x(t),t)
+% % 	+ \frac{\partial u}{\partial x}(x(t),t) \frac{dx}{dt}(t)
+% % \end{align*}
+
+
+% % \inputfig{floats/multistructures}{multistructures}
+
+\end{document}
+
