@@ -92,6 +92,37 @@ Both schemes result in the same solution. We have just to be consistent with whi
 %------------------------------------------------------------------------------
 \section{Fourier transformation}
 
+%------------------------------------------------------------------------------
+\section{Remark about Rarefaction wave solution}
+\begin{example}
+	Show that for a general convex scalar problem 
+	\begin{align*}
+		u_t + f(u)_x = 0	
+	\end{align*}
+	with initial condition
+	in form of \emph{Riemann}'s problem 
+	\begin{align*}
+		u(x,t=0) = 
+		\begin{cases}
+			u_L, \quad x<0, \\
+			u_R, \quad x>0,
+		\end{cases}
+		\quad\text{where}\quad
+		u_L<u_R,
+	\end{align*}
+	the rarefaction wave solution
+	is given by 
+	\begin{align*}
+		u(x,t) =
+		\begin{cases} 
+			u_L,    & \quad x/t < f'(u_L),                 \\
+			v(x/t), & \quad f'(u_L) \leq x/t \leq f'(u_R), \\
+			u_R,    & \quad x/t > f'(u_R),
+		\end{cases}
+	\end{align*}
+	where $v(\xi)$ is the solution to $f'(v(\xi)) = \xi$.
+\end{example}
+
 % \begin{checkexample}
 % 	Let matrix $A$ be given as 
 % 	\begin{align*}
