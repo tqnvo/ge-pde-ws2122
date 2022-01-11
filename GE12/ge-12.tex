@@ -326,28 +326,113 @@ we obtain the following summary:
 \pagebreak
 %------------------------------------------------------------------------------
 \section{von Neumann stability analysis}
-\begin{example}
-	Perform the \emph{von Neumann} stability analysis for \emph{Lax-Friedrichs} scheme:
-	\begin{align*}
-		u_j^{n+1} = 
-		\frac{1}{2}
-		\left( u_{j+1}^n + u_{j-1}^n \right)
-		- \frac{\nu}{2}\left( u_{j+1}^n - u_{j-1}^n \right),
-	\end{align*}
-	where $v:=a\Delta t/\Delta x$ is the \emph{Courant} number.
-\end{example}
-For the Lax - Friedrich scheme, the amplification factor is given by 
-\begin{align}
-	g(\xi) =  \cos \xi - \mathbf{i} \nu \sin\xi \quad 
-\end{align}
-which leads to
-\begin{align}
-	|g(\xi)| = 
-	\sqrt{\cos^2(\xi)   + \nu^2 \sin^2(\xi)} \leq 1 ,
-	\quad \text{for} \quad 0 < \nu \leq 1.
-\end{align}
-Therefore, the \emph{Lax-Friedrichs} scheme is 
-\emph{conditionally stable} for $0<\nu\leq 1$. 
+% \begin{example}
+% 	Perform the \emph{von Neumann} stability analysis for \emph{Lax-Friedrichs} scheme
+% 	\begin{align}\label{scheme-01}
+% 		u_j^{n+1} = 
+% 		\frac{1}{2}
+% 		\left( u_{j+1}^n + u_{j-1}^n \right)
+% 		- \frac{\nu}{2}\left( u_{j+1}^n - u_{j-1}^n \right),
+% 	\end{align}
+% 	where $v:=a\Delta t/\Delta x$ is the \emph{CFL} number.
+% 	Determine if the numerical scheme is unstable, conditionally stable, or 
+% 	unconditionally stable.
+% \end{example}
+% Approach:
+% Let $\displaystyle \bar{u}_j^n$, $u_j^n$ and $e_j^n$ be the exact solution,
+% computed solution, and the error of the computed solution of the above numerical method,
+% respectively. Then, the computed solution can be written as follows
+% \begin{align}\label{scheme-01-error}
+% 	u_j^n  = \bar{u}_j^n + e_j^n.
+% \end{align}
+% Substitution of the expression \eqref{scheme-01-error} into \eqref{scheme-01} leads to
+% \begin{align}\label{scheme-01-2}
+% 	\eqref{scheme-01}
+% 	 & \stackrel{\eqref{scheme-01-error}}{\Leftrightarrow}
+% 	\bar{u}_j^{n+1} + e_j^{n+1}
+% 	= \bar{u}_j^n + e_j^n
+% 	- \frac{c}{2} \left(
+% 	\left(\bar{u}_{j+1}^n + e_{j+1}^n\right)
+% 	- \left(
+% 		\bar{u}_{j-1}^n + e_{j-1}^n
+% 		\right)
+% 	\right)                                                \notag \\
+% 	 & \Leftrightarrow
+% 	\left(
+% 	\bar{u}_j^{n+1} - \bar{u}_j^n
+% 	+ \frac{c}{2} \left( \bar{u}_{j+1}^n - \bar{u}_{j-1}^n\right)
+% 	\right)
+% 	+ \left(
+% 	e_j^{n+1} - e_j^n + \frac{c}{2} \left( e_{j+1}^n - e_{j-1}^n \right) \right)
+% 	= 0.
+% \end{align}
+% %   \begin{align*}
+% %       \left(
+% %       \bar{u}_i^{j+1} - \bar{u}_i^j
+% %       + \frac{c}{2} \left( \bar{u}_{i+ 1}^j - \bar{u}_{i - 1 }^j\right )
+% %       \right)
+% %       + \left( e_i^{j+1} - e_i^j + \frac{c}{2} \left( e_{i+ 1}^j - e_{i - 1 }^j \right ) \right) = 0
+% %   \end{align*}
+% Since $\bar{u}_i^j$ is the exact solution, $\bar{u}_i^j$ also satisfies the equation
+% for the numerical method. Therefore, the equation \eqref{scheme-01-2} is now reduced to
+% \begin{align}\label{scheme1-err-eqn}
+% 	e_j^{n+1} - e_j^n
+% 	+ \frac{c}{2} \left( e_{j+1}^n - e_{j-1}^n \right) = 0
+% \end{align}
+% Herein, this relation \eqref{scheme1-err-eqn} implies that
+% the error of the computed solution
+% also satisfies the difference equation. Next,
+% by using the \emph{von Neumann} stability analysis,
+% the error $e_j^n$ can be represented as follows
+% \begin{align}\label{eq:vonneumannstabil}
+% 	e_j^{n} = A^n e^{\mathbf{i} j \phi }
+% \end{align}
+% where $A^n$ is the amplitude at time step $n$,
+% and $\mathbf{i}$ is the imaginary unit satisfying
+% the equation $\mathbf{i}^2 = -1$.
+% Then, by substituting the expression \eqref{eq:vonneumannstabil}
+% into the error equation \eqref{scheme1-err-eqn} we arrive at
+% \begin{align}\label{eq:vonneumannstabil2}
+% 	\eqref{scheme1-err-eqn}
+% 	 & \stackrel{\eqref{eq:vonneumannstabil}}{\Leftrightarrow}
+% 	A^{n+1} e^{\mathbf{i} j \phi } - A^{n} e^{\mathbf{i} j \phi }
+% 	+\frac{c}{2} \left(
+% 	A^{n} e^{\mathbf{i} (j+1) \phi }
+% 	- A^{n} e^{\mathbf{i} (j-1) \phi }
+% 	\right)                                                   \notag \\
+% 	 & \Leftrightarrow
+% 	A^{n+1} = A^n \left(
+% 	1 - \frac{c}{2} \left ( e^{\mathbf{i} \phi} - e^{- \mathbf{i} \phi} \right)
+% 	\right)  .
+% \end{align}
+% Next, we define the amplification factor $G$ as
+% $\displaystyle G := A^{n+1}/A^n$.
+% Furthermore, in order to make sure the scheme to be stable, we have to show that $|G| \leq 1$.
+% For the present scheme, the amplification factor $G$ is recognized as
+% \begin{align*}
+% 	G = \frac{A^{j+1}}{A^j}
+% 	\stackrel{\eqref{eq:vonneumannstabil2}}{=}
+% 	1 - \frac{c}{2} \left( e^{\mathbf{i} \phi} - e^{- \mathbf{i} \phi} \right)
+% 	= 1 -  \mathbf{i} c\sin \phi,
+% \end{align*}
+% which leads to the following expression
+% \begin{align*}
+% 	|G| = \sqrt{G G^*} = \sqrt{ 1 +  c^2\sin^2 \phi} \geq 1 \quad \forall\,c> 0.
+% \end{align*}
+% Therefore, the forward in time and central difference in space scheme is
+% unconditionally unstable, or simply, \textbf{unstable}.
+% For the Lax - Friedrich scheme, the amplification factor is given by 
+% \begin{align}
+% 	g(\xi) =  \cos \xi - \mathbf{i} \nu \sin\xi \quad 
+% \end{align}
+% which leads to
+% \begin{align}
+% 	|g(\xi)| = 
+% 	\sqrt{\cos^2(\xi)   + \nu^2 \sin^2(\xi)} \leq 1 ,
+% 	\quad \text{for} \quad 0 < \nu \leq 1.
+% \end{align}
+% Therefore, the \emph{Lax-Friedrichs} scheme is 
+% \emph{conditionally stable} for $0<\nu\leq 1$. 
 
 \begin{example}
 	von Neumann stability analysis for Upwind method.
@@ -356,7 +441,7 @@ Therefore, the \emph{Lax-Friedrichs} scheme is
 
 \pagebreak
 %------------------------------------------------------------------------------
-\section{Conservative form -  Finite Volume Method}
+\section{Conservation form - Finite Volume Method}
 \begin{example}
 	Conservative form 
 \end{example}
