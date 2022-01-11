@@ -5,11 +5,11 @@
 	\psfrag{x}[l][l] {$x$}
 
 	\psfrag{x1}[l][l] {$x_{j}$}
-	\psfrag{x2}[l][l] {$x_{j-1}$}
-	\psfrag{x3}[l][l] {$x_{j-2}$}
-	\psfrag{x4}[l][l] {$x_{j-3}$}
-	\psfrag{x5}[l][l] {$x_{j-4}$}
-	\psfrag{x6}[l][l] {$x_{j-5}$}
+	\psfrag{x2}[l][l] {$x_{j+1}$}
+	\psfrag{x3}[l][l] {$x_{j+2}$}
+	\psfrag{x4}[l][l] {$x_{j+3}$}
+	\psfrag{x5}[l][l] {$x_{j+4}$}
+	\psfrag{x6}[l][l] {$x_{j+5}$}
 
 	% \psfrag{r}[l][l] {$\rho(x,t)$}
 	% \psfrag{r1}[l][l] {$\rho(x_{1},t)$}
@@ -31,8 +31,8 @@
 	\psfrag{E}[l][l] {$E$}
 
 	\psfrag{pA}[l][l] {$A(x_j,t_n)\,\checkmark$}
-	\psfrag{pB}[l][l] {$B(x_{j-1},t_{n-1})\,\checkmark$}
-	\psfrag{pC}[l][l] {$C(x_{j},t_{n-1})\,\checkmark$}
+	\psfrag{pB}[l][l] {$B(x_{j},t_{n-1})\,\checkmark$}
+	\psfrag{pC}[l][l] {$C(x_{j+1},t_{n-1})\,\checkmark$}
 	\psfrag{pD}[l][l] {$D(x_D,t_D)\,?$}
 	\psfrag{pE}[l][l] {$E(x_E,t_E)\, ?$}
 
@@ -44,6 +44,8 @@
 
 	\psfrag{mt}[l][l] {$\displaystyle u_{j}^{n+1}
 			= u_{j}^{n} + \frac{a\Delta t}{\Delta x}\left(u_{j}^{n}-u_{j+1}^{n}\right)$}
+
+	\psfrag{eq}[l][l] {$\displaystyle u_{t} + au_{x} = 0 \quad (a<0)$}
 
 	% \psfrag{to}[l][l] {$t = 0$}
 	% \psfrag{ti}[l][l] {$t \rightarrow +\infty$}
@@ -62,6 +64,7 @@
 	% \psfrag{id}[l][l] {$\text{Integration direction}$}
 
 	\includegraphics[width=0.99\textwidth]{DomainOfDependenceTTR.eps}
-	\caption{Numerical domain of dependence for One-sided method.}
+	\caption{Numerical domain of dependence for One-sided method,
+		where the stencils point to the right.}
 	\label{\LABEL}
 \end{figure}
