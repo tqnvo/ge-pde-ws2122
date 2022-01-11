@@ -5,11 +5,16 @@
 	\psfrag{x}[l][l] {$x$}
 
 	\psfrag{x1}[l][l] {$x_{j}$}
-	\psfrag{x2}[l][l] {$x_{j-1}$}
-	\psfrag{x3}[l][l] {$x_{j-2}$}
-	\psfrag{x4}[l][l] {$x_{j-3}$}
-	\psfrag{x5}[l][l] {$x_{j-4}$}
-	\psfrag{x6}[l][l] {$x_{j-5}$}
+	\psfrag{x2}[l][l] {$x_{j+1}$}
+	\psfrag{x3}[l][l] {$x_{j+2}$}
+	\psfrag{x4}[l][l] {$x_{j+3}$}
+	\psfrag{x5}[l][l] {$x_{j+4}$}
+	\psfrag{x6}[l][l] {$x_{j+5}$}
+	\psfrag{x7}[l][l] {$x_{j-1}$}
+	\psfrag{x8}[l][l] {$x_{j-2}$}
+	\psfrag{x9}[l][l] {$x_{j-3}$}
+	\psfrag{y1}[l][l] {$x_{j-4}$}
+	\psfrag{y2}[l][l] {$x_{j-5}$}
 
 	% \psfrag{r}[l][l] {$\rho(x,t)$}
 	% \psfrag{r1}[l][l] {$\rho(x_{1},t)$}
@@ -32,7 +37,7 @@
 
 	\psfrag{pA}[l][l] {$A(x_j,t_n)\,\checkmark$}
 	\psfrag{pB}[l][l] {$B(x_{j-1},t_{n-1})\,\checkmark$}
-	\psfrag{pC}[l][l] {$C(x_{j},t_{n-1})\,\checkmark$}
+	\psfrag{pC}[l][l] {$C(x_{j+1},t_{n-1})\,\checkmark$}
 	\psfrag{pD}[l][l] {$D(x_D,t_D)\,?$}
 	\psfrag{pE}[l][l] {$E(x_E,t_E)\, ?$}
 
@@ -42,9 +47,10 @@
 	\psfrag{dx3}[l][l] {$\dots$}
 	\psfrag{dt3}[l][l] {$\vdots$}
 
-	\psfrag{mt}[l][l] {$\displaystyle u_{j}^{n+1}
-			= \frac{1}{2}\left(u_{j-1}^{n} + u_{j+1}^{n}\right)
-			+ \frac{a\Delta t}{2\Delta x}\left(u_{j-1}^{n}-u_{j+1}^{n}\right)$}
+	\psfrag{mt}[l][l] {$\displaystyle u_{j}^{n+1} 
+	= u_{j}^{n} + \frac{a\Delta t}{\Delta x}\left(u_{j-1}^{n}-u_{j}^{n}\right)$}
+
+	\psfrag{eq}[l][l] {$\displaystyle u_{t} + au_{x} = 0 \quad (a>0)$}
 
 	% \psfrag{to}[l][l] {$t = 0$}
 	% \psfrag{ti}[l][l] {$t \rightarrow +\infty$}
@@ -62,7 +68,7 @@
 	\psfrag{oh}[l][l] {$O$}
 	% \psfrag{id}[l][l] {$\text{Integration direction}$}
 
-	\includegraphics[width=0.99\textwidth]{DomainOfDependenceLF.eps}
-	\caption{Numerical domain of dependence for One-sided method.}
+	\includegraphics[width=1.0\textwidth]{DomainOfDependenceLF.eps}
+	\caption{General numerical domain of dependence for a three-point scheme.}
 	\label{\LABEL}
 \end{figure}

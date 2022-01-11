@@ -62,7 +62,8 @@ $\rightarrow$ We have just to be consistent with which scheme to follow.
 %------------------------------------------------------------------------------
 \section{Correlation between Domain of dependence (DoD) and Courant-Friedrichs-Lewy (CFL) condition}
 \begin{example}\label{eq:example1}
-	Examine the numerical domain of dependence of the One-sided method,
+	Examine the numerical domain of dependence 
+	and the corresponding CFL condition of the One-sided method,
 	where the stencils point to the left.
 \end{example}
 \inputfig{floats/DomainOfDependence}{DomainOfDependence}
@@ -130,12 +131,12 @@ computed initial conditions laying between point $D$ and $E$.
 		      \mathcal{D}\left(x_j,t_n\right)
 		      =  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
 	      \end{align}
-	      Futhermore, the CFL condition enforces that
+	      Furthermore, the CFL condition enforces that
 	      \begin{align}\label{eq:CFLconditionenforced}
 		      \mathcal{D}\left(x_j,t_n\right) \subset \mathcal{D}_{\Delta t}\left(x_j,t_n\right),
 	      \end{align}
 	      which implies that characteristics should lie with the triangular zone 
-	      under line $(l_1)$ and $(l_2)$, as shown in \rFig{DomainOfDependence}.
+	      under the line $(l_1)$ and $(l_2)$, as shown in \rFig{DomainOfDependence}.
 	      Therefore, substitution of \eqref{eq:anadod} into \eqref{eq:numedod} yields
 	      the CFL condition applied on the linear advection equation, as follows
 	      \begin{align}
@@ -153,7 +154,7 @@ computed initial conditions laying between point $D$ and $E$.
 		      }
 	      \end{equation}
 	      Herein, the CFL condition \eqref{eq:CFLsol1} leads to 
-	      contraint on the time step $\Delta t$ for the case when $a > 0$.
+	      constraint on the time step $\Delta t$ for the case when $a > 0$.
 	      Note in passing that $\nu$ is non-negative.
 	      
 	\item Perspective of fixed-point value:\\
@@ -212,7 +213,8 @@ computed initial conditions laying between point $D$ and $E$.
 \pagebreak
 %------------------------------------------------------------------------------
 \begin{example}\label{eq:example2}
-	Examine the numerical domain of dependence of the One-sided method, 
+	Examine the numerical domain of dependence 
+	and the corresponding CFL condition of the One-sided method, 
 	where the stencils point to the right.
 \end{example}
 \inputfig{floats/DomainOfDependenceTTR}{DomainOfDependenceTTR}
@@ -222,7 +224,7 @@ Similarly, by following steps done in Example \ref{eq:example1} we obtain the fo
 \begin{enumerate}
 	\item Point $E$ in terms of fixed-point value satisfying
 	      \begin{align}
-		      t = t_n + \frac{t_{n-1}-t_n}{x_{j+1}-x_j}\left(x-x_{j}\right)
+		      (l_2):\quad t = t_n + \frac{t_{n-1}-t_n}{x_{j+1}-x_j}\left(x-x_{j}\right)
 	      \end{align}
 	\item Numerical domain of dependence reads
 	      \begin{align}
@@ -249,21 +251,23 @@ Note in passing that the advection velocity $a$ in this Example \ref{eq:example2
 \pagebreak
 %------------------------------------------------------------------------------
 \begin{example}\label{eq:example3}
-	Examine the numerical domain of dependence for a three-point scheme.
+	Examine the numerical domain of dependence 
+	and the corresponding CFL condition for a three-point scheme.
 \end{example}
 \inputfig{floats/DomainOfDependence3pts}{DomainOfDependence3pts}
 
 Similarly, by following steps done in Example \ref{eq:example1} we obtain the following summary:
 
 \begin{enumerate}
-	\item Point $E$ in terms of fixed-point value satisfying
+	\item Point $D$ and $E$ in terms of fixed-point value satisfying
 	      \begin{align}
-		      t = t_n + \frac{t_{n-1}-t_n}{x_{j+1}-x_j}\left(x-x_{j}\right)
+		      (l_1):\quad t & = t_n + \frac{t_{n-1}-t_n}{x_{j-1}-x_j}\left(x-x_{j}\right) \\
+		      (l_2):\quad t & = t_n + \frac{t_{n-1}-t_n}{x_{j+1}-x_j}\left(x-x_{j}\right)
 	      \end{align}
 	\item Numerical domain of dependence reads
 	      \begin{align}
 		      \mathcal{D}_{\Delta t}\left(x_j,t_n\right)
-		      =  \left\{ x \, \Big|\, 0 \leq x - x_j \leq -\frac{at_n}{\nu} \right\}.
+		      =  \left\{ x \, \Big|\, \left| x - x_j \right| \leq \frac{at_n}{\nu} \right\}.
 	      \end{align}
 	      
 	\item Analytical domain of dependence reads
@@ -276,7 +280,7 @@ Similarly, by following steps done in Example \ref{eq:example1} we obtain the fo
 	      \begin{equation}
 		      \therefore\quad
 		      \boxed{
-			      \Delta t \geq \frac{\Delta x}{a}.
+			      \left| \frac{a \Delta t}{\Delta x} \right| \leq 1.
 		      }
 	      \end{equation}
 \end{enumerate}
@@ -284,36 +288,46 @@ Similarly, by following steps done in Example \ref{eq:example1} we obtain the fo
 \pagebreak
 %------------------------------------------------------------------------------
 \begin{example}
-	Examine the numerical domain of dependence of the \emph{Lax-Friedrichs} method.
+	Examine the numerical domain of dependence of \emph{Lax-Friedrichs} method.
 \end{example}
 \inputfig{floats/DomainOfDependenceLF}{DomainOfDependenceLF}
-Numerical domain of dependence reads
-\begin{align}
-	\mathcal{D}_{\Delta t}\left(x_j,t_n\right)
-	=  \left\{ x \, \Big| -\frac{at_n}{\nu} \leq x - x_j \leq 0 \right\}.
-\end{align}
 
-Analytical domain of dependence reads
-\begin{align}
-	\mathcal{D}\left(x_j,t_n\right)
-	=  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
-\end{align}
+Similarly, by following steps done in Example \ref{eq:example1},
+or the same as \ref{eq:example3}
+we obtain the following summary:
 
-CFL condition reads
-\begin{equation}
-	\therefore\quad
-	\boxed{
-		0 \leq \nu \leq 1
-		\Leftrightarrow 
-		0 \leq \Delta t \leq \frac{\Delta x}{a}.
-	}
-\end{equation}
+\begin{enumerate}
+	\item Point $D$ and $E$ in terms of fixed-point value satisfying
+	      \begin{align}
+		      (l_1):\quad t & = t_n + \frac{t_{n-1}-t_n}{x_{j-1}-x_j}\left(x-x_{j}\right) \\
+		      (l_2):\quad t & = t_n + \frac{t_{n-1}-t_n}{x_{j+1}-x_j}\left(x-x_{j}\right)
+	      \end{align}
+	\item Numerical domain of dependence reads
+	      \begin{align}
+		      \mathcal{D}_{\Delta t}\left(x_j,t_n\right)
+		      =  \left\{ x \, \Big|\, \left| x - x_j \right| \leq \frac{at_n}{\nu} \right\}.
+	      \end{align}
+	      
+	\item Analytical domain of dependence reads
+	      \begin{align}
+		      \mathcal{D}\left(x_j,t_n\right)
+		      =  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
+	      \end{align}
+	      
+	\item CFL condition reads
+	      \begin{equation}
+		      \therefore\quad
+		      \boxed{
+			      \left| \frac{a \Delta t}{\Delta x} \right| \leq 1.
+		      }
+	      \end{equation}
+\end{enumerate}
 
 \pagebreak
 %------------------------------------------------------------------------------
 \section{von Neumann stability analysis}
 \begin{example}
-	von Neumann stability
+	von Neumann stability analysis for Upwind method.
 \end{example}
 \inputfig{floats/vonNeumannstabil}{vonNeumannstabil}
 
