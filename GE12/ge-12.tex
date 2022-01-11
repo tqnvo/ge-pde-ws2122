@@ -327,11 +327,14 @@ we obtain the following summary:
 %------------------------------------------------------------------------------
 \section{von Neumann stability analysis}
 \begin{example}
-	Perform von Neumann stability analysis for \emph{Lax-Friedrichs} scheme.
+	Perform the \emph{von Neumann} stability analysis for \emph{Lax-Friedrichs} scheme:
 	\begin{align*}
-		u_i^{j+1} = 
-		\frac{1}{2}\left( u_{i+ 1}^j + u_{i - 1}^j \right ) - \frac{c}{2}\left( u_{i+ 1}^j - u_{i - 1}^j \right )
+		u_j^{n+1} = 
+		\frac{1}{2}
+		\left( u_{j+1}^n + u_{j-1}^n \right)
+		- \frac{\nu}{2}\left( u_{j+1}^n - u_{j-1}^n \right),
 	\end{align*}
+	where $v:=a\Delta t/\Delta x$ is the \emph{Courant} number.
 \end{example}
 For the Lax - Friedrich scheme, the amplification factor is given by 
 \begin{align}
@@ -340,7 +343,7 @@ For the Lax - Friedrich scheme, the amplification factor is given by
 which leads to
 \begin{align}
 	|g(\xi)| = 
-	\sqrt{\cos^2   + \nu^2 \sin^2(\xi)} \leq 1 ,
+	\sqrt{\cos^2(\xi)   + \nu^2 \sin^2(\xi)} \leq 1 ,
 	\quad \text{for} \quad 0 < \nu \leq 1.
 \end{align}
 Therefore, the \emph{Lax-Friedrichs} scheme is 
