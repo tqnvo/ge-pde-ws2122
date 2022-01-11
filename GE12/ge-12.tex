@@ -248,32 +248,38 @@ Note in passing that the advection velocity $a$ in this Example \ref{eq:example2
 
 \pagebreak
 %------------------------------------------------------------------------------
-\begin{example}
-	Examine the numerical domain of dependence of the \emph{Lax-Wendroff} method.
+\begin{example}\label{eq:example3}
+	Examine the numerical domain of dependence for a three-point scheme.
 \end{example}
-\inputfig{floats/DomainOfDependenceLW}{DomainOfDependenceLW}
+\inputfig{floats/DomainOfDependence3pts}{DomainOfDependence3pts}
 
-Numerical domain of dependence reads
-\begin{align}
-	\mathcal{D}_{\Delta t}\left(x_j,t_n\right)
-	=  \left\{ x \, \Big| -\frac{at_n}{\nu} \leq x - x_j \leq 0 \right\}.
-\end{align}
+Similarly, by following steps done in Example \ref{eq:example1} we obtain the following summary:
 
-Analytical domain of dependence reads
-\begin{align}
-	\mathcal{D}\left(x_j,t_n\right)
-	=  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
-\end{align}
-
-CFL condition reads
-\begin{equation}
-	\therefore\quad
-	\boxed{
-		0 \leq \nu \leq 1
-		\Leftrightarrow 
-		0 \leq \Delta t \leq \frac{\Delta x}{a}.
-	}
-\end{equation}
+\begin{enumerate}
+	\item Point $E$ in terms of fixed-point value satisfying
+	      \begin{align}
+		      t = t_n + \frac{t_{n-1}-t_n}{x_{j+1}-x_j}\left(x-x_{j}\right)
+	      \end{align}
+	\item Numerical domain of dependence reads
+	      \begin{align}
+		      \mathcal{D}_{\Delta t}\left(x_j,t_n\right)
+		      =  \left\{ x \, \Big|\, 0 \leq x - x_j \leq -\frac{at_n}{\nu} \right\}.
+	      \end{align}
+	      
+	\item Analytical domain of dependence reads
+	      \begin{align}
+		      \mathcal{D}\left(x_j,t_n\right)
+		      =  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
+	      \end{align}
+	      
+	\item CFL condition reads
+	      \begin{equation}
+		      \therefore\quad
+		      \boxed{
+			      \Delta t \geq \frac{\Delta x}{a}.
+		      }
+	      \end{equation}
+\end{enumerate}
 
 \pagebreak
 %------------------------------------------------------------------------------
