@@ -62,7 +62,7 @@ We have just to be consistent with which scheme to follow.
 %------------------------------------------------------------------------------
 \section{Correlation between Domain of dependence (DoD) and Courant-Friedrichs-Lewy (CFL) condition}
 \begin{example}
-	Examine the numerical domain of dependence of the One-sided method.
+	Examine the numerical domain of dependence of the One-sided method (to the left).
 \end{example}
 \inputfig{floats/DomainOfDependence}{DomainOfDependence}
 As it can be seen from \rFig{DomainOfDependence}, 
@@ -179,39 +179,79 @@ computed initial conditions laying between point $D$ and $E$.
 	      Therefore, combination of \eqref{eq:linel1onesided}
 	      and \eqref{eq:linel2onesided} leads to the numerical domain of dependence
 	      for the One-sided method in terms of fixed-point value
-	      \begin{align}
-		      \mathcal{D}_{\Delta t}\left(x_j,t_n\right)
-		      =  \left\{ x\, \Big| -\frac{t_n \Delta x}{\Delta t} \leq x - x_j \leq 0 \right\}.
+	      \begin{equation}\label{eq:method2valuedconsi}
+		      \boxed{
+			      \mathcal{D}_{\Delta t}\left(x_j,t_n\right)
+			      =  \left\{ x\, \Big| -\frac{t_n \Delta x}{\Delta t} \leq x - x_j \leq 0 \right\}.
+		      }
+	      \end{equation}
+	      Besides, the analytical domain of dependence for the linear advection PDE,
+	      as given by \eqref{eq:anadod}, reads
+	      \begin{align}\label{eq:anadod2}
+		      \mathcal{D}\left(x_j,t_n\right)
+		      =  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
 	      \end{align}
+	      Then, by taking into consideration of requirement of the CFL condition, we obtain the 
+	      following relation
+	      \begin{align}\label{eq:resultsCFL2}
+		      -\frac{t_n \Delta x}{\Delta t} \leq \left(x_{j} - at_n\right) - x_j \leq 0,
+	      \end{align}
+	      which we have substituted \eqref{eq:anadod2} into \eqref{eq:method2valuedconsi}.
+	      Herein, the relation \eqref{eq:resultsCFL2} enforcing CFL condition
+	      on the time step $\Delta t$
+	      \begin{equation}
+		      \therefore\quad
+		      \boxed{
+			      0 \leq \Delta t \leq \frac{\Delta x}{a},
+		      }
+	      \end{equation}
+	      which is similar to \eqref{eq:CFLsol1}.
 \end{enumerate}
+
+\pagebreak
+%------------------------------------------------------------------------------
+\begin{example}
+	Examine the numerical domain of dependence of the One-sided method (to the right).
+\end{example}
+\inputfig{floats/DomainOfDependenceTTR}{DomainOfDependenceTTR}
 
 \pagebreak
 %------------------------------------------------------------------------------
 \begin{example}
 	Examine the numerical domain of dependence of the \emph{Lax-Wendroff} method.
 \end{example}
-\inputfig{floats/DomainOfDependence}{DomainOfDependence}
+\inputfig{floats/DomainOfDependenceLW}{DomainOfDependenceLW}
+
+\pagebreak
+%------------------------------------------------------------------------------
+\begin{example}
+	Examine the numerical domain of dependence of the \emph{Lax-Friedrichs} method.
+\end{example}
+\inputfig{floats/DomainOfDependenceLF}{DomainOfDependenceLF}
 
 %------------------------------------------------------------------------------
 \section{von Neumann stability}
+Figure of von-neumann statbility analysis
 
 %------------------------------------------------------------------------------
 \section{Conservative form}
+conservative form exercise
+hint for programming maybe?
 
-%------------------------------------------------------------------------------
-\section{Comparison: Order of consistency}
+% %------------------------------------------------------------------------------
+% \section{Comparison: Order of consistency}
 
-%------------------------------------------------------------------------------
-\section{Godunov}
+% %------------------------------------------------------------------------------
+% \section{Godunov}
 
-%------------------------------------------------------------------------------
-\section{TVD}
+% %------------------------------------------------------------------------------
+% \section{TVD}
 
-%------------------------------------------------------------------------------
-\section{Fourier transformation}
+% %------------------------------------------------------------------------------
+% \section{Fourier transformation}
 
-%------------------------------------------------------------------------------
-\section{Linearity - Oder of consistency - Stability}
+% %------------------------------------------------------------------------------
+% \section{Linearity - Oder of consistency - Stability}
 
 %------------------------------------------------------------------------------
 \section{Time step methods: Comparison}
