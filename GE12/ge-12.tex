@@ -323,13 +323,33 @@ we obtain the following summary:
 	      \end{equation}
 \end{enumerate}
 
-% \pagebreak
-% %------------------------------------------------------------------------------
-% \section{von Neumann stability analysis}
-% \begin{example}
-% 	von Neumann stability analysis for Upwind method.
-% \end{example}
-% \inputfig{floats/vonNeumannstabil}{vonNeumannstabil}
+\pagebreak
+%------------------------------------------------------------------------------
+\section{von Neumann stability analysis}
+\begin{example}
+	Perform von Neumann stability analysis for \emph{Lax-Friedrichs} scheme.
+	\begin{align*}
+		u_i^{j+1} = 
+		\frac{1}{2}\left( u_{i+ 1}^j + u_{i - 1}^j \right ) - \frac{c}{2}\left( u_{i+ 1}^j - u_{i - 1}^j \right )
+	\end{align*}
+\end{example}
+For the Lax - Friedrich scheme, the amplification factor is given by 
+\begin{align}
+	g(\xi) =  \cos \xi - \mathbf{i} \nu \sin\xi \quad 
+\end{align}
+which leads to
+\begin{align}
+	|g(\xi)| = 
+	\sqrt{\cos^2   + \nu^2 \sin^2(\xi)} \leq 1 ,
+	\quad \text{for} \quad 0 < \nu \leq 1.
+\end{align}
+Therefore, the \emph{Lax-Friedrichs} scheme is 
+\emph{conditionally stable} for $0<\nu\leq 1$. 
+
+\begin{example}
+	von Neumann stability analysis for Upwind method.
+\end{example}
+\inputfig{floats/vonNeumannstabil}{vonNeumannstabil}
 
 \pagebreak
 %------------------------------------------------------------------------------
