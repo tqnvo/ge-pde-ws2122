@@ -55,8 +55,8 @@
 	      where the matrix $A$ is diagonalizable with a transformation matrix $T \in \mathbb{R}^{N\times N}$ in the form 
 	      $$A= T^{-1} \Lambda T.$$
 \end{enumerate}
-Note in passing that both schemes result in the same solution. 
-We have just to be consistent with which scheme to follow.
+$\rightarrow$ Note in passing that both schemes result in the same solution.\\ 
+$\rightarrow$ We have just to be consistent with which scheme to follow.
 
 \pagebreak
 %------------------------------------------------------------------------------
@@ -215,6 +215,28 @@ computed initial conditions laying between point $D$ and $E$.
 \end{example}
 \inputfig{floats/DomainOfDependenceTTR}{DomainOfDependenceTTR}
 
+Numerical domain of dependence reads
+\begin{align}
+	\mathcal{D}_{\Delta t}\left(x_j,t_n\right)
+	=  \left\{ x \, \Big| -\frac{at_n}{\nu} \leq x - x_j \leq 0 \right\}.
+\end{align}
+
+Analytical domain of dependence reads
+\begin{align}
+	\mathcal{D}\left(x_j,t_n\right)
+	=  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
+\end{align}
+
+CFL condition reads
+\begin{equation}
+	\therefore\quad
+	\boxed{
+		0 \leq \nu \leq 1
+		\Leftrightarrow 
+		0 \leq \Delta t \leq \frac{\Delta x}{a}.
+	}
+\end{equation}
+
 \pagebreak
 %------------------------------------------------------------------------------
 \begin{example}
@@ -222,21 +244,70 @@ computed initial conditions laying between point $D$ and $E$.
 \end{example}
 \inputfig{floats/DomainOfDependenceLW}{DomainOfDependenceLW}
 
+Numerical domain of dependence reads
+\begin{align}
+	\mathcal{D}_{\Delta t}\left(x_j,t_n\right)
+	=  \left\{ x \, \Big| -\frac{at_n}{\nu} \leq x - x_j \leq 0 \right\}.
+\end{align}
+
+Analytical domain of dependence reads
+\begin{align}
+	\mathcal{D}\left(x_j,t_n\right)
+	=  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
+\end{align}
+
+CFL condition reads
+\begin{equation}
+	\therefore\quad
+	\boxed{
+		0 \leq \nu \leq 1
+		\Leftrightarrow 
+		0 \leq \Delta t \leq \frac{\Delta x}{a}.
+	}
+\end{equation}
+
 \pagebreak
 %------------------------------------------------------------------------------
 \begin{example}
 	Examine the numerical domain of dependence of the \emph{Lax-Friedrichs} method.
 \end{example}
 \inputfig{floats/DomainOfDependenceLF}{DomainOfDependenceLF}
+Numerical domain of dependence reads
+\begin{align}
+	\mathcal{D}_{\Delta t}\left(x_j,t_n\right)
+	=  \left\{ x \, \Big| -\frac{at_n}{\nu} \leq x - x_j \leq 0 \right\}.
+\end{align}
 
-%------------------------------------------------------------------------------
-\section{von Neumann stability}
-Figure of von-neumann statbility analysis
+Analytical domain of dependence reads
+\begin{align}
+	\mathcal{D}\left(x_j,t_n\right)
+	=  \left\{ x \, \Big|\, x = x_{j} - at_n \right\} .
+\end{align}
 
+CFL condition reads
+\begin{equation}
+	\therefore\quad
+	\boxed{
+		0 \leq \nu \leq 1
+		\Leftrightarrow 
+		0 \leq \Delta t \leq \frac{\Delta x}{a}.
+	}
+\end{equation}
+
+\pagebreak
 %------------------------------------------------------------------------------
-\section{Conservative form}
-conservative form exercise
-hint for programming maybe?
+\section{von Neumann stability analysis}
+\begin{example}
+	von Neumann stability
+\end{example}
+\inputfig{floats/vonNeumannstabil}{vonNeumannstabil}
+
+\pagebreak
+%------------------------------------------------------------------------------
+\section{Conservative form -  Finite Volume Method}
+\begin{example}
+	Conservative form 
+\end{example}
 
 % %------------------------------------------------------------------------------
 % \section{Comparison: Order of consistency}
@@ -253,47 +324,47 @@ hint for programming maybe?
 % %------------------------------------------------------------------------------
 % \section{Linearity - Oder of consistency - Stability}
 
-%------------------------------------------------------------------------------
-\section{Time step methods: Comparison}
-\begin{enumerate}
-	\item Upwind left - One-sided method
-	\item Upwind right - One-sided method
-	\item Lax-Friedrichs
-	\item Lax-Wendroff
-	\item Leapfrog
-	\item 
-\end{enumerate}
+% %------------------------------------------------------------------------------
+% \section{Time step methods: Comparison}
+% \begin{enumerate}
+% 	\item Upwind left - One-sided method
+% 	\item Upwind right - One-sided method
+% 	\item Lax-Friedrichs
+% 	\item Lax-Wendroff
+% 	\item Leapfrog
+% 	\item 
+% \end{enumerate}
 
-%------------------------------------------------------------------------------
-\section{Remark about Rarefaction wave solution}
-\begin{example}
-	Show that for a general convex scalar problem 
-	\begin{align*}
-		u_t + f(u)_x = 0	
-	\end{align*}
-	with initial condition
-	in form of \emph{Riemann}'s problem 
-	\begin{align*}
-		u(x,t=0) = 
-		\begin{cases}
-			u_L, \quad x<0, \\
-			u_R, \quad x>0,
-		\end{cases}
-		\quad\text{where}\quad
-		u_L<u_R,
-	\end{align*}
-	the rarefaction wave solution
-	is given by 
-	\begin{align*}
-		u(x,t) =
-		\begin{cases} 
-			u_L,    & \quad x/t < f'(u_L),                 \\
-			v(x/t), & \quad f'(u_L) \leq x/t \leq f'(u_R), \\
-			u_R,    & \quad x/t > f'(u_R),
-		\end{cases}
-	\end{align*}
-	where $v(\xi)$ is the solution to $f'(v(\xi)) = \xi$.
-\end{example}
+% %------------------------------------------------------------------------------
+% \section{Remark about Rarefaction wave solution}
+% \begin{example}
+% 	Show that for a general convex scalar problem 
+% 	\begin{align*}
+% 		u_t + f(u)_x = 0	
+% 	\end{align*}
+% 	with initial condition
+% 	in form of \emph{Riemann}'s problem 
+% 	\begin{align*}
+% 		u(x,t=0) = 
+% 		\begin{cases}
+% 			u_L, \quad x<0, \\
+% 			u_R, \quad x>0,
+% 		\end{cases}
+% 		\quad\text{where}\quad
+% 		u_L<u_R,
+% 	\end{align*}
+% 	the rarefaction wave solution
+% 	is given by 
+% 	\begin{align*}
+% 		u(x,t) =
+% 		\begin{cases} 
+% 			u_L,    & \quad x/t < f'(u_L),                 \\
+% 			v(x/t), & \quad f'(u_L) \leq x/t \leq f'(u_R), \\
+% 			u_R,    & \quad x/t > f'(u_R),
+% 		\end{cases}
+% 	\end{align*}
+% 	where $v(\xi)$ is the solution to $f'(v(\xi)) = \xi$.
+% \end{example}
 
 % \begin{checkexample}
 % 	Let matrix $A$ be given as 
