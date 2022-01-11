@@ -55,22 +55,10 @@
 	      where the matrix $A$ is diagonalizable with a transformation matrix $T \in \mathbb{R}^{N\times N}$ in the form 
 	      $$A= T^{-1} \Lambda T.$$
 \end{enumerate}
-Both schemes result in the same solution. We have just to be consistent with which scheme to follow.
+Note in passing that both schemes result in the same solution. 
+We have just to be consistent with which scheme to follow.
 
-%------------------------------------------------------------------------------
-\section{Linearity - Oder of consistency - Stability}
-
-%------------------------------------------------------------------------------
-\section{Time step methods: Comparison}
-\begin{enumerate}
-	\item Upwind left - One-sided method
-	\item Upwind right - One-sided method
-	\item Lax-Friedrichs
-	\item Lax-Wendroff
-	\item Leapfrog
-	\item 
-\end{enumerate}
-
+\pagebreak
 %------------------------------------------------------------------------------
 \section{Correlation between Domain of dependence (DoD) and Courant-Friedrichs-Lewy (CFL) condition}
 \begin{example}
@@ -197,6 +185,13 @@ computed initial conditions laying between point $D$ and $E$.
 	      \end{align}
 \end{enumerate}
 
+\pagebreak
+%------------------------------------------------------------------------------
+\begin{example}
+	Examine the numerical domain of dependence of the \emph{Lax-Wendroff} method.
+\end{example}
+\inputfig{floats/DomainOfDependence}{DomainOfDependence}
+
 %------------------------------------------------------------------------------
 \section{von Neumann stability}
 
@@ -214,6 +209,20 @@ computed initial conditions laying between point $D$ and $E$.
 
 %------------------------------------------------------------------------------
 \section{Fourier transformation}
+
+%------------------------------------------------------------------------------
+\section{Linearity - Oder of consistency - Stability}
+
+%------------------------------------------------------------------------------
+\section{Time step methods: Comparison}
+\begin{enumerate}
+	\item Upwind left - One-sided method
+	\item Upwind right - One-sided method
+	\item Lax-Friedrichs
+	\item Lax-Wendroff
+	\item Leapfrog
+	\item 
+\end{enumerate}
 
 %------------------------------------------------------------------------------
 \section{Remark about Rarefaction wave solution}
