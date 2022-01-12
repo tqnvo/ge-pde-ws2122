@@ -323,9 +323,9 @@ we obtain the following summary:
 	      \end{equation}
 \end{enumerate}
 
-% \pagebreak
+\pagebreak
 % %------------------------------------------------------------------------------
-% \section{von Neumann stability analysis}
+\section{von Neumann stability analysis}
 % \begin{example}
 % 	Perform the \emph{von Neumann} stability analysis for \emph{Lax-Friedrichs} scheme
 % 	\begin{align}\label{scheme-01}
@@ -434,87 +434,95 @@ we obtain the following summary:
 % Therefore, the \emph{Lax-Friedrichs} scheme is 
 % \emph{conditionally stable} for $0<\nu\leq 1$. 
 
-% \begin{example}
-% 	von Neumann stability analysis for Upwind method.
-% \end{example}
-% \inputfig{floats/vonNeumannstabil}{vonNeumannstabil}
+\begin{example}
+	von Neumann stability analysis for Upwind method.
+\end{example}
+\inputfig{floats/vonNeumannstabil}{vonNeumannstabil}
+
+\begin{example}
+	Summary consistency $+$ stability $\Rightarrow$ Convergence
+\end{example}
 
 \pagebreak
 %------------------------------------------------------------------------------
 \section{Conservation form - Finite Volume Method}
 \begin{example}
-	Consider the \emph{Burgers}' equation
-	\begin{align*}
-		u_t + \left(\frac{1}{2}u^2\right)_x = 0.
-	\end{align*}
-	\begin{enumerate}
-		\item Show that the upwind scheme for this version of \emph{Burgers}' equation as follows
-		      \begin{align*}
-			      u_j^{n+1} = u_j^n + \frac{\Delta t}{\Delta x} \left(
-			      \frac{1}{2}(u_{j-1}^n)^2 - \frac{1}{2}(u_j^n)^2 \right)
-		      \end{align*}
-		      \emph{can} be represented in \emph{conservation form}.
-		      
-		\item If we rewrite the above \emph{Burgers}'
-		      equation as
-		      \begin{align*}
-			      u_t + uu_x = 0,
-		      \end{align*}
-		      we can assume it as a linear advection problem with speed $u$. Prove that
-		      the upwind scheme for the latter equation as
-		      \begin{align*}
-			      u_j^{n+1} = u_j^n + \frac{u_j^n \Delta t}{\Delta x} (u_{j-1}^n-u_j^n)
-		      \end{align*}
-		      \emph{cannot} be represented in \emph{conservation form}.
-	\end{enumerate}
+	Derivation of conservation form.
 \end{example}
-Approach:
-\begin{enumerate}
-	\item If we take the numerical flux
-	      \begin{align*}
-		      \tilde{F}_{j+1/2}(u_j^n, u_{j+1}^n) = f(u_j^n) = \frac{1}{2} (u_j^n)^2,
-	      \end{align*}
-	      then the corresponding numerical scheme can be rewritten in conservation form
-	      \begin{align*}
-		      u_j^{n+1} = u_j^n + \frac{\Delta t}{\Delta
-			      x}(\tilde{F}_{j-1/2}(u_{j-1}^n, u_j^n) - \tilde{F}_{j+1/2}(u_j^n,
-		      u_{j+1}^n)).
-	      \end{align*}
-	      
-	\item
-	      \begin{proof}
-		      Let us take a look at the derivatives of $H_{\Delta t}$ by
-		      $u_{j-1}^n, u_j^n$ and $u_{j+1}^n$ as follows
-		      \begin{align*}
-			      x & = \partial_{u_{j-1}^n} H_{\Delta t} = \frac{u_j^n \Delta t}{\Delta x}, \\
-			      y & = \partial_{u_j^n} H_{\Delta t} = 1 + \frac{u_{j-1}^n \Delta
-				      t}{\Delta x} - \frac{2u_j^n \Delta t}{\Delta x},                           \\
-			      z & = \partial_{u_{j+1}^n} H_{\Delta t} = 0.
-		      \end{align*}
-		      Summation of the term $x|_{j+1}$, the term $y|_j$, and the term $z|_{j-1}$
-		      must be equal to $1$ in order to satisfy the conservation form.
-		      However, we observe that the summation of these three terms does not satisfy
-		      the equality to $1$, as follows
-		      \begin{align*}
-			      x|_{j+1} + y|_j + z|_{j-1}
-			       & = 1 + \frac{\Delta t}{\Delta x} (u_{j+1}^n - 2u_j^n + u_{j-1}j^n) \\
-			       & \ne 1.
-		      \end{align*}
-		      Besides, if we would like to check this property for the first scheme,
-		      we obtain the following relations
-		      \begin{align*}
-			      x & = \frac{\Delta t}{\Delta x}u_{j-1}^n,  \\
-			      y & = 1 - \frac{\Delta t}{\Delta x} u_j^n, \\
-			      z & = 0,
-		      \end{align*}
-		      which leads to the summation of these three terms,
-		      i.e. the term $x|_{j+1}$, the term $y|_j$, and the term $z|_{j-1}$,
-		      equal to $1$, as follows
-		      \begin{align*}
-			      x|_{j+1} + y|_j + z|_{j-1} = 1.
-		      \end{align*}
-	      \end{proof}
-\end{enumerate}
+
+% \begin{example}
+% 	Consider the \emph{Burgers}' equation
+% 	\begin{align*}
+% 		u_t + \left(\frac{1}{2}u^2\right)_x = 0.
+% 	\end{align*}
+% 	\begin{enumerate}
+% 		\item Show that the upwind scheme for this version of \emph{Burgers}' equation as follows
+% 		      \begin{align*}
+% 			      u_j^{n+1} = u_j^n + \frac{\Delta t}{\Delta x} \left(
+% 			      \frac{1}{2}(u_{j-1}^n)^2 - \frac{1}{2}(u_j^n)^2 \right)
+% 		      \end{align*}
+% 		      \emph{can} be represented in \emph{conservation form}.
+
+% 		\item If we rewrite the above \emph{Burgers}'
+% 		      equation as
+% 		      \begin{align*}
+% 			      u_t + uu_x = 0,
+% 		      \end{align*}
+% 		      we can assume it as a linear advection problem with speed $u$. Prove that
+% 		      the upwind scheme for the latter equation as
+% 		      \begin{align*}
+% 			      u_j^{n+1} = u_j^n + \frac{u_j^n \Delta t}{\Delta x} (u_{j-1}^n-u_j^n)
+% 		      \end{align*}
+% 		      \emph{cannot} be represented in \emph{conservation form}.
+% 	\end{enumerate}
+% \end{example}
+% Approach:
+% \begin{enumerate}
+% 	\item If we take the numerical flux
+% 	      \begin{align*}
+% 		      \tilde{F}_{j+1/2}(u_j^n, u_{j+1}^n) = f(u_j^n) = \frac{1}{2} (u_j^n)^2,
+% 	      \end{align*}
+% 	      then the corresponding numerical scheme can be rewritten in conservation form
+% 	      \begin{align*}
+% 		      u_j^{n+1} = u_j^n + \frac{\Delta t}{\Delta
+% 			      x}(\tilde{F}_{j-1/2}(u_{j-1}^n, u_j^n) - \tilde{F}_{j+1/2}(u_j^n,
+% 		      u_{j+1}^n)).
+% 	      \end{align*}
+
+% 	\item
+% 	      \begin{proof}
+% 		      Let us take a look at the derivatives of $H_{\Delta t}$ by
+% 		      $u_{j-1}^n, u_j^n$ and $u_{j+1}^n$ as follows
+% 		      \begin{align*}
+% 			      x & = \partial_{u_{j-1}^n} H_{\Delta t} = \frac{u_j^n \Delta t}{\Delta x}, \\
+% 			      y & = \partial_{u_j^n} H_{\Delta t} = 1 + \frac{u_{j-1}^n \Delta
+% 				      t}{\Delta x} - \frac{2u_j^n \Delta t}{\Delta x},                           \\
+% 			      z & = \partial_{u_{j+1}^n} H_{\Delta t} = 0.
+% 		      \end{align*}
+% 		      Summation of the term $x|_{j+1}$, the term $y|_j$, and the term $z|_{j-1}$
+% 		      must be equal to $1$ in order to satisfy the conservation form.
+% 		      However, we observe that the summation of these three terms does not satisfy
+% 		      the equality to $1$, as follows
+% 		      \begin{align*}
+% 			      x|_{j+1} + y|_j + z|_{j-1}
+% 			       & = 1 + \frac{\Delta t}{\Delta x} (u_{j+1}^n - 2u_j^n + u_{j-1}j^n) \\
+% 			       & \ne 1.
+% 		      \end{align*}
+% 		      Besides, if we would like to check this property for the first scheme,
+% 		      we obtain the following relations
+% 		      \begin{align*}
+% 			      x & = \frac{\Delta t}{\Delta x}u_{j-1}^n,  \\
+% 			      y & = 1 - \frac{\Delta t}{\Delta x} u_j^n, \\
+% 			      z & = 0,
+% 		      \end{align*}
+% 		      which leads to the summation of these three terms,
+% 		      i.e. the term $x|_{j+1}$, the term $y|_j$, and the term $z|_{j-1}$,
+% 		      equal to $1$, as follows
+% 		      \begin{align*}
+% 			      x|_{j+1} + y|_j + z|_{j-1} = 1.
+% 		      \end{align*}
+% 	      \end{proof}
+% \end{enumerate}
 
 
 
