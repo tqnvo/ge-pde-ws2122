@@ -26,26 +26,114 @@
 \end{center}
 %------------------------------------------------------------------------------
 \section{Conservation form - Finite Volume Method (cont.)}
-\begin{enumerate}
-	\item consistent conservation form? Why important?
-	\item Maccormack
-	\item twos-tep Lax-Wendroff
-	\item consistent numerical flux function
-\end{enumerate}
+\begin{example}
+	Derivation of conservation form.
+\end{example}
+Starting point is the \textbf{integral form} of conservation law. Recall example 1
+in the global exercise 9, the integral formulation of conservation law
+for a scalar conserved quantity $u(x,t)$ over real line $[x_1,x_2]$, herein, reads
+\begin{equation}\label{eq:integralform1}
+	\boxed{
+		\frac{d}{dt}\int_{x_{1}}^{x_{2}} u(x,t)\,dx = f(u(x_{1},t)) - f(u(x_{2},t)).
+	}
+\end{equation}
+Integration both side of \eqref{eq:integralform1} over temporal interval $[t_1,t_2]$ yields
+\begin{align}
+	\left.\left( \int_{x_{1}}^{x_{2}} u(x,t)\,dx\right) \right|_{t=t_1}^{t=t_2}
+	= \int_{t_1}^{t_2} \left( f(u(x_{1},t)) - f(u(x_{2},t)) \right)dt,
+\end{align}
+which leads to \textbf{another integral form} of the conservation law, as follows
+\begin{equation}\label{eq:integralform2}
+	\boxed{
+		\int_{x_{1}}^{x_{2}} u(x,t_2)\,dx = 
+		\int_{x_{1}}^{x_{2}} u(x,t_1)\,dx
+		+ \int_{t_1}^{t_2} f(u(x_{1},t)) \,dt
+		- \int_{t_1}^{t_2} f(u(x_{2},t)) \,dt,
+	}
+\end{equation}
+which is useful to derive the conservation form for finite volume method.
+Then, instead of $[x_1,x_2]$ and $[t_1,t_2]$
+we consider spatial interval $[x_{j-1/2},x_{j+1/2}]$
+and temporal interval $[t_n,t_{n+1}]$ as follows
+\begin{align}
+	[x_1,x_2] & \rightarrow [x_{j-1/2},x_{j+1/2}], \\
+	[t_1,t_2] & \rightarrow [t_n,t_{n+1}].
+\end{align}
+Hence, the integral form in \eqref{eq:integralform2} becomes
+\begin{align}\label{eq:integralform3}
+	\int_{x_{j-1/2}}^{x_{j+1/2}} u(x,t_{n+1})\,dx & = 
+	\int_{x_{j-1/2}}^{x_{j+1/2}} u(x,t_{n})\,dx \notag                                                     \\
+	                                              & \qquad + \int_{t_{n}}^{t_{n+1}} f(u(x_{j-1/2},t)) \,dt
+	- \int_{t_{n}}^{t_{n+1}} f(u(x_{j+1/2},t)) \,dt.
+\end{align}
+Next, consideration of the cell average formulation, which,
+by definition, reads
+\begin{align}
+	\bar{u}_{j}^{n}	:= 
+	\frac{1}{\Delta x} \int_{x_{j-1/2}}^{x_{j+1/2}} u(x,t_{n})\,dx,
+\end{align}
+and multiplication of both sides of \eqref{eq:integralform3} by $1/\Delta x$
+yield the following relation
+\begin{align}\label{eq:integralform4}
+	\bar{u}_{j}^{n+1} = \bar{u}_{j}^{n}
+	+ \frac{1}{\Delta x}
+	\left(
+	\int_{t_{n}}^{t_{n+1}} f(u(x_{j-1/2},t)) \,dt
+	- \int_{t_{n}}^{t_{n+1}} f(u(x_{j+1/2},t)) \,dt
+	\right).
+\end{align}
+Moreover, by defining the \textbf{numerical flux functions} as follows
+\begin{align}
+	\tilde{f}_{j-1/2}^{n} := \frac{1}{\Delta t}\int_{t_{n}}^{t_{n+1}} f(u(x_{j-1/2},t)) \,dt, \\
+	\tilde{f}_{j+1/2}^{n} := \frac{1}{\Delta t}\int_{t_{n}}^{t_{n+1}} f(u(x_{j+1/2},t)) \,dt,
+\end{align}
+the expression \eqref{eq:integralform4} now becomes the \textbf{conservation form}
+\begin{equation}
+	\boxed{
+		\bar{u}_{j}^{n+1} = \bar{u}_{j}^{n}
+		+ \frac{\Delta t}{\Delta x}
+		\left(
+		\tilde{f}_{j-1/2}^{n}
+		-\tilde{f}_{j+1/2}^{n}
+		\right).
+	}
+\end{equation}
+\begin{example}
+	Lipschitz continuity.
+\end{example}
 
-\section{Remark on the HW12}
-\begin{enumerate}
-	\item Maccormack
-	\item twos-tep Lax-Wendroffs
-\end{enumerate}
+\begin{example}
+	Derivation of the conservative form of upwind scheme.
+	Examine its numerical flux function: conservative? consistent?
+\end{example}
 
-\section{Discontinuous solution}
+\begin{example}
+	Derivation of the conservative form of Lax-Friedrichs scheme. 
+	Examine its numerical flux function: conservative? consistent?
+\end{example}
+
+\begin{example}
+	Derivation of the conservative form of Lax-Wendroff scheme. 
+	Examine its numerical flux function: conservative? consistent?
+\end{example}
+
+\begin{example}
+	Derivation of the conservative form of the two-step Lax-Wendroff scheme. 
+	Examine its numerical flux function: conservative? consistent?
+\end{example}
+
+\begin{example}
+	Derivation of the conservative form of MacCormack scheme. 
+	Examine its numerical flux function: conservative? consistent?
+\end{example}
 
 \section{Godunov linear systems}
 
 \section{Roe}
 
 \section{Theory of high resolution}
+
+\section{Discontinuous solution}
 
 
 
