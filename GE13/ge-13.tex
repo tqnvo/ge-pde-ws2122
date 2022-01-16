@@ -31,9 +31,10 @@ PDE $\cdot$ GE13 $\cdot$ WS21/22
 \begin{example}
 	Derivation of conservation form.
 \end{example}
-Starting point is the \textbf{integral form} of conservation law. Recall example 1
-in the global exercise 9, the integral formulation of conservation law
-for a scalar conserved quantity $u(x,t)$ over real line $[x_1,x_2]$, herein, reads
+\inputfig{floats/massx1x2_u}{massx1x2_u}
+Starting point is the \textbf{integral form} of conservation law. Recall
+the integral formulation of conservation law
+for a scalar conserved quantity $u(x,t)$ over domain $[x_1,x_2]$, herein, reads
 \begin{equation}\label{eq:integralform1}
 	\boxed{
 		\frac{d}{dt}\int_{x_{1}}^{x_{2}} u(x,t)\,dx = f(u(x_{1},t)) - f(u(x_{2},t)).
@@ -68,6 +69,8 @@ Hence, the integral form in \eqref{eq:integralform2} becomes
 	                                              & \qquad + \int_{t_{n}}^{t_{n+1}} f(u(x_{j-1/2},t)) \,dt
 	- \int_{t_{n}}^{t_{n+1}} f(u(x_{j+1/2},t)) \,dt.
 \end{align}
+\inputfig{floats/conservationform}{conservationform}
+
 Next, consideration of the cell average formulation, which,
 by definition, reads
 \begin{align}
