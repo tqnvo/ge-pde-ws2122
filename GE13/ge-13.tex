@@ -55,7 +55,7 @@ which leads to \textbf{\textit{another} integral form} of the conservation law, 
 	}
 \end{equation}
 The integral form of conservation law shown in
-\eqref{eq:integralform2} is useful 
+\eqref{eq:integralform2} will be now used 
 to derive the conservation form for finite volume method (FVM).
 Then, the derivation is performed by taking into consideration of
 the spatial interval $[x_{j-1/2},x_{j+1/2}]$
@@ -95,7 +95,7 @@ Moreover, by defining the \textbf{numerical flux functions} as follows
 	\tilde{f}_{j-1/2}^{n} := \frac{1}{\Delta t}\int_{t_{n}}^{t_{n+1}} f(u(x_{j-1/2},t)) \,dt, \\
 	\tilde{f}_{j+1/2}^{n} := \frac{1}{\Delta t}\int_{t_{n}}^{t_{n+1}} f(u(x_{j+1/2},t)) \,dt,
 \end{align}
-the expression \eqref{eq:integralform4} now becomes the \textbf{conservation form}
+the expression \eqref{eq:integralform4} finally becomes the \textbf{conservation form}
 \begin{equation}
 	\therefore\quad
 	\boxed{
@@ -110,6 +110,10 @@ the expression \eqref{eq:integralform4} now becomes the \textbf{conservation for
 \begin{example}
 	Lipschitz continuity.
 \end{example}
+\begin{figure}[h]
+	\centering
+	\animategraphics[scale = 0.3, every = 2, autoplay, loop]{10}{animations/sqn_lipschitz/lipschitz-}{1}{51}
+\end{figure}
 
 \begin{example}
 	Derivation of the conservative form of upwind scheme.
