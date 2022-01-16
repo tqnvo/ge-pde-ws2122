@@ -45,19 +45,22 @@ Integration both side of \eqref{eq:integralform1} over temporal interval $[t_1,t
 	\left.\left( \int_{x_{1}}^{x_{2}} u(x,t)\,dx\right) \right|_{t=t_1}^{t=t_2}
 	= \int_{t_1}^{t_2} \left( f(u(x_{1},t)) - f(u(x_{2},t)) \right)dt,
 \end{align}
-which leads to \textbf{another integral form} of the conservation law, as follows
+which leads to \textbf{\textit{another} integral form} of the conservation law, as follows
 \begin{equation}\label{eq:integralform2}
 	\boxed{
 		\int_{x_{1}}^{x_{2}} u(x,t_2)\,dx = 
 		\int_{x_{1}}^{x_{2}} u(x,t_1)\,dx
 		+ \int_{t_1}^{t_2} f(u(x_{1},t)) \,dt
-		- \int_{t_1}^{t_2} f(u(x_{2},t)) \,dt,
+		- \int_{t_1}^{t_2} f(u(x_{2},t)) \,dt.
 	}
 \end{equation}
-which is useful to derive the conservation form for finite volume method.
-Then, instead of $[x_1,x_2]$ and $[t_1,t_2]$
-we consider spatial interval $[x_{j-1/2},x_{j+1/2}]$
-and temporal interval $[t_n,t_{n+1}]$ as follows
+The integral form of conservation law shown in
+\eqref{eq:integralform2} is useful 
+to derive the conservation form for finite volume method (FVM).
+Then, the derivation is performed by taking into consideration of
+the spatial interval $[x_{j-1/2},x_{j+1/2}]$
+and temporal interval $[t_n,t_{n+1}]$ instead of $[x_1,x_2]$ and $[t_1,t_2]$, respectively,
+as follows
 \begin{align}
 	[x_1,x_2] & \rightarrow [x_{j-1/2},x_{j+1/2}], \\
 	[t_1,t_2] & \rightarrow [t_n,t_{n+1}].
