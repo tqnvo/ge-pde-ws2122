@@ -188,80 +188,16 @@ takes the following form
 	Write the \emph{Lax-Wendroff} scheme for the above equation in \emph{conservation form}. 
 	Show that the numerical flux function is consistent.
 \end{example}
-Recall the conservation form
-\begin{equation}
-	\bar{u}_{j}^{n+1} = \bar{u}_{j}^{n}
-	+ \frac{\Delta t}{\Delta x}
-	\left(
-	\tilde{f}_{j-1/2}^{n}
-	-\tilde{f}_{j+1/2}^{n}
-	\right).
-\end{equation}
 
-%------------------------------------------------------------------------------
-\pagebreak
-\begin{example}
-	% Derivation of the conservative form of the two-step Lax-Wendroff scheme. 
-	% Examine its numerical flux function: conservative? consistent?
-	Consider the two-step \emph{Lax-Wendroff} scheme as follows
-	% \begin{align}
-	% 	u^{n+1/2}_{j+1/2} & 
-	% 	= \frac{1}{2} \left(u_{j+1}^n + u_j^n \right) -
-	% 	\frac{\Delta t}{2\Delta x}
-	% 	\left( f\left(u_{j+1}^n\right) -f\left(u_j^n\right) \right), \\
-	% 	u_j^{n+1}         & 
-	% 	= u_j^n -
-	% 	\frac{\Delta t}{\Delta x}
-	% 	\left(
-	% 	f\left(u_{j+1/2}^{n+1/2}\right)
-	% 	-f\left(u_{j-1/2}^{n+1/2}\right)
-	% 	\right).
-	% \end{align}
-	\begin{center}
-		\begin{enumerate}
-			\item[\text{Step-1:}] First, update the half-advanced-in-time point $u^{n+1/2}_{j+1/2}$ by using
-			      \begin{align}
-				      u^{n+1/2}_{j+1/2}
-				      = \frac{1}{2} \left(u_{j+1}^n + u_j^n \right) -
-				      \frac{\Delta t}{2\Delta x}
-				      \left( f\left(u_{j+1}^n\right) -f\left(u_j^n\right) \right),
-			      \end{align}
-			\item[\text{Step-2:}] Then, update the fully-advanced-in-time point $u^{n+1}_{j}$ by using
-			      \begin{align}
-				      u_j^{n+1}         
-				      = u_j^n -
-				      \frac{\Delta t}{\Delta x}
-				      \left(
-				      f\left(u_{j+1/2}^{n+1/2}\right)
-				      -f\left(u_{j-1/2}^{n+1/2}\right)
-				      \right).
-			      \end{align}
-		\end{enumerate}
-	\end{center}
-	Examine the two-step Lax-Wendroff scheme whether 
-	it can be written in the \emph{conservation form}. 
-	Examine also if its numerical flux function is consistent.
-\end{example}
-
-Recall the conservation form
-\begin{equation}
-	\bar{u}_{j}^{n+1} = \bar{u}_{j}^{n}
-	+ \frac{\Delta t}{\Delta x}
-	\left(
-	\tilde{f}_{j-1/2}^{n}
-	-\tilde{f}_{j+1/2}^{n}
-	\right).
-\end{equation}
-
-Idea:
-\begin{equation}
-	\boxed{
-		\begin{aligned}
-			\text{One way to avoid using Jacobian matrix arising in flux function,} \\
-			\text{when dealing with linear hyperbolic system $U_{t} + AU_{x} = 0$.}
-		\end{aligned}
-	}
-\end{equation}
+% Recall the conservation form for vectorial unknown quantity:
+% \begin{equation}
+% 	\bar{U}_{j}^{n+1} = \bar{U}_{j}^{n}
+% 	+ \frac{\Delta t}{\Delta x}
+% 	\left(
+% 	\tilde{F}_{j-1/2}^{n}
+% 	-\tilde{F}_{j+1/2}^{n}
+% 	\right).
+% \end{equation}
 
 Approach:
 \begin{enumerate}
@@ -269,20 +205,22 @@ Approach:
 	      $u_t + f(u)_x = 0$ is said to be conservative 
 	      if it can be written in the conservation form, as follows
 	      \begin{align}
-		      u_j^{n+1} 
-		      = u_j^n 
+		      \bar{U}_{j}^{n+1} = \bar{U}_{j}^{n}
 		      + \frac{\Delta t}{\Delta x}
 		      \left(
-		      \tilde{f}_{j-1/2}^n - \tilde{f}_{j+1/2}^n
+		      \tilde{F}_{j-1/2}^{n}
+		      -\tilde{F}_{j+1/2}^{n}
 		      \right),
 	      \end{align}
-	      where $\tilde{f}_{j-1/2}^n$ and $\tilde{f}_{j+1/2}^n$
-	      are called interfacial fluxes. These fluxes are given by 
-	      \begin{align}
-		      \tilde{f}_{j+1/2}^n & = \tilde{f}\left( u_{j-m+1}^n, \hdots, u_{j+m}^n \right), \\
-		      \tilde{f}_{j-1/2}^n & = \tilde{f}\left( u_{j-m}^n, \hdots, u_{j+m-1}^n \right).
-	      \end{align}
-	      In case of the \emph{Lax-Wendroff} scheme for the nonlinear conservation law equation,
+	      where $\tilde{F}_{j-1/2}^n$ and $\tilde{F}_{j+1/2}^n$
+	      are called interfacial fluxes. 
+	      %   These fluxes are given by 
+	      %   \begin{align}
+	      %       \tilde{f}_{j+1/2}^n & = \tilde{f}\left( u_{j-m+1}^n, \hdots, u_{j+m}^n \right), \\
+	      %       \tilde{f}_{j-1/2}^n & = \tilde{f}\left( u_{j-m}^n, \hdots, u_{j+m-1}^n \right).
+	      %   \end{align}
+	      Next, by taking into consideration for the case of \emph{Lax-Wendroff} scheme 
+	      for the nonlinear conservation law equation,
 	      the conservation form is derived as follows
 	      \begin{align}
 		      u_j^{n+1} = u_j^n 
@@ -356,6 +294,123 @@ Approach:
 %------------------------------------------------------------------------------
 \pagebreak
 \begin{example}
+	% Derivation of the conservative form of the two-step Lax-Wendroff scheme. 
+	% Examine its numerical flux function: conservative? consistent?
+	Consider the two-step \emph{Lax-Wendroff} scheme as follows
+	% \begin{align}
+	% 	u^{n+1/2}_{j+1/2} & 
+	% 	= \frac{1}{2} \left(u_{j+1}^n + u_j^n \right) -
+	% 	\frac{\Delta t}{2\Delta x}
+	% 	\left( f\left(u_{j+1}^n\right) -f\left(u_j^n\right) \right), \\
+	% 	u_j^{n+1}         & 
+	% 	= u_j^n -
+	% 	\frac{\Delta t}{\Delta x}
+	% 	\left(
+	% 	f\left(u_{j+1/2}^{n+1/2}\right)
+	% 	-f\left(u_{j-1/2}^{n+1/2}\right)
+	% 	\right).
+	% \end{align}
+	\begin{center}
+		\begin{enumerate}
+			\item[\text{Step-1:}] First, update the half-advanced-in-time point $u^{n+1/2}_{j+1/2}$ by using
+			      \begin{align}
+				      u^{n+1/2}_{j+1/2}
+				      = \frac{1}{2} \left(u_{j+1}^n + u_j^n \right) -
+				      \frac{\Delta t}{2\Delta x}
+				      \left( f\left(u_{j+1}^n\right) -f\left(u_j^n\right) \right),
+			      \end{align}
+			\item[\text{Step-2:}] Then, update the fully-advanced-in-time point $u^{n+1}_{j}$ by using
+			      \begin{align}
+				      u_j^{n+1}         
+				      = u_j^n -
+				      \frac{\Delta t}{\Delta x}
+				      \left(
+				      f\left(u_{j+1/2}^{n+1/2}\right)
+				      -f\left(u_{j-1/2}^{n+1/2}\right)
+				      \right).
+			      \end{align}
+		\end{enumerate}
+	\end{center}
+	Examine the two-step Lax-Wendroff scheme whether 
+	it is conservative, i.e. the scheme can be written 
+	in the \emph{conservation form}. 
+	In case it is conservative, determining the numerical flux function.
+	% Examine also if its numerical flux function is consistent.
+\end{example}
+
+Idea:
+\begin{equation}
+	\boxed{
+		\begin{array}{c}
+			\text{One way to avoid using Jacobian matrix arising in flux function,} \\
+			\text{when dealing with linear hyperbolic system $U_{t} + AU_{x} = 0$.}
+		\end{array}
+	}
+\end{equation}
+
+Recall the conservation form for vectorial unknown quantity:
+\begin{equation}
+	\bar{U}_{j}^{n+1} = \bar{U}_{j}^{n}
+	+ \frac{\Delta t}{\Delta x}
+	\left(
+	\tilde{F}_{j-1/2}^{n}
+	-\tilde{F}_{j+1/2}^{n}
+	\right).
+\end{equation}
+
+Approach:
+The two-step \emph{Lax-Wendroff} scheme for the conservation law
+$u_t + f(u)_x=0$ is given by
+\begin{align*}
+	u^{n+1/2}_{j+1/2} & = \frac{1}{2}
+	\left( u_{j+1}^n +u_j^n \right)
+	- \frac{\lambda}{2} \left(
+	f\left(u_{j+1}^n\right) - f\left(u_j^n\right) \right), \\
+	u_j^{n+1}         & = 
+	u_j^n -\lambda \left( f\left(u_{j+1/2}^{n+1/2}\right)
+	- f\left(u_{j-1/2}^{n+1/2}\right) \right).
+\end{align*}
+This scheme can also be written in the conservation form
+\begin{align*}
+	u_j^{n+1} 
+	= u_j^n - \lambda 
+	\left( f_{i + 1/2}^n - f_{i - 1/2}^n \right),
+\end{align*}
+where
+\begin{align*}
+	\begin{split}
+		f_{j+1/2}^n 
+		& = f 
+		\left( 
+		\frac{1}{2} \left ( u_{j+1}^n + u_j^n \right)
+		- \frac{\lambda}{2}
+		\left( f\left(u_{j+1}^n\right) - f(u_j^n) \right ) \right), \\
+		f_{j-1/2}^n 
+		& = f 
+		\left( 
+		\frac{1}{2} \left ( u_{j}^n + u_{j-1}^n \right)
+		- \frac{\lambda}{2} \left( f(u_{j}^n) - f(u_{j-1}^n) \right) 
+		\right).
+	\end{split}
+\end{align*}
+The conservative flux function is given by 
+\begin{align*}
+	F(u,v) = f
+	\left( 
+	\frac{1}{2}(u+v)
+	- \frac{\lambda}{2} \left( f(v) - f(u) \right) 
+	\right).
+\end{align*}
+When $v=u$, we obtain the relation
+\begin{align*}
+	F(u,u)=f(u),
+\end{align*}
+which shows that the numerical flux function is 
+consistent with the continuous flux function.
+
+%------------------------------------------------------------------------------
+\pagebreak
+\begin{example}
 	% Derivation of the conservative form of MacCormack scheme. 
 	% Examine its numerical flux function: conservative? consistent?
 	Consider the \emph{MacCormack} scheme given by
@@ -373,92 +428,45 @@ Approach:
 	\end{align*}
 	with $\lambda :=\Delta t/\Delta x$.
 	Examine the MacCormack scheme whether it is conservative, i.e.
-	the schemes can be written in the \emph{conservation form}. 
+	the scheme can be written in the \emph{conservation form}. 
 	Examine also if its numerical flux function is consistent.
 \end{example}
 
-Recall the conservation form
-\begin{equation}
-	\bar{u}_{j}^{n+1} = \bar{u}_{j}^{n}
-	+ \frac{\Delta t}{\Delta x}
-	\left(
-	\tilde{f}_{j-1/2}^{n}
-	-\tilde{f}_{j+1/2}^{n}
-	\right).
-\end{equation}
+R.W.MacCormack [1969]:
+\href{https://arc.aiaa.org/doi/10.2514/2.6901}
+{The effects of viscosity in hypervelocity impact cratering.}\\
 
 Idea:
 \begin{equation}
 	\boxed{
-		\centering
-		\begin{aligned}
+		\begin{array}{c}
 			\text{Another way, beside the two-step Lax-Wendroff scheme,}              \\
 			\text{to avoid using Jacobian matrix arising in computing flux function,} \\
 			\text{when dealing with linear hyperbolic system $U_{t} + AU_{x} = 0$.}
-		\end{aligned}
+		\end{array}
 	}
 \end{equation}
 
+Recall the conservation form for vectorial unknown quantity:
+\begin{equation}
+	\bar{U}_{j}^{n+1} = \bar{U}_{j}^{n}
+	+ \frac{\Delta t}{\Delta x}
+	\left(
+	\tilde{F}_{j-1/2}^{n}
+	-\tilde{F}_{j+1/2}^{n}
+	\right).
+\end{equation}
+
 Approach:
-\begin{enumerate}
-	\item The two-step \emph{Lax-Wendroff} scheme for the conservation law
-	      $u_t + f(u)_x=0$ is given by
-	      \begin{align*}
-		      u^{n+1/2}_{j+1/2} & = \frac{1}{2}
-		      \left( u_{j+1}^n +u_j^n \right)
-		      - \frac{\lambda}{2} \left(
-		      f\left(u_{j+1}^n\right) - f\left(u_j^n\right) \right), \\
-		      u_j^{n+1}         & = 
-		      u_j^n -\lambda \left( f\left(u_{j+1/2}^{n+1/2}\right)
-		      - f\left(u_{j-1/2}^{n+1/2}\right) \right).
-	      \end{align*}
-	      This scheme can also be written in the conservation form
-	      \begin{align*}
-		      u_j^{n+1} 
-		      = u_j^n - \lambda 
-		      \left( f_{i + 1/2}^n - f_{i - 1/2}^n \right),
-	      \end{align*}
-	      where
-	      \begin{align*}
-		      \begin{split}
-			      f_{j+1/2}^n 
-			      & = f 
-			      \left( 
-			      \frac{1}{2} \left ( u_{j+1}^n + u_j^n \right)
-			      - \frac{\lambda}{2}
-			      \left( f\left(u_{j+1}^n\right) - f(u_j^n) \right ) \right), \\
-			      f_{j-1/2}^n 
-			      & = f 
-			      \left( 
-			      \frac{1}{2} \left ( u_{j}^n + u_{j-1}^n \right)
-			      - \frac{\lambda}{2} \left( f(u_{j}^n) - f(u_{j-1}^n) \right) 
-			      \right).
-		      \end{split}
-	      \end{align*}
-	      The conservative flux function is given by 
-	      \begin{align*}
-		      F(u,v) = f
-		      \left( 
-		      \frac{1}{2}(u+v)
-		      - \frac{\lambda}{2} \left( f(v) - f(u) \right) 
-		      \right).
-	      \end{align*}
-	      When $v=u$, we obtain the relation
-	      \begin{align*}
-		      F(u,u)=f(u),
-	      \end{align*}
-	      which shows that the numerical flux function is 
-	      consistent with the continuous flux function.
-	      
-	\item For the \emph{MacCormack} scheme, the conservative flux function is given by
-	      \begin{align*}
-		      F(u,v) = \frac{1}{2}
-		      \left( 
-		      f(v) + f\left ( u - \lambda \left( f(v) - f(u) \right ) \right )
-		      \right).
-	      \end{align*}
-	      Finally, it can be trivially shown that the above flux function is consistent.
-\end{enumerate}
+
+For the \emph{MacCormack} scheme, the conservative flux function is given by
+\begin{align*}
+	F(u,v) = \frac{1}{2}
+	\left( 
+	f(v) + f\left ( u - \lambda \left( f(v) - f(u) \right ) \right )
+	\right).
+\end{align*}
+Finally, it can be trivially shown that the above flux function is consistent.
 
 % %------------------------------------------------------------------------------
 % \pagebreak
