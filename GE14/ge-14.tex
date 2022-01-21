@@ -119,26 +119,92 @@ with the numerical flux function recognized as follows
 	\widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
 	=
 	\frac{\Delta x}{2\Delta t}\left(u_{j-1}^{n} - u_{j}^{n} \right)
-	+\frac{1}{2}f(u_{j-1}^{n})      \\
+	+\frac{1}{2}f(u_{j-1}^{n})      \label{eq:flux1} \\
 	\widetilde{f}_{j+1/2}^{n} & =  
 	\widetilde{f}_{j-1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
 	=
 	\frac{\Delta x}{2\Delta t}\left(u_{j}^{n} - u_{j+1}^{n} \right)
-	+\frac{1}{2}f(u_{j+1}^{n})
+	+\frac{1}{2}f(u_{j+1}^{n}) \label{eq:flux2}
 \end{align}
 However, these numerical flux function $\widetilde{f}(\cdot,\cdot)$
 is not consistent with the original flux function $f(\cdot)$, which 
-can be checked $\forall \beta \in \mathbb{R}$ as follows
+can be checked for the case of constant flow, as follows
 \begin{align}
-	\widetilde{f}_{j-1/2}^{n} \left(\beta, \beta\right)           & =  
+	\eqref{eq:flux1} \Leftrightarrow
+	\widetilde{f}_{j-1/2}^{n} \left(\beta, \beta\right) & =  
 	\frac{\Delta x}{2\Delta t}\left(\beta - \beta \right)
 	+\frac{1}{2}f(\beta)                                                
-	=\frac{1}{2}f(\beta) \quad \lightning                                  \\
+	=\frac{1}{2}f(\beta) \quad \lightning                     \\
+	\eqref{eq:flux2} \Leftrightarrow
 	\widetilde{f}_{j+1/2}^{n} \left(\beta, \beta\right) & =  
 	\frac{\Delta x}{2\Delta t}\left(\beta - \beta \right)
 	+\frac{1}{2}f(\beta) 
 	=\frac{1}{2}f(\beta) \quad \lightning
 \end{align}
+which have confirmed that 
+$\widetilde{f}_{j\pm 1/2}^{n} \left(\beta, \beta\right) \neq f(\beta),\, \forall \beta \in \mathbb{R}$.
+Therefore, a modified version is required for these numerical flux functions,
+such that they become consistent with $f(\cdot)$, and simultaneously, 
+the summation of these two fluxes do not lead to any change in the \emph{Lax-Friedrichs} scheme.
+The consistent numerical flux functions for \emph{Lax-Friedrichs} scheme reads
+\begin{align}
+	\widetilde{f}_{j-1/2}^{n} & =  
+	\widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
+	=
+	\frac{\Delta x}{2\Delta t}\left(u_{j-1}^{n} - u_{j}^{n} \right)
+	+\frac{1}{2}
+	\left(f(u_{j-1}^{n}) + f(u_{j}^{n}) \right),      \label{eq:flux1corr} \\
+	\widetilde{f}_{j+1/2}^{n} & =  
+	\widetilde{f}_{j-1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
+	=
+	\frac{\Delta x}{2\Delta t}\left(u_{j}^{n} - u_{j+1}^{n} \right)
+	+\frac{1}{2}
+	\left( f(u_{j+1}^{n}) + f(u_{j}^{n}) \right), \label{eq:flux2corr}
+\end{align}
+whose consistent property is checked as follows
+\begin{align}
+	\eqref{eq:flux1corr} \Leftrightarrow
+	\widetilde{f}_{j-1/2}^{n} \left(\beta, \beta\right) & =  
+	\frac{\Delta x}{2\Delta t}\left(\beta - \beta \right)
+	+ \frac{1}{2}\left(f(\beta)+f(\beta)\right)  
+	=f(\beta) \quad \checkmark                                \\
+	\eqref{eq:flux2corr} \Leftrightarrow
+	\widetilde{f}_{j+1/2}^{n} \left(\beta, \beta\right) & =  
+	\frac{\Delta x}{2\Delta t}\left(\beta - \beta \right)
+	+\frac{1}{2} \left(f(\beta)+f(\beta)\right)  
+	=f(\beta) \quad \checkmark
+\end{align}
+which have confirmed that 
+$\widetilde{f}_{j\pm 1/2}^{n} \left(\beta, \beta\right) = f(\beta),\, \forall \beta \in \mathbb{R}$
+for constant flow. Hence, the numerical flux functions $\widetilde{f}_{j\pm 1/2}^{n}$
+for the \emph{Lax-Friedrichs} scheme take the following formulation 
+\begin{equation}
+	\therefore\quad
+	\boxed{
+		\begin{aligned}
+			\widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
+			 & =
+			\frac{\Delta x}{2\Delta t}\left(u_{j-1}^{n} - u_{j}^{n} \right)
+			+\frac{1}{2}
+			\left(f(u_{j-1}^{n}) + f(u_{j}^{n}) \right) \\
+			\widetilde{f}_{j+1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
+			 & =
+			\frac{\Delta x}{2\Delta t}\left(u_{j}^{n} - u_{j+1}^{n} \right)
+			+\frac{1}{2}
+			\left(f(u_{j}^{n}) + f(u_{j+1}^{n}) \right)
+		\end{aligned}
+	}
+\end{equation}
+or the generalized form used for FVM implementation reads
+\begin{equation}
+	\therefore\quad
+	\boxed{
+		F\left(u_L, u_R \right) =
+		\frac{1}{2} \left(f(u_L) + f(u_R) \right)
+		+\frac{\Delta x}{2\Delta t}\left(u_L - u_R \right)
+	}
+\end{equation}
+
 %------------------------------------------------------------------------------
 \pagebreak
 \section{Godunov's method}
