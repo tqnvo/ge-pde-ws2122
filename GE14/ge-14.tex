@@ -17,19 +17,97 @@ PDE $\cdot$ GE14 $\cdot$ WS21/22
 %------------------------------------------------------------------------------
 
 \begin{document}
-\begin{center}
-	\section*{Global Exercise - 14}
-\end{center}
-\begin{center}
-	Tuan Vo
-\end{center}
-\begin{center}
-	$25^{\text{th}}$ January 2022
-\end{center}
+% \begin{center}
+% 	\section*{Global Exercise - 14}
+% \end{center}
+% \begin{center}
+% 	Tuan Vo
+% \end{center}
+% \begin{center}
+% 	$25^{\text{th}}$ January 2022
+% \end{center}
 
 %------------------------------------------------------------------------------
+\section{A small remark for consistent numerical flux function used
+  in Upwind scheme - FVM}
+\begin{example}
+	Determine consistent numerical flux function for Upwind scheme.
+\end{example}
+Recall the conservation form used for FVM reads
+\begin{align}\label{eq:consevationformgeneralUW}
+	u_{j}^{n+1} = u_{j}^{n} + \frac{\Delta t}{\Delta x}
+	\left(
+	\widetilde{f}_{j-1/2}^{n} - \widetilde{f}_{j+1/2}^{n}
+	\right).
+\end{align}
+Meanwhile, the Upwind scheme with point-to-the-left stencils reads
+\begin{equation}\label{eq:UWform}
+	\boxed{
+		u_{j}^{n+1} = 
+		u_{j}^{n}
+		+\frac{\Delta t}{\Delta x}
+		\left(
+		f(u_{j-1}^{n}) - f(u_{j}^{n})
+		\right).
+	}
+\end{equation}
+Next, we would like to write \eqref{eq:UWform} in terms of \eqref{eq:consevationformgeneralUW}. 
+Since the two formulations are already identical, the numerical flux function
+$\widetilde{f}_{j-1/2}^{n}$ and $\widetilde{f}_{j+1/2}^{n}$
+are recognized directly as follow
+\begin{align}
+	\widetilde{f}_{j-1/2}^{n}
+	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
+	= f(u_{j-1}^{n}),                                                   \label{eq:consistencycheck11} \\
+	\widetilde{f}_{j-1/2}^{n}
+	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
+	= f(u_{j+1}^{n}).  \label{eq:consistencycheck12}
+\end{align}
+Then, the consistency of numerical flux functions
+are checked as follows
+\begin{align}
+	\widetilde{f}_{j-1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark \\
+	\widetilde{f}_{j+1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark 
+\end{align}
+which is satisfied $\forall \beta \in \mathbb{R}$ in case of constant flow. 
+Likewise, in case of the Upwind scheme with point-to-the-right stencils,
+we obtain the same structure, as follows
+\begin{equation}\label{eq:UWform2}
+	\boxed{
+		u_{j}^{n+1} = 
+		u_{j}^{n}
+		+\frac{\Delta t}{\Delta x}
+		\left(
+		f(u_{j}^{n}) - f(u_{j+1}^{n})
+		\right),
+	}
+\end{equation}
+which is the Upwind scheme with point-to-the-right stencils. 
+Next, since the formulation \eqref{eq:UWform2} is already identical 
+with \eqref{eq:consevationformgeneralUW}, 
+the numerical flux function
+$\widetilde{f}_{j-1/2}^{n}$ and $\widetilde{f}_{j+1/2}^{n}$
+are recognized directly as follow
+\begin{align}
+	\widetilde{f}_{j-1/2}^{n}
+	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
+	= f(u_{j-1}^{n}),                                                 \label{eq:consistencycheck21} \\
+	\widetilde{f}_{j-1/2}^{n}
+	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
+	= f(u_{j+1}^{n}). \label{eq:consistencycheck22}
+\end{align}
+Checking the consistency of \eqref{eq:consistencycheck21} and \eqref{eq:consistencycheck22}
+is similar with \eqref{eq:consistencycheck11} and \eqref{eq:consistencycheck12}, as follows
+\begin{align}
+	\widetilde{f}_{j-1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark \\
+	\widetilde{f}_{j+1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark 
+\end{align}
+which is satisfied $\forall \beta \in \mathbb{R}$ in case of constant flow. 
+
 \pagebreak
-\section{Conservation form - Finite Volume Method}
+%------------------------------------------------------------------------------
+\section{A small remark for consistent numerical flux function used
+  in Lax-Friedrichs scheme - FVM}
 \begin{example}
 	Determine consistent numerical flux function for Lax-Friedrichs scheme.
 \end{example}
@@ -126,8 +204,8 @@ with the numerical flux function recognized as follows
 	\frac{\Delta x}{2\Delta t}\left(u_{j}^{n} - u_{j+1}^{n} \right)
 	+\frac{1}{2}f(u_{j+1}^{n}) \label{eq:flux2}
 \end{align}
-However, these numerical flux function $\widetilde{f}(\cdot,\cdot)$
-is not consistent with the original flux function $f(\cdot)$, which 
+However, these numerical flux functions $\widetilde{f}(\cdot,\cdot)$
+are not consistent with the original flux function $f(\cdot)$, which 
 can be checked for the case of constant flow, as follows
 \begin{align}
 	\eqref{eq:flux1} \Leftrightarrow
@@ -161,7 +239,11 @@ The consistent numerical flux functions for \emph{Lax-Friedrichs} scheme reads
 	+\frac{1}{2}
 	\left( f(u_{j+1}^{n}) + f(u_{j}^{n}) \right), \label{eq:flux2corr}
 \end{align}
-whose consistent property is checked as follows
+which are obtained by adding the term $1/2f(u_{j}^{n})$ to both 
+$\widetilde{f}_{j-1/2}^{n}$ and $\widetilde{f}_{j+1/2}^{n}$. 
+Note in passing that the subtraction sign between these two fluxes will 
+cancel out this extra term, as shown in \eqref{eq:consevationformgeneral}.
+Next, the consistent property is checked as follows
 \begin{align}
 	\eqref{eq:flux1corr} \Leftrightarrow
 	\widetilde{f}_{j-1/2}^{n} \left(\beta, \beta\right) & =  
@@ -205,31 +287,31 @@ or the generalized form used for FVM implementation reads
 	}
 \end{equation}
 
-%------------------------------------------------------------------------------
-\pagebreak
-\section{Godunov's method}
-\begin{example}
-	Summary
-\end{example}
-$\rightarrow$ One-sided method cannot be used for system, i.e. mixed sign of eigenvalue causes difficulty.\\
-$\rightarrow$
-%------------------------------------------------------------------------------
-\section{Approximate Riemann Solvers}
-\begin{example}
-	Linearized Riemann solvers - Roe Solver.
-\end{example}
+% %------------------------------------------------------------------------------
+% \pagebreak
+% \section{Godunov's method}
+% \begin{example}
+% 	Summary
+% \end{example}
+% $\rightarrow$ One-sided method cannot be used for system, i.e. mixed sign of eigenvalue causes difficulty.\\
+% $\rightarrow$
+% %------------------------------------------------------------------------------
+% \section{Approximate Riemann Solvers}
+% \begin{example}
+% 	Linearized Riemann solvers - Roe Solver.
+% \end{example}
 
-\pagebreak
-\begin{example}
-	Local Lax-Friedrichs flux.
-\end{example}
+% \pagebreak
+% \begin{example}
+% 	Local Lax-Friedrichs flux.
+% \end{example}
 
-%------------------------------------------------------------------------------
-\pagebreak
-\section{High resolution methods}
-\begin{example}
-	Linearized Riemann solvers - Roe Solver.
-\end{example}
+% %------------------------------------------------------------------------------
+% \pagebreak
+% \section{High resolution methods}
+% \begin{example}
+% 	Linearized Riemann solvers - Roe Solver.
+% \end{example}
 
 % \section{Conservation form - Finite Volume Method (cont.)}
 % \begin{example}
