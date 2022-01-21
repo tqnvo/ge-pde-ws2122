@@ -26,6 +26,127 @@ PDE $\cdot$ GE14 $\cdot$ WS21/22
 \begin{center}
 	$25^{\text{th}}$ January 2022
 \end{center}
+
+%------------------------------------------------------------------------------
+\pagebreak
+\section{Conservation form - Finite Volume Method}
+\begin{example}
+	Determine consistent numerical flux function for Lax-Friedrichs scheme.
+\end{example}
+Recall the conservation form used for FVM reads
+\begin{align}\label{eq:consevationformgeneral}
+	u_{j}^{n+1} = u_{j}^{n} + \frac{\Delta t}{\Delta x}
+	\left(
+	\widetilde{f}_{j-1/2}^{n} - \widetilde{f}_{j+1/2}^{n}
+	\right).
+\end{align}
+Meanwhile, the Lax-Friedrichs scheme reads
+\begin{align}\label{eq:LFform}
+	u_{j}^{n+1} = 
+	\frac{1}{2}
+	\left(
+	u_{j-1}^{n} + u_{j+1}^{n}
+	\right)
+	-\frac{\Delta t}{2\Delta x}
+	\left(
+	f(u_{j+1}^{n}) - f(u_{j-1}^{n})
+	\right).
+\end{align}
+Next, we would like to write \eqref{eq:LFform} in terms of \eqref{eq:consevationformgeneral}. 
+The derivation is done by some algebraic manipulations, as follows
+\begin{align}
+	u_{j}^{n+1} & = 
+	\frac{1}{2}
+	\left(
+	u_{j-1}^{n} + u_{j+1}^{n}
+	\right)
+	-\frac{\Delta t}{2\Delta x}
+	\left(
+	f(u_{j+1}^{n}) - f(u_{j-1}^{n})
+	\right)                                    \notag                             \\
+	            & =
+	u_{j}^{n}
+	+ \frac{1}{2} u_{j-1}^{n}  - \frac{1}{2}u_{j}^{n}
+	+ \frac{1}{2}u_{j+1}^{n}  - \frac{1}{2}u_{j}^{n}
+	-\frac{\Delta t}{2\Delta x} f(u_{j+1}^{n}) 
+	+\frac{\Delta t}{2\Delta x} f(u_{j-1}^{n}) \notag                             \\	
+	            & =
+	u_{j}^{n}
+	+ \frac{\Delta t}{\Delta x}
+	\left(
+	\frac{\Delta x}{2\Delta t}u_{j-1}^{n} 
+	-\frac{\Delta x}{2\Delta t}u_{j}^{n} 
+	+\frac{\Delta x}{2\Delta t}u_{j+1}^{n} 
+	-\frac{\Delta x}{2\Delta t}u_{j}^{n} \right. \notag                           \\
+	            & \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+	\left.
+	-\frac{1}{2}f(u_{j+1}^{n}) 
+	+\frac{1}{2}f(u_{j-1}^{n}) 
+	\right)                                     \notag                            \\
+	            & =
+	u_{j}^{n}
+	+ \frac{\Delta t}{\Delta x}
+	\left(
+	\underbrace{\left(
+	\frac{
+		\Delta x}{2\Delta t}u_{j-1}^{n}
+	-\frac{\Delta x}{2\Delta t}u_{j}^{n}
+	+\frac{1}{2}f(u_{j-1}^{n}) 
+	\right)}_{=:\widetilde{f}_{j-1/2}^{n}}
+	\right.
+	\notag                                                                        \\
+	            & \qquad \qquad \qquad \qquad \qquad
+	\left. -
+	\underbrace{\left(
+	\frac{\Delta x}{2\Delta t}u_{j}^{n}
+	-\frac{\Delta x}{2\Delta t}u_{j+1}^{n}
+	+\frac{1}{2}f(u_{j+1}^{n}) 
+	\right)}_{=:\widetilde{f}_{j+1/2}^{n}}
+	\right)\notag                                                                 \\
+	            & =
+	u_{j}^{n}
+	+ \frac{\Delta t}{\Delta x}
+	\left(
+	\widetilde{f}_{j-1/2}^{n}
+	-\widetilde{f}_{j+1/2}^{n}
+	\right),
+\end{align}
+which confirms that the \emph{Lax-Friedrichs} scheme given at \eqref{eq:LFform}
+is able to be written in the \emph{conservation form}
+with the numerical flux function recognized as follows
+\begin{align}
+	\widetilde{f}_{j-1/2}^{n} & =  
+	\widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
+	=
+	\frac{\Delta x}{2\Delta t}\left(u_{j-1}^{n} - u_{j}^{n} \right)
+	+\frac{1}{2}f(u_{j-1}^{n})      \\
+	\widetilde{f}_{j+1/2}^{n} & =  
+	\widetilde{f}_{j-1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
+	=
+	\frac{\Delta x}{2\Delta t}\left(u_{j}^{n} - u_{j+1}^{n} \right)
+	+\frac{1}{2}f(u_{j+1}^{n})
+\end{align}
+However, these numerical flux function $\widetilde{f}(\cdot,\cdot)$
+is not consistent with the original flux function $f(\cdot)$, which 
+can be checked $\forall \beta \in \mathbb{R}$ as follows
+\begin{align}
+	\widetilde{f}_{j-1/2}^{n} \left(\beta, \beta\right)           & =  
+	\frac{\Delta x}{2\Delta t}\left(\beta - \beta \right)
+	+\frac{1}{2}f(\beta)                                                
+	=\frac{1}{2}f(\beta) \quad \lightning                                  \\
+	\widetilde{f}_{j+1/2}^{n} \left(\beta, \beta\right) & =  
+	\frac{\Delta x}{2\Delta t}\left(\beta - \beta \right)
+	+\frac{1}{2}f(\beta) 
+	=\frac{1}{2}f(\beta) \quad \lightning
+\end{align}
+%------------------------------------------------------------------------------
+\pagebreak
+\section{Godunov's method}
+\begin{example}
+	Summary
+\end{example}
+$\rightarrow$ One-sided method cannot be used for system, i.e. mixed sign of eigenvalue causes difficulty.\\
+$\rightarrow$
 %------------------------------------------------------------------------------
 \section{Approximate Riemann Solvers}
 \begin{example}
