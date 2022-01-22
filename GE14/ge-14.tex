@@ -69,7 +69,7 @@ are checked as follows
 	\widetilde{f}_{j-1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark \\
 	\widetilde{f}_{j+1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark 
 \end{align}
-which is satisfied $\forall \beta \in \mathbb{R}$ in case of constant flow. 
+which is automatically satisfied $\forall \beta \in \mathbb{R}$ in case of constant flow. 
 Likewise, in case of the Upwind scheme with point-to-the-right stencils,
 we obtain the same structure, as follows
 \begin{equation}\label{eq:UWform2}
@@ -102,9 +102,10 @@ is similar with \eqref{eq:consistencycheck11} and \eqref{eq:consistencycheck12},
 	\widetilde{f}_{j-1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark \\
 	\widetilde{f}_{j+1/2}^{n} \left( \beta, \beta\right) = f(\beta), \quad \checkmark 
 \end{align}
-which is satisfied $\forall \beta \in \mathbb{R}$ in case of constant flow. 
+which is automatically satisfied $\forall \beta \in \mathbb{R}$ in case of constant flow. 
+\inputfig{floats/a4casesupwind}{a4casesupwind}
 
-\pagebreak
+\clearpage
 %------------------------------------------------------------------------------
 \section{A small remark for consistent numerical flux function used
   in Lax-Friedrichs scheme - FVM}
@@ -286,6 +287,7 @@ or the generalized form used for FVM implementation reads
 		+\frac{\Delta x}{2\Delta t}\left(u_L - u_R \right)
 	}
 \end{equation}
+\inputfig{floats/LFconsistency}{LFconsistency}
 
 % %------------------------------------------------------------------------------
 % \pagebreak
