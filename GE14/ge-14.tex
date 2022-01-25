@@ -328,6 +328,108 @@ or the generalized form used for FVM implementation reads
 \begin{example}
 	Roe's solver.
 \end{example}
+Nonlinear \emph{Riemann}'s problem
+\begin{align}\label{eq:nonlinearRP}
+	U_{t} + F(U)_x = 0,
+	\quad\text{with}\quad
+	U(x,0) = 
+	\begin{cases}
+		U_{L},\quad x<0, \\
+		U_{R},\quad x>0,
+	\end{cases}
+\end{align}
+which is written in quasi-linear form as follows
+\begin{align}
+	U_{t} + A(U)U_x = 0,
+	\quad\text{with}\quad
+	U(x,0) = 
+	\begin{cases}
+		U_{L},\quad x<0, \\
+		U_{R},\quad x>0,
+	\end{cases}
+\end{align}
+where $A(U)$ is the non-constant Jacobian matrix. 
+
+Recall the conservation form used for FVM reads
+\begin{align}
+	U_{j}^{n+1} = U_{j}^{n} + \frac{\Delta t}{\Delta x}
+	\left(
+	\widetilde{F}_{j-1/2}^{n} - \widetilde{F}_{j+1/2}^{n}
+	\right).
+\end{align}
+
+\emph{Godunov}'s solver takes the intercell numerical flux function 
+\begin{align}
+	\widetilde{F}_{j-1/2}^{n}
+	 & = \widetilde{F}_{j-1/2}^{n}(U_{L},U_{R})
+	= F_{j-1/2}^{n}(U^{*}(U_{L},U_{R})),        \\
+	\widetilde{F}_{j+1/2}^{n}
+	 & = \widetilde{F}_{j+1/2}^{n}(U_{L},U_{R})
+	= F_{j+1/2}^{n}(U^{*}(U_{L},U_{R})),
+\end{align}
+where $U^{*}(U_{L},U_{R})$ is the exact \emph{Riemann}'s solution 
+at the interface between cells.
+
+Instead of solving exactly the nonlinear \emph{Riemann}'s problem above
+for every single space-time increment in FVM,
+which turns out to be costly and not efficient in general, 
+\emph{Roe} proposed solving the following system
+\begin{align}\label{eq:Roesolver}
+	U_{t} + \widehat{A}(U_{L},U_{R})U_x = 0,
+	\quad\text{with}\quad
+	U(x,0) = 
+	\begin{cases}
+		U_{L},\quad x<0, \\
+		U_{R},\quad x>0,
+	\end{cases}
+\end{align}
+where $\widehat{A}(U_{L},U_{R})$ is essentially a constant Jacobian matrix. 
+The linearized system \eqref{eq:Roesolver} easily to be solved exactly is known as
+\emph{Approximate Riemann Solver}. 
+Besides, the correlation between 
+\eqref{eq:Roesolver} and \eqref{eq:nonlinearRP} is 
+guaranteed by three conditions applied on matrix $\widehat{A}(U_{L},U_{R})$
+proposed by \emph{Roe} as follows
+\begin{enumerate}
+	\item Hyperbolicity: real eigenvalues
+	      $\widehat{\lambda}_{p} = \widehat{\lambda}_{p}(U_{L},U_{R})$ required.
+	\item Consistency with the exact Jacobian matrix $\widehat{A}(U,U) = A(U)$
+	\item Conservation across discontinuities $F(U_{R})-F(U_{L}) = \widehat{A}(U_{L},U_{R})(U_{L}-U_{R})$
+\end{enumerate}
+
+\clearpage
+Matrix $\widehat{A}(U_{L},U_{R})$
+$\rightarrow$
+Eigenvalues $\widehat{\lambda}_{p}(U_{L},U_{R})$
+$\rightarrow$
+Eigenvectors $\widehat{r}_{p}(U_{L},U_{R})$
+
+Consider 
+\begin{align}
+	U_{R} - U_{L}
+	= \sum_{p=1}^{m}
+	\widehat{\alpha}_{p}(U_{L},U_{R})
+	\widehat{\lambda}_{p}(U_{L},U_{R})
+\end{align}
+
+Next, interfacial values $U_{j+1/2}(x/t)$ along $t-$axis, i.e. $x/t = 0$, 
+take the following equality 
+\begin{align}
+	U_{j+1/2}(0) = U_{L} + 
+	\sum_{\widehat{\lambda}_{p} \leq 0}
+	\widehat{\alpha}_{p}(U_{L},U_{R})
+	\widehat{\lambda}_{p}(U_{L},U_{R}) \\
+	U_{j+1/2}(0) = U_{R} - 
+	\sum_{\widehat{\lambda}_{p} \leq 0}
+	\widehat{\alpha}_{p}(U_{L},U_{R})
+	\widehat{\lambda}_{p}(U_{L},U_{R})
+\end{align}
+
+Besides, according to Definition II.$21$ from lecture note,
+the corresponding numerical flux function reads
+% \begin{align}
+% 	\widetilde{F}U_{L},U_{R}} & = F_{L}
+% \end{align}
 
 \clearpage
 %------------------------------------------------------------------------------
@@ -366,7 +468,9 @@ Besides, the local Lax-Friedrichs flux function take the following form
 		- \frac{1}{2} \lambda^{\text{max}} \left(U_{R}-U_{L}\right)
 	}
 \end{align}
-Note in passing that \eqref{eq:lLFfluxform}
+Note in passing that we have used an approximation for 
+$\left| \widehat{A} \right|$ in \eqref{eq:Roefluxnewform}
+and applied it for $\lambda^{\text{max}}$ in \eqref{eq:lLFfluxform}, as follows
 
 \clearpage
 \begin{example}
@@ -386,6 +490,109 @@ Note in passing that \eqref{eq:lLFfluxform}
 \begin{example}
 	Derivation of Harten-Lax-van Leer (HLL).
 \end{example}
+
+\begin{enumerate}
+	\item Recall that the two left-and right-sided formulae
+	      for the numerical flux functions based on \emph{Roe}'s solver 
+	      are written as follows
+	      \begin{align}
+		      \widetilde{F}_{j+1/2}\left(U_{L},U_{R}\right)
+		       & = F(U_L) + \widehat{A}\left(U_{L},U_{R}\right)^{-}\left(U_{R} - U_{L}\right) \\
+		      \widetilde{F}_{j+1/2}\left(U_{L},U_{R}\right)
+		       & = F(U_R) - \widehat{A}\left(U_{L},U_{R}\right)^{+}\left(U_{R} - U_{L}\right)
+	      \end{align}
+	      By first taking summation and then averaging the above two expressions we arrive at
+	      \begin{align}
+		      \widetilde{F}_{j+1/2}\left(U_{L},U_{R}\right)
+		      =\frac{1}{2}\left(F(U_{L})+F(U_{R})\right)
+		      -\frac{1}{2}\left|\widehat{A}\right|\left(U_{R}-U_{L}\right).
+	      \end{align}
+	      Note in passing that
+	      $\widehat{A}^{-}(U_{L},U_{R})-\widehat{A}^{+}(U_{L},U_{R}) = -\left|\widehat{A}\right|(U_{L},U_{R})$.	      
+	      
+	\item The integral formulation applied to the domain
+	      $[x_{L},x_{R}]\times[t_{n},t_{n+1}]$ and together
+	      with the condition $x_{L}<0<x_{R}$ reads
+	      \begin{align}\label{eq:integralform}
+		      \int_{x_{L}}^{x_{R}}U(x,t_{n+1})\,dx
+		       & =\int_{x_{L}}^{x_{R}}U(x,t_{n})\,dx \notag \\
+		       & \quad 
+		      +\int_{t_{n}}^{t_{n+1}}F(U(x_{L},t))\,dt  
+		      -\int_{t_{n}}^{t_{n+1}}F(U(x_{R},t))\,dt.
+	      \end{align}
+	      \inputfig{floats/roeflux}{roeflux}
+	      Since the solution is piece-wise constant, these integrals are computed as follows
+	      \begin{align*}
+		      \int_{t_{n}}^{t_{n+1}}F(U(x_{L},t))\,dt & = \cdots,                   \\
+		      \int_{t_{n}}^{t_{n+1}}F(U(x_{R},t))\,dt & = \cdots,                   \\
+		      \int_{x_{L}}^{x_{R}}U(x,t_{n})\,dx      & = \cdots + \cdots,          \\
+		      \int_{x_{L}}^{x_{R}}U(x,t_{n+1})dx      & = \cdots + \cdots + \cdots.
+	      \end{align*}
+	      Next, by substituting these four integrals back into \eqref{eq:integralform}
+	      we obtain the following relation
+	      \begin{align}\label{eq:ustarfinal}
+		      U^{*}
+		       & =\frac{\left|\lambda_{L}\right|U_{L}+\lambda_{R}U_{R}+F(U_{L})-F(U_{R})}{\left|\lambda_{L}\right|+\lambda_{R}}.
+	      \end{align}
+	      
+	\item The decomposition with the two waves are given by
+	      \begin{align}
+		      U_{R}-U_{L}=\sum_{p=1}^{N}\alpha_{p}\widehat{r}_{p}=
+		       & \left(U_{R}-U^{\star}\right)+\left(U^{\star}-U_{L}\right),
+	      \end{align}
+	      and hence we arrive at the following expression
+	      \begin{align}\label{eq:givendecomposition}
+		      \sum_{p=1}^{N}\alpha_{p}\left|\widehat{\lambda}_{p}\right|\widehat{r}_{p}
+		       & =\lambda_{R}\left(U_{R}-U^{\star}\right)+\left|\lambda_{L}\right|\left(U^{\star}-U_{L}\right),
+	      \end{align}
+	      which leads to the following expression
+	      \begin{align}\label{eq:FtildeHLL}
+		      \widetilde{F}_{j+1/2}\left(U_{L},U_{R}\right) & 
+		      =\frac{1}{2}\left(F(U_{L})+F(U_{R})\right)-\frac{\lambda_{R}}{2}\left(U_{R}-U^{\star}\right)-\frac{\left|\lambda_{L}\right|}{2}\left(U^{\star}-U_{L}\right).
+	      \end{align}
+	      Then, by using \eqref{eq:givendecomposition}, inserting \eqref{eq:ustarfinal}
+	      into  \eqref{eq:FtildeHLL}, and
+	      applying some more algebraic manipulations we arrive at
+	      the HLL numerical flux function, where $\lambda_{L}<0<\lambda_{R}$, as follows
+	      \begin{align}
+		      \widetilde{F}_{j+1/2}\left(U_{L},U_{R}\right) & 
+		      =\frac{\left|\lambda_{L}\right|F(U_{R})+\lambda_{R}F(U_{L})}
+		      {\left|\lambda_{L}\right|+\lambda_{R}}+\frac{\lambda_{R}\left|\lambda_{L}\right|}
+		      {\left|\lambda_{L}\right|+\lambda_{R}}\left(U_{L}-U_{R}\right).
+	      \end{align}
+	      
+	\item When all waves travel to the right, we obtain
+	      \begin{align}
+		      \lambda_{L,R}>0 
+		      \rightarrow U^{*} = U_{L}
+		      \rightarrow F(U^{*})=F(U_{L}).
+	      \end{align}
+	      When all waves travel to the left, we obtain
+	      \begin{align}
+		      \lambda_{L,R}<0 
+		      \rightarrow U^{*}=U_{R}
+		      \rightarrow F(U^{*})=F(U_{R}).
+	      \end{align}
+	      Finally, we obtain a complete HLL numerical flux function as follows 
+	      \begin{equation}\label{eq:HLLsolver}
+		      \therefore\quad
+		      \boxed{
+		      \widetilde{F}_{j+1/2}^{\text{(HLL)}}\left(U_{L},U_{R}\right) =
+		      \begin{cases}
+			      F(U_{R}), \quad (\lambda_{L,R}<0), \\
+			      \displaystyle
+			      \frac{\left|\lambda_{L}\right|F(U_{R})+\lambda_{R}F(U_{L})}
+			      {\left|\lambda_{L}\right|+\lambda_{R}}
+			      +\frac{\lambda_{R}\left|\lambda_{L}\right|}
+			      {\left|\lambda_{L}\right|+\lambda_{R}}
+			      \left(U_{L}-U_{R}\right),          \\
+			      \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+			      (\lambda_{L}<0<\lambda_{R}),       \\
+			      F(U_{L}), \quad (\lambda_{L,R}>0).
+		      \end{cases}
+		      }
+	      \end{equation}
+\end{enumerate}
 
 \clearpage
 \begin{example}
