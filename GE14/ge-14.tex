@@ -17,15 +17,15 @@ PDE $\cdot$ GE14 $\cdot$ WS21/22
 %------------------------------------------------------------------------------
 
 \begin{document}
-% \begin{center}
-% 	\section*{Global Exercise - 14}
-% \end{center}
-% \begin{center}
-% 	Tuan Vo
-% \end{center}
-% \begin{center}
-% 	$25^{\text{th}}$ January 2022
-% \end{center}
+\begin{center}
+	\section*{Global Exercise - 14}
+\end{center}
+\begin{center}
+	Tuan Vo
+\end{center}
+\begin{center}
+	$25^{\text{th}}$ January 2022
+\end{center}
 
 %------------------------------------------------------------------------------
 \section{A small remark for consistent numerical flux function used
@@ -59,9 +59,9 @@ are recognized directly as follow
 	\widetilde{f}_{j-1/2}^{n}
 	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
 	= f(u_{j-1}^{n}),                                                   \label{eq:consistencycheck11} \\
-	\widetilde{f}_{j-1/2}^{n}
-	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
-	= f(u_{j+1}^{n}).  \label{eq:consistencycheck12}
+	\widetilde{f}_{j+1/2}^{n}
+	 & = \widetilde{f}_{j+1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
+	= f(u_{j}^{n}).  \label{eq:consistencycheck12}
 \end{align}
 Then, the consistency of numerical flux functions
 are checked as follows
@@ -90,10 +90,10 @@ $\widetilde{f}_{j-1/2}^{n}$ and $\widetilde{f}_{j+1/2}^{n}$
 are recognized directly as follow
 \begin{align}
 	\widetilde{f}_{j-1/2}^{n}
-	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
-	= f(u_{j-1}^{n}),                                                 \label{eq:consistencycheck21} \\
-	\widetilde{f}_{j-1/2}^{n}
-	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
+	 & = \widetilde{f}_{j-1/2}^{n} \left(u_{j-1}^{n}, u_{j}^{n}\right)
+	= f(u_{j}^{n}),                                                 \label{eq:consistencycheck21} \\
+	\widetilde{f}_{j+1/2}^{n}
+	 & = \widetilde{f}_{j+1/2}^{n} \left(u_{j}^{n}, u_{j+1}^{n}\right)
 	= f(u_{j+1}^{n}). \label{eq:consistencycheck22}
 \end{align}
 Checking the consistency of \eqref{eq:consistencycheck21} and \eqref{eq:consistencycheck22}
@@ -322,12 +322,66 @@ or the generalized form used for FVM implementation reads
 % 	Local Lax-Friedrichs flux.
 % \end{example}
 
-% %------------------------------------------------------------------------------
-% \pagebreak
-% \section{High resolution methods}
+%------------------------------------------------------------------------------
+\pagebreak
+\section{Approximate Riemann solvers (cont.)}
+\begin{example}
+	Roe's solver derivation.
+\end{example}
+
+%------------------------------------------------------------------------------
+\begin{example}
+	Roe's solver (R) versus Local Lax-Friedrichs (LLF) flux function.
+\end{example}
+
+Recall that the \emph{Roe}'s solver takes the following forms of numerical flux functions
+\begin{align*}
+	\widetilde{F}_{j+1/2}\left(U_{L},U_{R}\right)
+	 & = F(U_L) + \widehat{A}\left(U_{L},U_{R}\right)^{-}\left(U_{R} - U_{L}\right), \\
+	\widetilde{F}_{j+1/2}\left(U_{L},U_{R}\right)
+	 & = F(U_R) - \widehat{A}\left(U_{L},U_{R}\right)^{+}\left(U_{R} - U_{L}\right).
+\end{align*}
+By summing and taking the average we obtain another form of 
+numerical flux function in \emph{Roe}'s solver as follows
+\begin{align}\label{eq:Roefluxnewform}
+	\therefore\quad
+	\boxed{
+		\widetilde{F}^{(R)}_{j+1/2}(U_{L},U_{R}) = 
+		\frac{1}{2}\left(F(u_{L})+F(u_{R})\right) 
+		- \frac{1}{2}\left| \widehat{A} \right|\left(U_{R}-U_{L}\right)
+	}
+\end{align}
+Note in passing that we have used the following equality in the expression \eqref{eq:Roefluxnewform}
+\begin{align}
+	\widehat{A}^{-}(U_{L},U_{R})-\widehat{A}^{+}(U_{L},U_{R})
+	= -\left|\widehat{A}\right|(U_{L},U_{R}).
+\end{align}
+Besides, the local Lax-Friedrichs flux function take the following form 
+\begin{align}\label{eq:lLFfluxform}
+	\therefore\quad
+	\boxed{
+		\widetilde{F}^{(LLF)}_{j+1/2}(U_{L},U_{R}) = 
+		\frac{1}{2}\left(F(u_{L})+F(u_{R})\right) 
+		- \frac{1}{2} \lambda^{\text{max}} \left(U_{R}-U_{L}\right)
+	}
+\end{align}
+Note in passing that \eqref{eq:lLFfluxform}
+\inputfig{floats/LLFvsRoe}{LLFvsRoe}
+
+\clearpage
+%------------------------------------------------------------------------------
 % \begin{example}
-% 	Linearized Riemann solvers - Roe Solver.
+% 	Determin a Roe matrix for the one-dimensional shallow water equations.
 % \end{example}
+%------------------------------------------------------------------------------
+% \begin{example}
+% 	Determin a Roe matrix for the one-dimensional isothermal equations of gas dynamics.
+% \end{example}
+\begin{example}
+	Harten-Lax-van Leer.
+\end{example}
+
+\inputfig{floats/RoevsHLL}{LLFvsHLL}
 
 % \section{Conservation form - Finite Volume Method (cont.)}
 % \begin{example}
