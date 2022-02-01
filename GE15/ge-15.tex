@@ -81,6 +81,20 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 %------------------------------------------------------------------------------
 \section{Insight of Godunov's solver}
 \begin{example}
+	Examine the Godunov numerical flux function
+	\begin{align*}
+		g(u_L,u_R)
+		=
+		\begin{cases}
+			\underset{ u_L \leq u \leq u_R}{\min}  f(u) \quad & \text{if } u_L \leq u_R , \\
+			\underset{ u_R \leq u \leq u_L}{\max}  f(u) \quad & \text{if } u_L > u_R.
+		\end{cases}
+	\end{align*}
+    by considering all possible cases.
+\end{example}
+
+\clearpage
+\begin{example}
 	Examine $u_{L} > u_{R}$.
 \end{example}
 \inputfig{floats/RiemannAllCasesLR}{RiemannAllCasesLR}
