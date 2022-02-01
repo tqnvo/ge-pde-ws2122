@@ -28,17 +28,6 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 \end{center}
 
 %------------------------------------------------------------------------------
-\section{Monotone $\rightarrow$ $L_1$-Contracting $\rightarrow$ TVD $\rightarrow$ Mon.Pre.}
-\begin{example}
-	abc
-\end{example}
-Roe'solver:\\
-P.L.Roe [1981], 
-\href{https://www.sciencedirect.com/science/article/pii/0021999181901285}
-{Approximate Riemann solvers, parameter vectors, and difference schemes}.
-
-\clearpage
-%------------------------------------------------------------------------------
 \section{A small note about monotonicity: \emph{Upwind} scheme}
 % \begin{example}
 % 	abcdef
@@ -47,10 +36,23 @@ P.L.Roe [1981],
 
 \clearpage
 %------------------------------------------------------------------------------
-\section{Total variation diminishing (TVD)}
+
+\section{A small note about Roe's matrix}
 \begin{example}
-	abc
+	Examine Roe's matrix of isothermal system of equations.
 \end{example}
+Roe's solver:\\
+P.L.Roe [1981], 
+\href{https://www.sciencedirect.com/science/article/pii/0021999181901285}
+{Approximate Riemann solvers, parameter vectors, and difference schemes}.
+
+%------------------------------------------------------------------------------
+\clearpage
+\section{Structure of FVM}
+\begin{example}
+	Monotone $\rightarrow$ $L_1$-Contracting $\rightarrow$ TVD $\rightarrow$ Monotonicity-Preserving.
+\end{example}
+\inputfig{floats/structureFVM}{structureFVM}
 
 \clearpage
 %------------------------------------------------------------------------------
@@ -62,10 +64,7 @@ P.L.Roe [1981],
 
 \clearpage
 %------------------------------------------------------------------------------
-\section{Review Riemann's problem and Godunov's solver}
-\begin{example}
-	abc
-\end{example}
+\section{Insight of Riemann's problem and Godunov's solver}
 
 \clearpage
 \begin{example}
@@ -81,6 +80,240 @@ Schock solution
 \inputfig{floats/RiemannAllCasesRL}{RiemannAllCasesRL}
 Rarefaction solution
 
+\clearpage
+\begin{example}
+	Consider the \emph{Godunov}'s solver for
+	the conservation law $u_t+f(u)_x = 0$
+	with convex and nonlinear flux function $f$,
+	e.g. the flux function in \emph{Burgers}' equation, where
+	\begin{align*}
+		u_{j}^{n+1} = u_j^n +
+		\frac{ \Delta t}{\Delta x}
+		\left(
+		g( u_{j-1}^n,  u_{j}^n) - g( u_j^n,  u_{j+1}^n)
+		\right),
+	\end{align*}
+	and the numerical flux function
+	\begin{align*}
+		g(u_L,u_R)
+		=
+		\begin{cases}
+			\underset{ u_L \leq u \leq u_R}{\min}  f(u) \quad & \text{if } u_L \leq u_R , \\
+			\underset{ u_R \leq u \leq u_L}{\max}  f(u) \quad & \text{if } u_L > u_R.
+		\end{cases}
+	\end{align*}
+	\begin{enumerate}
+		\item Show that the numerical flux function is \emph{monotone}.
+		\item Rewrite the scheme in the \emph{incremental form}.
+		\item Show that the scheme has the
+		      \emph{total-variation-diminishing} (TVD) property.
+	\end{enumerate}
+	% \hint{A numerical flux function $g(u,v)$ is monotone if it is monotonically increasing and decreasing
+	% 	in $u$ and $v$, respectively.}
+\end{example}
+Approach:
+\begin{enumerate}
+	\item
+	      \begin{proof}
+		      In order to show the monotonicity of the numerical flux function,
+		      it is sufficient to show the following relations
+		      \begin{equation}\label{eq:conditiongeneral}
+			      \boxed{
+				      \begin{cases}
+					      \partial_{u} g(u,v) \geq 0, \\
+					      \partial_{v} g(u,v) \leq 0.
+				      \end{cases}
+			      }
+		      \end{equation}
+		      Hence, in case of \emph{Burgers}' equation, where $f^\prime(u) = u$, we proceed as follows
+		      \begin{align*}
+			      g(u_L,u_R)
+			      = \begin{cases}
+				      f(u_L), \quad  \text{if }
+				      \left[
+				      \begin{aligned}
+					       & f^\prime(u_L) \geq 0 \text{ and } f^\prime(u_R) \geq 0,         \\
+					       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]>0,
+				      \end{aligned}
+				      \right.
+				      \\
+				      \\
+				      f(u_R), \quad  \text{if }
+				      \left[
+				      \begin{aligned}
+					       & f^\prime(u_L) \leq 0 \text{ and } f^\prime(u_R) \leq 0,         \\
+					       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]<0,
+				      \end{aligned}
+				      \right.
+				      \\
+				      \\
+				      f(u_s), \quad \  \text{if } \quad  f^\prime(u_L) < 0 <  f^\prime(u_R),
+				      \quad
+			      \end{cases}
+		      \end{align*}
+		      where $u_s$ denotes the sonic point where $f^\prime(u_s) = 0$.
+		      Then, by taking the partial derivative of $g(u_L,u_R)$
+		      w.r.t. $u_L$ and $u_R$ we arrive at
+		      the following expressions
+		      \begin{align*}
+			       & \partial_{u_L} g(u_L,u_R)
+			      = \begin{cases}
+				      f^\prime (u_L), \quad  \text{if }
+				      \left[
+				      \begin{aligned}
+					       & f^\prime(u_L) \geq 0 \text{ and } f^\prime(u_R) \geq 0,           \\
+					       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u] > 0,
+				      \end{aligned}
+				      \right.
+				      \notag \\
+				      0, \quad  \text{otherwise},
+			      \end{cases}
+		      \end{align*}
+		      which leads to
+		      \begin{equation}\label{eq:firstpartpartialuL}
+			      \boxed{
+				      \partial_{u_L} g(u_L,u_R) \geq 0.
+			      }
+		      \end{equation}
+		      Likewise, the partial derivative of $g(u_L,u_R)$
+		      w.r.t. $u_R$ goes as follows
+		      \begin{align*}
+			       & \partial_{u_R} g(u_L,u_R)
+			      =
+			      \begin{cases}
+				      f^\prime(u_R), \quad  \text{if }
+				      \left[
+				      \begin{aligned}
+					       & f^\prime(u_L) \leq 0 \text{ and } f^\prime(u_R) \leq 0,         \\
+					       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]<0,
+				      \end{aligned}
+				      \right.
+				      \\
+				      0, \quad  \text{otherwise},
+			      \end{cases}
+		      \end{align*}
+		      which leads to
+		      \begin{equation}\label{eq:firstpartpartialuR}
+			      \boxed{
+				      \partial_{u_R} g(u_L,u_R) \leq 0.
+			      }
+		      \end{equation}
+		      Therefore, by combining \eqref{eq:firstpartpartialuL} and \eqref{eq:firstpartpartialuR},
+		      and comparing them with the condition given at \eqref{eq:conditiongeneral}, we arrive at \emph{q.e.d.}
+	      \end{proof}
+	      
+	\item The incremental form reads
+	      \begin{equation*}
+		      \boxed{
+		      u_j^{n+1} = u_j^n +C_{j+1/2}^n (u_{j+1}^n-u_j^n) - D_{j-1/2}^n (u_j^n-u_{j-1}^n).
+		      }
+	      \end{equation*}
+	      For any conservative Finite Volume scheme we obtain
+	      \begin{align*}
+		      C_{j+1/2} & = - \lambda \frac{g_{j+1/2}-f_j}{u_{j+1}-u_j}  \\
+		      D_{j-1/2} & =  \lambda \frac{f_j-g_{j-1/2}}{u_{j}-u_{j-1}}
+	      \end{align*}
+	      where $\lambda = \Delta t/ \Delta x$.
+	      Herein, for the case $C_{j+1/2}$, $u_L$ is $u_j$ and $u_R$ is $u_{j+1}$, as follows
+	      \begin{align*}
+		      C_{j+1/2}
+		      =
+		      \begin{cases}
+			      0, \quad  \text{if }
+			      \left[
+			      \begin{aligned}
+				       & f^\prime(u_L) \geq 0 \text{ and } f^\prime(u_R) \geq 0,         \\
+				       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]>0,
+			      \end{aligned}
+			      \right.
+			      \\
+			      \\
+			      - \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L},
+			      \quad  \text{if }
+			      \left[
+			      \begin{aligned}
+				       & f^\prime(u_L) \leq 0 \text{ and } f^\prime(u_R) \leq 0,         \\
+				       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]<0,
+			      \end{aligned}
+			      \right.
+			      \\
+			      \\
+			      - \lambda \dfrac{f(u_s) - f(u_L)}{u_R-u_L}, \quad \  \text{if } \quad
+			      f^\prime(u_L) < 0 <  f^\prime(u_R).
+			      \quad
+		      \end{cases}
+	      \end{align*}
+	      
+	      Likewise, it goes for the case $D_{j+1/2}$ as follows
+	      \begin{align*}
+		      D_{j+1/2}
+		      = \begin{cases}
+			      \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L}, \quad  \text{if }
+			      \left[
+			      \begin{aligned}
+				       & f^\prime(u_L) \geq 0 \text{ and } f^\prime(u_R) \geq 0,         \\
+				       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]>0,
+			      \end{aligned}
+			      \right.
+			      \\
+			      \\
+			      0, \quad  \text{if }
+			      \left[
+			      \begin{aligned}
+				       & f^\prime(u_L) \leq 0 \text{ and } f^\prime(u_R) \leq 0,         \\
+				       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]<0,
+			      \end{aligned}
+			      \right.
+			      \\
+			      \\
+			      \lambda \dfrac{f(u_R) - f(u_s)}{u_R-u_L}, \quad \ \text{if } \quad
+			      f^\prime(u_L) < 0 <  f^\prime(u_R).
+		      \end{cases}
+	      \end{align*}
+	      
+	\item In order to show the scheme has TVD property,
+	      according to Theorem II.23 (\emph{Harten} [1980]) from the lecture note,
+	      the following three conditions
+	      \begin{equation*}
+		      \boxed{
+			      \begin{aligned}
+				      C_{j+1/2} \geq 0, \\
+				      D_{j+1/2} \geq 0, \\
+				      C_{j+1/2} + D_{j+1/2} \leq 1,
+			      \end{aligned}
+		      }
+	      \end{equation*}
+	      must hold. Herein, the first two conditions $C_{j+1/2} \geq 0,\ D_{j+1/2} \geq 0$
+	      can be shown by using convexity of flux function $f$.
+	      Besides, the third condition $C_{j+1/2} + D_{j+1/2} \leq 1$ is shown as follows
+	      \begin{align*}
+		      C_{j+1/2} + D_{j+1/2}
+		      = \begin{cases}
+			      \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L}, \quad  \text{if }
+			      \left[
+			      \begin{aligned}
+				       & f^\prime(u_L) \geq 0 \text{ and } f^\prime(u_R) \geq 0,         \\
+				       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]>0,
+			      \end{aligned}
+			      \right.
+			      \\
+			      \\
+			      - \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L},  \ \  \text{if }
+			      \left[
+			      \begin{aligned}
+				       & f^\prime(u_L) \leq 0 \text{ and } f^\prime(u_R) \leq 0,         \\
+				       & f^\prime(u_L) \geq 0 \geq f^\prime(u_R) \text{ and } [f]/[u]<0,
+			      \end{aligned}
+			      \right.
+			      \\
+			      \\
+			      \lambda \dfrac{f(u_R) + f(u_L) -2 f(u_s)}{u_R-u_L}, \quad  \text{if } \quad
+			      f^\prime(u_L) < 0 <  f^\prime(u_R).
+		      \end{cases}
+	      \end{align*}
+	      The $C_{j+1/2}+ D_{j+1/2} \leq 1$ leads to the CFL condition for \emph{Godunov}'s scheme.\\
+	      For $\lambda$ that satisfies $C_{j+1/2}+ D_{j+1/2} \leq 1$, the scheme is TVD.
+\end{enumerate}
 
 % %------------------------------------------------------------------------------
 % \section{A small remark for consistent numerical flux function used
