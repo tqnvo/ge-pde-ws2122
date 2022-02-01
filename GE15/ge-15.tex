@@ -14,6 +14,19 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 \hspace{280pt} 
 \thepage/\pageref{LastPage}\hfil}
 \makeatother
+
+% \usepackage{etoc}
+
+% \usepackage[tocflat]{tocstyle}
+% \usetocstyle{standard}
+% % Redefinition of ToC command to get centered heading
+% \makeatletter
+% \renewcommand\tableofcontents{%
+%   \null\hfill\textbf{\Large\contentsname}\hfill\null\par
+%   \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
+%   \@starttoc{toc}%
+% }
+% \makeatother
 %------------------------------------------------------------------------------
 
 \begin{document}
@@ -27,24 +40,26 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 	$02^{\text{nd}}$ February 2022
 \end{center}
 
+% \tableofcontents
+% \clearpage
+
 %------------------------------------------------------------------------------
 \section{A small note about monotonicity: \emph{Upwind} scheme}
-% \begin{example}
-% 	abcdef
-% \end{example}
+\begin{example}
+	Examine monotonicity of $\mathcal{H}_{\Delta t}$ for conservation law $u_{t} + f(u)_x = 0$.
+\end{example}
 \inputfig{floats/monotoneUW}{monotoneUW}
 
-\clearpage
-%------------------------------------------------------------------------------
-
-\section{A small note about Roe's matrix}
-\begin{example}
-	Examine Roe's matrix of isothermal system of equations.
-\end{example}
-Roe's solver:\\
-P.L.Roe [1981], 
-\href{https://www.sciencedirect.com/science/article/pii/0021999181901285}
-{Approximate Riemann solvers, parameter vectors, and difference schemes}.
+% \clearpage
+% %------------------------------------------------------------------------------
+% \section{A small note about Roe's matrix}
+% \begin{example}
+% 	Examine Roe's matrix of isothermal system of equations.
+% \end{example}
+% Roe's solver:\\
+% P.L.Roe [1981], 
+% \href{https://www.sciencedirect.com/science/article/pii/0021999181901285}
+% {Approximate Riemann solvers, parameter vectors, and difference schemes}.
 
 %------------------------------------------------------------------------------
 \clearpage
@@ -64,9 +79,7 @@ P.L.Roe [1981],
 
 \clearpage
 %------------------------------------------------------------------------------
-\section{Insight of Riemann's problem and Godunov's solver}
-
-\clearpage
+\section{Insight of Godunov's solver}
 \begin{example}
 	Examine $u_{L} > u_{R}$.
 \end{example}
@@ -289,7 +302,7 @@ Approach:
 	      \begin{align*}
 		      C_{j+1/2} + D_{j+1/2}
 		      = \begin{cases}
-			      \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L}, \quad  \text{if }
+			      \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L}, \  \text{if }
 			      \left[
 			      \begin{aligned}
 				       & f^\prime(u_L) \geq 0 \text{ and } f^\prime(u_R) \geq 0,         \\
@@ -298,7 +311,7 @@ Approach:
 			      \right.
 			      \\
 			      \\
-			      - \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L},  \ \  \text{if }
+			      - \lambda \dfrac{f(u_R) - f(u_L)}{u_R-u_L},  \  \text{if }
 			      \left[
 			      \begin{aligned}
 				       & f^\prime(u_L) \leq 0 \text{ and } f^\prime(u_R) \leq 0,         \\
@@ -307,7 +320,7 @@ Approach:
 			      \right.
 			      \\
 			      \\
-			      \lambda \dfrac{f(u_R) + f(u_L) -2 f(u_s)}{u_R-u_L}, \quad  \text{if } \quad
+			      \lambda \dfrac{f(u_R) + f(u_L) -2 f(u_s)}{u_R-u_L}, \  \text{if } \quad
 			      f^\prime(u_L) < 0 <  f^\prime(u_R).
 		      \end{cases}
 	      \end{align*}
