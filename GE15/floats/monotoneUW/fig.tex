@@ -19,13 +19,13 @@
 	\psfrag{con}[l][l] {CFL: $\displaystyle 0\leq -f'(u)\frac{\Delta t}{\Delta x} \leq 1$}
 
 	\psfrag{uwlp}[l][l] {$\displaystyle  \mathcal{H}_{\Delta t}
-			= u^{n}_{j} + \frac{\Delta t}{\Delta x}\left(f(u^{n}_{j-1}) - f(u^{n}_{j})\right)$}
+			= u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)$}
 
 	\psfrag{uwln}[l][l] {$\displaystyle  \mathcal{H}_{\Delta t}
 			= u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)$}
 
 	\psfrag{uwrp}[l][l] {$\displaystyle  \mathcal{H}_{\Delta t}
-			= u^{n}_{j} + \frac{\Delta t}{\Delta x}\left(f(u^{n}_{j}) - f(u^{n}_{j+1})\right)$}
+			= u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)$}
 
 	\psfrag{nuwr}[l][l] {$\displaystyle  \mathcal{H}_{\Delta t}
 			= u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)$}
@@ -49,7 +49,7 @@
 	\psfrag{e11}[l][l] {$A_{1}\geq 0 \Leftrightarrow f'(u^{n}_{j-1}) \geq 0\quad \checkmark$}
 	\psfrag{e12}[l][l] {$B_{1}\geq 0 \Leftrightarrow f'(u^{n}_{j}) \leq \Delta x/\Delta t \ (?)\stackrel{\text{CFL}}{\rightarrow}\checkmark$}
 	\psfrag{e21}[l][l] {$A_{1}\leq 0 \Leftrightarrow f'(u^{n}_{j-1}) \leq 0\quad \lightning$}
-	\psfrag{e22}[l][l] {$B_{1}\leq 0 \Leftrightarrow f'(u^{n}_{j}) \geq \Delta x/\Delta t \ \stackrel{\text{CFL}}{\rightarrow}\lightning$}
+	\psfrag{e22}[l][l] {$B_{1}\leq 0 \Leftrightarrow f'(u^{n}_{j}) \geq \Delta x/\Delta t \ (?) \stackrel{\text{CFL}}{\rightarrow}\lightning$}
 
 	\psfrag{f11}[l][l] {$A_{1}\geq 0 \Leftrightarrow f'(u^{n}_{j-1}) \geq 0\quad \lightning$}
 	\psfrag{f12}[l][l] {$B_{1}\geq 0 \Leftrightarrow f'(u^{n}_{j}) \leq \Delta x/\Delta t \quad \checkmark$}
@@ -63,7 +63,7 @@
 
 	\psfrag{h11}[l][l] {$B_{2}\geq 0 \Leftrightarrow f'(u^{n}_{j})\geq-\Delta x/\Delta t \ (?) \stackrel{\text{CFL}}{\rightarrow}\checkmark$}
 	\psfrag{h12}[l][l] {$C_{2}\geq 0 \Leftrightarrow f'(u^{n}_{j+1}) \leq 0 \quad \checkmark$}
-	\psfrag{h21}[l][l] {$B_{2}\leq 0 \Leftrightarrow f'(u^{n}_{j})\leq-\Delta x/\Delta t \ \stackrel{\text{CFL}}{\rightarrow} \lightning$}
+	\psfrag{h21}[l][l] {$B_{2}\leq 0 \Leftrightarrow f'(u^{n}_{j})\leq-\Delta x/\Delta t \ (?) \stackrel{\text{CFL}}{\rightarrow} \lightning$}
 	\psfrag{h22}[l][l] {$C_{2}\leq 0 \Leftrightarrow f'(u^{n}_{j+1}) \geq 0 \quad \lightning$}
 
 	\includegraphics[width=0.83\textwidth]{monotoneUW.eps}
