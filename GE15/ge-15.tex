@@ -46,6 +46,12 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 %------------------------------------------------------------------------------
 \section{A small note about monotonicity: \emph{Upwind} scheme}
 \begin{example}
+	Examine monotonicity of $\mathcal{H}_{\Delta t}$ for conservation law $u_{t} + au_x = 0$.
+\end{example}
+\inputfig{floats/monotoneUW}{monotoneUW}
+
+\clearpage
+\begin{example}
 	Examine monotonicity of $\mathcal{H}_{\Delta t}$ for conservation law $u_{t} + f(u)_x = 0$.
 \end{example}
 \inputfig{floats/monotoneUW}{monotoneUW}
@@ -77,9 +83,74 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 \end{example}
 \inputfig{floats/LFvsLW}{LFvsLW}
 
+\pagebreak
+\begin{example}
+	Assume the linear advection problem given by
+	\begin{align*}
+		u_t + au_x = 0
+		\quad\text{with}\quad
+		a>0,
+	\end{align*}
+	and the numerical scheme as follows
+	\begin{align*}
+		u_j^{n+1}
+		= u_j^n + \nu \left(u_{j-1}^n-u_j^n \right)
+		+ \frac{\nu(1-\nu)}{2}\Delta x \left(\sigma_{j-1}^n - \sigma_j^n \right),
+	\end{align*}
+	with limited slopes
+	\begin{align*}
+		\sigma_j^n = \frac{u_{j+1}^n-u_j^n}{\Delta x}\phi(\theta_j).
+	\end{align*}
+	Prove that numerical scheme is TVD with limiters $\phi(\theta)$ given as follows
+	\begin{enumerate}
+		\item $\displaystyle \phi(\theta) = \max(0, \min(\theta, 2))$,
+		\item $\displaystyle \phi(\theta) = \max(0, \min(2\theta, 2))$,
+		\item $\displaystyle \phi(\theta) = \frac{\theta + |\theta|}{\alpha+|\theta|}$ for
+		      any fixed $\alpha \ge 1$
+		\item $\displaystyle \phi(\theta) = \max(0, \min(2\theta, 1), \min(\theta, 2))$.
+	\end{enumerate}
+	Denote which of them are second order schemes.
+\end{example}
+
+According to the theorem on TVD region of \emph{Upwind} numerical scheme with limiter
+presented in the lecture, we know that limiter gives us TVD scheme if
+the following relations
+\begin{align*}
+	0              \le \phi(\theta) & \le 2\theta, \\
+	|\phi(\theta)|                  & \le 2,
+\end{align*}
+holds. Besides, the scheme is of $2$nd-order if and only if $\phi(1)=1$ holds.
+Therefore, we can simply check lower and upper bounds of limiters, as follows
+\begin{enumerate}
+	\item $\displaystyle \phi(\theta) = \max(0, \min(\theta, 2))$ satisfies bounds and
+	      goes through $\phi(1) = 1$.\\
+	      Hence, it corresponds to $2$nd-order TVD method.
+	\item $\displaystyle \phi(\theta) = \max(0, \min(2\theta, 2))$ satisfies bounds but
+	      $\phi(1) = 2$.\\
+	      Hence, it is of $1$st-order TVD scheme.
+	\item $\displaystyle \phi(\theta) = \frac{\theta + |\theta|}{\alpha+|\theta|}$
+	      satisfies bounds for any fixed $\alpha \ge 1$, but $\phi(1) = 1$ holds
+	      only for $\alpha=1$.\\
+	      Hence, it is of $2$nd-order only if $\alpha=1$ and
+	      of $1$st-order otherwise.
+	\item $\displaystyle \phi(\theta) = \max(0, \min(2\theta, 1), \min(\theta, 2))$
+	      satisfies bounds and $\phi(1) = 1$ holds.\\
+	      Hence, it is TVD scheme of $2$nd-order.
+\end{enumerate}
+
+\pagebreak
+\begin{example}
+	Examine and sketch the following \emph{Limiter} function.
+	\begin{equation*}
+		\phi(\theta) = 
+		\min\left(\delta \theta, \frac{1+\theta}{2}, \gamma \right),\ \text{for} \ \delta,\gamma \geq 1.
+	\end{equation*}
+\end{example}
+\inputfig{floats/limiter1}{limiter1}
+
 \clearpage
 %------------------------------------------------------------------------------
-\section{Insight of Godunov's solver}
+\section{A bit insight into Godunov's solver}
 \begin{example}
 	Examine the Godunov numerical flux function
 	\begin{align*}
@@ -90,14 +161,21 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 			\underset{ u_R \leq u \leq u_L}{\max}  f(u) \quad & \text{if } u_L > u_R.
 		\end{cases}
 	\end{align*}
-    by considering all possible cases.
+	by considering all possible cases.
 \end{example}
 
 \clearpage
 \begin{example}
 	Examine $u_{L} > u_{R}$.
 \end{example}
-\inputfig{floats/RiemannAllCasesLR}{RiemannAllCasesLR}
+\inputfig{floats/RiemannAllCasesLR_set1}{RiemannAllCasesLR_set1}
+Schock solution
+
+\clearpage
+\begin{example}
+	Examine $u_{L} > u_{R}$.
+\end{example}
+\inputfig{floats/RiemannAllCasesLR_set2}{RiemannAllCasesLR_set2}
 Schock solution
 
 \clearpage
