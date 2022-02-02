@@ -50,11 +50,11 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 \end{example}
 \inputfig{floats/monotoneUW}{monotoneUW}
 
-\clearpage
-\begin{example}
-	Examine monotonicity of $\mathcal{H}_{\Delta t}$ for conservation law $u_{t} + f(u)_x = 0$.
-\end{example}
-\inputfig{floats/monotoneUW}{monotoneUW}
+% \clearpage
+% \begin{example}
+% 	Examine monotonicity of $\mathcal{H}_{\Delta t}$ for conservation law $u_{t} + f(u)_x = 0$.
+% \end{example}
+% \inputfig{floats/monotoneUW}{monotoneUW}
 
 % \clearpage
 % %------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ PDE $\cdot$ GE15 $\cdot$ WS21/22
 %------------------------------------------------------------------------------
 \section{Limiter}
 \begin{example}
-	Examine the $1^{st}$-order-converged LF and the $2^{nd}$-order-converged LW.
+	Examine the $1^{st}$-order-accurate LF and the $2^{nd}$-order-accurate LW.
 \end{example}
 \inputfig{floats/LFvsLW}{LFvsLW}
 
@@ -152,7 +152,7 @@ Therefore, we can simply check lower and upper bounds of limiters, as follows
 %------------------------------------------------------------------------------
 \section{A bit insight into Godunov's solver}
 \begin{example}
-	Examine the Godunov numerical flux function
+	Verify the Godunov numerical flux function
 	\begin{align*}
 		g(u_L,u_R)
 		=
@@ -163,6 +163,13 @@ Therefore, we can simply check lower and upper bounds of limiters, as follows
 	\end{align*}
 	by considering all possible cases.
 \end{example}
+All possible cases read
+\begin{enumerate}
+	\item $f'(u_{L}), f'(u_{R}) \geq 0 \Rightarrow u* = u_{L}$
+	\item $f'(u_{L}), f'(u_{R}) \leq 0 \Rightarrow u* = u_{R}$
+	\item $f'(u_{L}) \geq 0 \geq f'(u_{R}) \Rightarrow u* = u_{L} \ \text{if} \ [f]/[u] > 0 \ \text{or} \ u*=u_{R} \ \text{if} \ [f]/[u] < 0$
+	\item $f'(u_{L}) < 0 < f'(u_{R}) \Rightarrow u* = u_{\text{s}}$ where $f'(u_{s})=0$
+\end{enumerate}
 
 \clearpage
 \begin{example}
