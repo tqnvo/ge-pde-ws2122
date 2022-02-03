@@ -2,14 +2,26 @@
 
 ## Class of **Partial Differential Equations (PDE)** - WS 2021-2022
 ### Global exercises (GEs)
-- **Hyperbolic systems** of **conservation laws**
+- Linear $+$ Nonlinear **Hyperbolic systems** of **conservation laws**
 - **Riemann**'s problems
 - **Cauchy**'s problems
+- Linear scalar advection equation
+- Nonlinear viscous **Burgers**' $+$ inviscid **Burgers**' equations
+- Hyperbolic systems of first order PDE: 
+  - (strictly) hyperbolicity: disctinct eigenvalues
+  - diagonalizable matrix $A = R^{-1}\Lambda R$
+  - Decomposition of system of first order PDEs into separated first order PDEs
 - **Shock** solution vs **Rarefaction** solution
 - **Finite Volume Methods**
 - Conservation form $u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)$
 - Consistent numerical flux function $\widetilde{F}^{n}_{j-1/2}\left(u^{n}_{j-1},u^{n}_{j}\right)$ and $\widetilde{F}^{n}_{j+1/2}\left(u^{n}_{j},u^{n}_{j+1}\right)$
+- Upwind-to-the-left (UWL): $u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)$
+- Upwind-to-the-right (UWR): $u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)$
+- **Lax-Friedrichs** (LF): $u^{n+1}_{j} = \frac{1}{2}\Big( u^{n}_{j-1} + u^{n}_{j+1} \Big) + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j+1})\Big)$ 
+- **Lax-Wendroff** (LW)
 - Numerical Analysis: **Lax** Equivalence Theorem: **Consistency** $+$ **Stability** $\Leftrightarrow$ **Convergence**
+  - Nonlinear numerical methods
+  - Non-oscillatory behaviours of higher order numerical methods
 - Exact **Riemann** solver: **Godunov**'s scheme
 - Approximate **Riemann**'s solvers: 
   - **Roe**'s solver 
@@ -18,8 +30,10 @@
 - Structure of Finite Volume Method
   - **Monotone** $\rightarrow$ **$L_{1}$-Contraction** $\rightarrow$ **Total-Variation-Diminishing** (TVD) $\rightarrow$ **Monotonicity-Preserving**
 - Nonlinear + higher order numerical scheme: 
-  - TVD scheme 
   - **Harten** theorem
+  - Incremental form
+  - TVD scheme
+- A bit insight into **Godunov**'s solver with graphical explanations
 
 ## Teaching assistant's extra materials and supplements
 
