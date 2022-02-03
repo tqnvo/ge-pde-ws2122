@@ -1,7 +1,7 @@
 # Teaching assistant ge-pde-ws2122
 
 ## Class of **Partial Differential Equations (PDE)** - WS 2021-2022
-### Global exercises (GEs)
+### Global exercises (GEs): GE09-GE10-GE11-GE12-GE13-GE14-GE15
 - Linear $+$ Nonlinear **Hyperbolic systems** of **conservation laws**
 - **Riemann**'s problems
 - **Cauchy**'s problems
@@ -9,7 +9,7 @@
 - Nonlinear viscous **Burgers**' $+$ inviscid **Burgers**' equations
 - Hyperbolic systems of first order PDE: 
   - (strictly) hyperbolicity: disctinct eigenvalues
-  - diagonalizable matrix $A = R^{-1}\Lambda R$
+  - diagonalizable matrix $A = R\Lambda R^{-1}$
   - Decomposition of system of first order PDEs into separated first order PDEs
 - **Shock** solution vs **Rarefaction** solution
 - **Finite Volume Methods**
