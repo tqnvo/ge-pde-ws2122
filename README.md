@@ -50,8 +50,8 @@
 ---
 ### Noted materials
 - [x] [CW49/2021 $\rightarrow$ GE09-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-09.pdf) 
-- [x] [CW50/2021 $\rightarrow$ GE10-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-10.pdf)
-- [x] [CW51/2021 $\rightarrow$ GE11-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-11.pdf)
+- [x] [CW50/2021 $\rightarrow$ GE10-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE10/ge-10.pdf)
+- [x] [CW51/2021 $\rightarrow$ GE11-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE11/ge-11.pdf)
 - [x] [CW02/2022 $\rightarrow$ GE12-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE12/ge-12-noted.pdf) 
 - [x] [CW03/2022 $\rightarrow$ GE13-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE13/ge-13-noted.pdf)
 - [x] [CW04/2022 $\rightarrow$ GE14-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE14/ge-14-noted.pdf)
