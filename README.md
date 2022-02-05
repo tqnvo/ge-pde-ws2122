@@ -40,8 +40,8 @@
 
 ### Unnoted materials
 - [x] [GE09](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-09.pdf) 
-- [x] [GE10](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-10.pdf)
-- [x] [GE11](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-11.pdf)
+- [x] [GE10](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE10/ge-10.pdf)
+- [x] [GE11](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE11/ge-11.pdf)
 - [x] [GE12](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE12/ge-12.pdf) 
 - [x] [GE13](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE13/ge-13.pdf) 
 - [x] [GE14](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE14/ge-14.pdf) 
