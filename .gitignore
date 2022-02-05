@@ -35,3 +35,4 @@
 *.ps
 packages_styles.tex
 dfcmd.sty
+*.tex
