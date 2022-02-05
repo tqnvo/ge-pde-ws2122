@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=latex 2021.7.9)  15 DEC 2021 13:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=latex 2021.7.9)  5 FEB 2022 06:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.tex
-(/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.tex
+**/home/vo/ge-pde-ws2122/GE10/ge-10.tex
+(/home/vo/ge-pde-ws2122/GE10/ge-10.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -57,7 +57,7 @@ Package babel Info: \l@australian = using hyphenrules for ukenglish
 (babel)             (\language59) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
 (babel)             (\language59) on input line 108.
-)) (/home/vo/Desktop/math5_he_se_anots/GE10/packages_styles.tex (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+)) (/home/vo/ge-pde-ws2122/GE10/packages_styles.tex (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
@@ -366,7 +366,7 @@ Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
 \symboldsymbols=\mathgroup8
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 209.
-) (/home/vo/Desktop/math5_he_se_anots/GE10/dfcmd.sty
+) (/home/vo/ge-pde-ws2122/GE10/dfcmd.sty
 \c@theorem=\count301
 \c@proposition=\count302
 \c@definition=\count303
@@ -440,25 +440,25 @@ File: l3backend-dvips.def 2020-02-03 L3 backend support: dvips
 \g__pdf_backend_annotation_int=\count321
 \g__pdf_backend_link_int=\count322
 \g__pdf_backend_link_sf_int=\count323
-) (/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.aux)
+) (/home/vo/ge-pde-ws2122/GE10/ge-10.aux)
 \openout1 = `ge-10.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
@@ -474,7 +474,7 @@ Package color Info: Driver file: dvips.def on input line 147.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ))
-Package hyperref Info: Link coloring ON on input line 17.
+Package hyperref Info: Link coloring ON on input line 19.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -484,159 +484,209 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count324
 )
-LaTeX Info: Redefining \ref on input line 17.
-LaTeX Info: Redefining \pageref on input line 17.
-LaTeX Info: Redefining \nameref on input line 17.
- (/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.out) (/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.out)
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
+ (/home/vo/ge-pde-ws2122/GE10/ge-10.out) (/home/vo/ge-pde-ws2122/GE10/ge-10.out)
 \@outlinefile=\write4
 \openout4 = `ge-10.out'.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 17.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+(lastpage)             ! on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   1/[][][][][][] 
+ []
 
-] (/home/vo/Desktop/math5_he_se_anots/GE10/floats/characsin/fig.tex
+[1
+
+] (/home/vo/ge-pde-ws2122/GE10/floats/characsin/fig.tex
 File: floats/characsin/characsin.eps Graphic file (type eps)
- <floats/characsin/characsin.eps>) [2
+ <floats/characsin/characsin.eps>)
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   2/[][][][][][] 
+ []
 
-] (/home/vo/Desktop/math5_he_se_anots/GE10/floats/charac12182181/fig.tex
+[2
+
+] (/home/vo/ge-pde-ws2122/GE10/floats/charac12182181/fig.tex
 File: floats/charac12182181/charac12182181.eps Graphic file (type eps)
- <floats/charac12182181/charac12182181.eps>) [3
+ <floats/charac12182181/charac12182181.eps>)
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   3/[][][][][][] 
+ []
 
-] (/home/vo/Desktop/math5_he_se_anots/GE10/floats/charac02082080/fig.tex
+[3
+
+] (/home/vo/ge-pde-ws2122/GE10/floats/charac02082080/fig.tex
 File: floats/charac02082080/charac02082080.eps Graphic file (type eps)
- <floats/charac02082080/charac02082080.eps>) [4
+ <floats/charac02082080/charac02082080.eps>)
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   4/[][][][][][] 
+ []
 
-] (/home/vo/Desktop/math5_he_se_anots/GE10/floats/totalvariation/fig.tex
+[4
+
+] (/home/vo/ge-pde-ws2122/GE10/floats/totalvariation/fig.tex
 File: floats/totalvariation/totalvariation.eps Graphic file (type eps)
- <floats/totalvariation/totalvariation.eps>) [5
+ <floats/totalvariation/totalvariation.eps>)
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   5/[][][][][][] 
+ []
 
-] (/home/vo/Desktop/math5_he_se_anots/GE10/floats/totalvariation_inv/fig.tex
+[5
+
+] (/home/vo/ge-pde-ws2122/GE10/floats/totalvariation_inv/fig.tex
 File: floats/totalvariation_inv/totalvariation_inv.eps Graphic file (type eps)
  <floats/totalvariation_inv/totalvariation_inv.eps>)
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--219
+Underfull \hbox (badness 10000) in paragraph at lines 211--221
 
  []
 
-[6] (/home/vo/Desktop/math5_he_se_anots/GE10/floats/totalvariation_sin/fig.tex
+
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   6/[][][][][][] 
+ []
+
+[6] (/home/vo/ge-pde-ws2122/GE10/floats/totalvariation_sin/fig.tex
 File: floats/totalvariation_sin/totalvariation_sin.eps Graphic file (type eps)
  <floats/totalvariation_sin/totalvariation_sin.eps>)
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
+Underfull \hbox (badness 10000) in paragraph at lines 259--269
 
  []
 
-[7] [8
 
-] [9
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   7/[][][][][][] 
+ []
+
+[7]
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   8/[][][][][][] 
+ []
+
+[8
+
+]
+Overfull \hbox (26.06819pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   9/[][][][][][] 
+ []
+
+[9
 
 ] 
 AED: lastpage setting LastPage
+
+Overfull \hbox (31.94313pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/12 NumPDE $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 GE10 $\OMS/cmsy/m/n/12 ^^A$ \OT1/cmr/m/n/12 WS21/22   10/[][][][][][] 
+ []
+
 [10
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 685.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 685.
- (/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 685.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 685.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 687.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 687.
+ (/home/vo/ge-pde-ws2122/GE10/ge-10.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 687.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 687.
 Package rerunfilecheck Info: File `ge-10.out' has not changed.
 (rerunfilecheck)             Checksum: 65DB6CA9868BB4A04D6A76A8EFB399E5;313.
  ) 
 Here is how much of TeX's memory you used:
  13435 strings out of 481240
- 203638 string characters out of 5920404
- 488482 words of memory out of 5000000
+ 203218 string characters out of 5920404
+ 488519 words of memory out of 5000000
  28431 multiletter control sequences out of 15000+600000
  547124 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,22n,50p,887b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,22n,50p,875b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /home/vo/Desktop/math5_he_se_anots/GE10/ge-10.dvi (10 pages, 43532 bytes).
+Output written on /home/vo/ge-pde-ws2122/GE10/ge-10.dvi (10 pages, 43864 bytes).

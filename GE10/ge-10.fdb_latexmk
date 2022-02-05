@@ -1,12 +1,14 @@
 # Fdb version 3
-["dvips"] 1639570072 "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.dvi" "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.ps" "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10" 1639570077
-  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.dvi" 1639570072 43532 58b3375e416e2e4636b4a688459b20f9 "latex"
+["dvips"] 1644037641 "/home/vo/ge-pde-ws2122/GE10/ge-10.dvi" "/home/vo/ge-pde-ws2122/GE10/ge-10.ps" "/home/vo/ge-pde-ws2122/GE10/ge-10" 1644037643
+  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.dvi" 0 -1 0 "latex"
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.dvi" 1644037641 43864 1b504ea6c0805d6ea40cca9973a8e93c "latex"
   (generated)
   "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.ps"
-["latex"] 1639570072 "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.tex" "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.dvi" "ge-10" 1639570077
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.ps"
+["latex"] 1644037641 "/home/vo/ge-pde-ws2122/GE10/ge-10.tex" "/home/vo/ge-pde-ws2122/GE10/ge-10.dvi" "ge-10" 1644037643
   "/etc/texmf/web2c/texmf.cnf" 1625738628 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.aux" 1639570072 4635 2c5f8b8dd12447bdda080678eff9e35a ""
-  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.tex" 1639570077 26155 b473b9793db857bbc01784dba736c8de ""
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.aux" 1644037641 4635 2c5f8b8dd12447bdda080678eff9e35a ""
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.tex" 1644037639 26210 1d604cff284bceec2f3cdd4fc990538e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -144,18 +146,20 @@
   "floats/totalvariation_inv/totalvariation_inv.eps" 1639536901 138412 f6708e3edb855e795444f13a5ab0fde2 ""
   "floats/totalvariation_sin/fig.tex" 1639538882 636 98450437a103a70e461146fbdd8cab1c ""
   "floats/totalvariation_sin/totalvariation_sin.eps" 1639538864 282756 2ecff1842b673b93a0291652a1a9c787 ""
-  "ge-10.aux" 1639570072 4635 2c5f8b8dd12447bdda080678eff9e35a "latex"
-  "ge-10.out" 1639570072 313 65db6ca9868bb4a04d6a76a8efb399e5 "latex"
-  "ge-10.tex" 1639570077 26155 b473b9793db857bbc01784dba736c8de ""
+  "ge-10.aux" 1644037641 4635 2c5f8b8dd12447bdda080678eff9e35a "latex"
+  "ge-10.out" 1644037641 313 65db6ca9868bb4a04d6a76a8efb399e5 "latex"
+  "ge-10.tex" 1644037639 26210 1d604cff284bceec2f3cdd4fc990538e ""
   "packages_styles.tex" 1638895657 1259 34681cdf6d50c070456a9da6a49155d0 ""
   (generated)
-  "ge-10.dvi"
-  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.dvi"
   "ge-10.log"
-  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.log"
   "ge-10.out"
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.log"
+  "ge-10.dvi"
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.dvi"
   "ge-10.aux"
-["ps2pdf"] 1639570072 "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.ps" "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.pdf" "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10" 1639570077
-  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.ps" 1639570072 5256956 962833422d8c64b0d109d743cc5d651e "dvips"
+["ps2pdf"] 1644037642 "/home/vo/ge-pde-ws2122/GE10/ge-10.ps" "/home/vo/ge-pde-ws2122/GE10/ge-10.pdf" "/home/vo/ge-pde-ws2122/GE10/ge-10" 1644037643
+  "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.ps" 0 -1 0 "dvips"
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.ps" 1644037642 5259233 4e8c674f295410e02a177b56660aef64 "dvips"
   (generated)
+  "/home/vo/ge-pde-ws2122/GE10/ge-10.pdf"
   "/home/vo/Desktop/math5_he_se_anots/GE10/ge-10.pdf"
