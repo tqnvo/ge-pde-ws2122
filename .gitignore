@@ -33,6 +33,5 @@
 *.dvi
 *.out.ps
 *.ps
-packages_styles.tex
-dfcmd.sty
+*.sty
 *.tex
