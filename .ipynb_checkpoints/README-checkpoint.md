@@ -16,9 +16,6 @@
 - Conservation form $u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)$
 - Consistent numerical flux function $\widetilde{F}^{n}_{j-1/2}\left(u^{n}_{j-1},u^{n}_{j}\right)$ and $\widetilde{F}^{n}_{j+1/2}\left(u^{n}_{j},u^{n}_{j+1}\right)$
 - Upwind-to-the-left (UWL): 
-  $
-  u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)
-  $
   <img src="https://render.githubusercontent.com/render/math?math=u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)">
 - Upwind-to-the-right (UWR): $u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)$
 - **Lax-Friedrichs** (LF): $u^{n+1}_{j} = \frac{1}{2}\Big( u^{n}_{j-1} + u^{n}_{j+1} \Big) + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j+1})\Big)$ 
@@ -38,6 +35,12 @@
   - Incremental form
   - TVD scheme
 - A bit insight into **Godunov**'s solver with graphical explanations
+
+#<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+
+#![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+
+#https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1
  
 ## Teaching assistant's extra materials and supplements
 
