@@ -22,12 +22,8 @@
     
     <img src="https://latex.codecogs.com/svg.image?\dpi{100}&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" />
     
-    <img src="https://latex.codecogs.com/svg.image?1+sin^2(x)#gh-light-mode-only" />
-
-    <img src="https://latex.codecogs.com/svg.image?1+cos^2(x)#gh-dark-mode-only" />
-
-    ![GitHub Light](https://latex.codecogs.com/svg.image?1+da^2(x)#gh-dark-mode-only)
-    ![GitHub Light](https://latex.codecogs.com/svg.image?1+li^2(x)#gh-light-mode-only)
+    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-dark-mode-only" title="1+sin^2x" />
+    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-light-mode-only" title="1+cos^2x" />
   </p>
 - Consistent numerical flux function 
   <p align="center">
@@ -68,6 +64,9 @@
 ## Teaching assistant's extra materials and supplements
 
 ### Unnoted materials
+
+TODO
+
 - [x] [GE09](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-09.pdf) 
 - [x] [GE10](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE10/ge-10.pdf)
 - [x] [GE11](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE11/ge-11.pdf)
@@ -78,6 +77,9 @@
 - [x] [GE15e](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE15e/ge-15e.pdf) 
 ---
 ### Noted materials
+
+TODO
+
 - [x] [CW49/2021 $\rightarrow$ GE09-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-09.pdf) 
 - [x] [CW50/2021 $\rightarrow$ GE10-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE10/ge-10.pdf)
 - [x] [CW51/2021 $\rightarrow$ GE11-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE11/ge-11.pdf)
