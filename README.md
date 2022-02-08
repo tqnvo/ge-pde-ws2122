@@ -36,7 +36,9 @@
   - TVD scheme
 - A bit insight into **Godunov**'s solver with graphical explanations
 
-https://render.githubusercontent.com/render/math?math=e^{i%20\pi}%20=%20-1
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+
+![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
  
 ## Teaching assistant's extra materials and supplements
 
