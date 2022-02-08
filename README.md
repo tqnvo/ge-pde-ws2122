@@ -15,12 +15,8 @@
 - **Finite Volume Methods**
 - Conservation form 
   <p align="center">
-    <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
-    <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/w.png#gh-dark-mode-only" height="120" width="120"/>
-  </p>
-  <p align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=u^{n+1}_{j} = u^{n}_{j}\! + \! \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j + 1/2} \Big)#gh-light-mode-only">
-    <img src="https://render.githubusercontent.com/render/math?math=u^{n + 1}_{j} = u^{n}_{j}\! + \! \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j + 1/2} \Big)#gh-dark-mode-only">
+    <img src="https://render.githubusercontent.com/render/math?math=u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j + 1/2} \Big)#gh-light-mode-only">
+    <img src="https://render.githubusercontent.com/render/math?math=u^{n + 1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j + 1/2} \Big)#gh-dark-mode-only">
   </p>
 - Consistent numerical flux function 
   <p align="center">
@@ -79,6 +75,7 @@
 - [x] [CW04/2022 $\rightarrow$ GE14-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE14/ge-14-noted.pdf)
 - [x] [CW05/2022 $\rightarrow$ GE15-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE15/ge-15-noted.pdf)
 
-```python
-
-```
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
+  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/w.png#gh-dark-mode-only" height="120" width="120"/>
+</p>
