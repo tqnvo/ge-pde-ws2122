@@ -16,11 +16,9 @@
 - Conservation form $u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)$
 - Consistent numerical flux function $\widetilde{F}^{n}_{j-1/2}\left(u^{n}_{j-1},u^{n}_{j}\right)$ and $\widetilde{F}^{n}_{j+1/2}\left(u^{n}_{j},u^{n}_{j+1}\right)$
 - Upwind-to-the-left (UWL): 
-  $
-  u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)
-  $
-  <img src="https://render.githubusercontent.com/render/math?math=u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)">
-- Upwind-to-the-right (UWR): $u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)$
+  <img src="https://render.githubusercontent.com/render/math?math=\bbox[white]\displaystyle u^{n+1}_{j} = u^{n}_{j}+\frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)">
+- Upwind-to-the-right (UWR): 
+<img src="https://render.githubusercontent.com/render/math?math=\bbox[white]\displaystyle u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)">
 - **Lax-Friedrichs** (LF): $u^{n+1}_{j} = \frac{1}{2}\Big( u^{n}_{j-1} + u^{n}_{j+1} \Big) + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j+1})\Big)$ 
 - **Lax-Wendroff** (LW)
 - Numerical Analysis: **Lax** Equivalence Theorem: **Consistency** $+$ **Stability** $\Leftrightarrow$ **Convergence**
@@ -39,12 +37,14 @@
   - TVD scheme
 - A bit insight into **Godunov**'s solver with graphical explanations
 
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbbox%5Bwhite%5D%7B%5Clarge%5Cf(x)=sin(x)%7D">
+<!-- <img src="https://render.githubusercontent.com/render/math?math=%5Cbbox%5Bwhite%5D%7B%5Clarge%5Cf(x)=sin(x)%7D"> 
 
-<img src="https://latex.codecogs.com/gif.latex?O_t=\text { Onset event at time bin } t " /> 
-- <img src="https://latex.codecogs.com/gif.latex?s=\text { sensor reading }  " /> 
-- <img src="https://latex.codecogs.com/gif.latex?P(s | O_t )=\text { Probability of a sensor reading value when sleep onset is observed at a time bin } t " />
+<img src="https://render.githubusercontent.com/render/math?math=\bbox[white]\displaystyle\sum_{n=0}^\infty\frac{1}{2^n}">
 
+- <img src="https://latex.codecogs.com/gif.latex?O_t=\text { Onset event at time bin } t " > 
+- <img src="https://latex.codecogs.com/gif.latex?s=\text { sensor reading }" > 
+- <img src="https://latex.codecogs.com/gif.latex?P(s | O_t )=\text { Probability of a sensor reading value when sleep onset is observed at a time bin } t" >
+-->
  
 ## Teaching assistant's extra materials and supplements
 
