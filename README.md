@@ -17,11 +17,14 @@
   <p align="center">
     <!-- <img src="https://latex.codecogs.com/svg.image?\bg_black&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\bg_black \inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" />
     <img src="https://latex.codecogs.com/svg.image?\bg_white&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\bg_white \inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)#gh-dark-mode-only" /> -->
-    <!-- <img src="https://latex.codecogs.com/svg.image?\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big" />
     
-    <img src="https://latex.codecogs.com/svg.image?\dpi{100}&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" /> -->
-    <img src="https://latex.codecogs.com/png.image?1+sin^2(x)" />
-    <img src="https://latex.codecogs.com/svg.image?1+cos^2(x)" />
+    <img src="https://latex.codecogs.com/svg.image?\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big" />
+    
+    <img src="https://latex.codecogs.com/svg.image?\dpi{100}&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" />
+    
+    <img src="https://latex.codecogs.com/png.image?1+sin^2(x)#gh-light-mode-only" />
+
+    <img src="https://latex.codecogs.com/svg.image?1+cos^2(x)#gh-dark-mode-only" />
   </p>
 - Consistent numerical flux function 
   <p align="center">
