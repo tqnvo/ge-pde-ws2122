@@ -1,7 +1,7 @@
 # Teaching assistant ge-pde-ws2122
 
-## Class of **Partial Differential Equations (PDE)** - WS 2021-2022
-### Global exercises (GEs): GE09-GE10-GE11-GE12-GE13-GE14-GE15
+## Class of **Numerical methods for Partial Differential Equations (NumPDE)** - WS 2021-2022
+### Global exercises (GEs): GE09-GE10-GE11-GE12-GE13-GE14-GE15-GE15e
 - Linear $+$ Nonlinear **Hyperbolic systems** of **conservation laws**
 - **Cauchy**'s problems
 - **Riemann**'s problems
@@ -21,20 +21,20 @@
     <img src="https://latex.codecogs.com/svg.image?\dpi{100}&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" /> -->
   </p>
   
-   ![](./eqns/cunda.svg#gh-dark-mode-only)
+   <!-- ![](./eqns/cunda.svg#gh-dark-mode-only)
 
    ![](./eqns/cunli.svg#gh-light-mode-only)
 
-   ![](./eqns/cunno1.svg#gh-dark-mode-only)
+   ![](./eqns/cunno1.svg#gh-dark-mode-only) -->
 
-   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,1,1}{1&plus;cundark}#gh-dark-mode-only" title="\color[rgb]{1,1,1}{1+cundark}" />
+   <!-- <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,1,1}{1&plus;cundark}#gh-dark-mode-only" title="\color[rgb]{1,1,1}{1+cundark}" />
 
-   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{0,0,0}{1&plus;cunwhite}#gh-light-mode-only" title="\color[rgb]{0,0,0}{1+cunwhite}" />
+   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{0,0,0}{1&plus;cunwhite}#gh-light-mode-only" title="\color[rgb]{0,0,0}{1+cunwhite}" /> -->
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
   <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/w.png#gh-light-mode-only" height="120" width="120"/>
-</p>
+</p> -->
 
 - Consistent numerical flux function 
   <!-- <p align="center">
