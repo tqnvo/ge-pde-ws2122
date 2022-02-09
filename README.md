@@ -22,9 +22,18 @@
     
     <img src="https://latex.codecogs.com/svg.image?\dpi{100}&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" />
     
+    ---
+
     <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-dark-mode-only" title="1+sin^2x" />
-    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-light-mode-only" title="1+cos^2x" />
+
+    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-dark-mode-only" title="1+cos^2x" />
   </p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
+  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/w.png#gh-dark-mode-only" height="120" width="120"/>
+</p>
+
 - Consistent numerical flux function 
   <p align="center">
     <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;\inline&space;\widetilde{F}^{n}_{j-1/2}\left(u^{n}_{j-1},u^{n}_{j}\right)" title="\bg_white \inline \widetilde{F}^{n}_{j-1/2}\left(u^{n}_{j-1},u^{n}_{j}\right)" /> and <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;\inline&space;\widetilde{F}^{n}_{j&plus;1/2}\left(u^{n}_{j},u^{n}_{j&plus;1}\right)" title="\bg_white \inline \widetilde{F}^{n}_{j+1/2}\left(u^{n}_{j},u^{n}_{j\+1}\right)" />
@@ -87,8 +96,3 @@ TODO
 - [x] [CW03/2022 $\rightarrow$ GE13-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE13/ge-13-noted.pdf)
 - [x] [CW04/2022 $\rightarrow$ GE14-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE14/ge-14-noted.pdf)
 - [x] [CW05/2022 $\rightarrow$ GE15-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE15/ge-15-noted.pdf)
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
-  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/w.png#gh-dark-mode-only" height="120" width="120"/>
-</p>
