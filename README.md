@@ -14,22 +14,10 @@
 - **Shock** solution vs **Rarefaction** solution
 - **Finite Volume Methods**
 - Conservation form 
-  <p align="center">
-    <!-- <img src="https://latex.codecogs.com/svg.image?\bg_black&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\bg_black \inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" />
-    <img src="https://latex.codecogs.com/svg.image?\bg_white&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\bg_white \inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)#gh-dark-mode-only" /> -->
-    <!-- <img src="https://latex.codecogs.com/svg.image?\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big" />
-    <img src="https://latex.codecogs.com/svg.image?\dpi{100}&space;\inline&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(\widetilde{F}^{n}_{j-1/2}&space;-&space;\widetilde{F}^{n}_{j&plus;1/2}&space;\Big)" title="\inline u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(\widetilde{F}^{n}_{j-1/2} - \widetilde{F}^{n}_{j+1/2} \Big)" /> -->
-  </p>
   
-   <!-- ![](./eqns/cunda.svg#gh-dark-mode-only)
+    ![](./eqns/conserform_w.svg#gh-dark-mode-only) 
 
-   ![](./eqns/cunli.svg#gh-light-mode-only)
-
-   ![](./eqns/cunno1.svg#gh-dark-mode-only) -->
-
-   <!-- <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,1,1}{1&plus;cundark}#gh-dark-mode-only" title="\color[rgb]{1,1,1}{1+cundark}" />
-
-   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{0,0,0}{1&plus;cunwhite}#gh-light-mode-only" title="\color[rgb]{0,0,0}{1+cunwhite}" /> -->
+    ![](./eqns/conserform_b.svg#gh-light-mode-only)
 
 <!-- <p align="center">
   <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
