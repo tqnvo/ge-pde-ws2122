@@ -33,11 +33,10 @@
     <img src="https://latex.codecogs.com/png.image?\dpi{110}&space;1&plus;pngda^2x#gh-dark-mode-only" />
 
     ---
-    
-    ![plot](./eqns/CodeCogsEqn.svg#gh-dark-mode-only)
-
   </p>
-  </p>
+  
+   ![plot](./eqns/CodeCogsEqn.svg#gh-dark-mode-only)
+   ![plot](./eqns/CodeCogsEqn.svg#gh-light-mode-only)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
