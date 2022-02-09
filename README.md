@@ -43,9 +43,9 @@
 
    <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,1,1}{1&plus;cundark2colorchanged}#gh-dark-mode-only" title="\color[rgb]{1,1,1}{1+cundark2colorchanged}" />
 
-   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,0.5,1}{1&plus;cundark3colorchanged}#gh-dark-mode-only" title="\color[rgb]{1,1,1}{1+cundark3colorchanged}" />
+   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,0.5,1}{1&plus;cundark3colorchanged}#gh-dark-mode-only" title="\color[rgb]{1,0.5,1}{1+cundark3colorchanged}" />
 
-   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,0.5,1}{1&plus;cundark4colorchanged}#gh-light-mode-only" title="\color[rgb]{1,1,1}{1+cundark4colorchanged}" />
+   <img src="https://latex.codecogs.com/svg.image?\color[rgb]{1,0.5,1}{1&plus;cundark4colorchanged}#gh-light-mode-only" title="\color[rgb]{1,0.5,1}{1+cundark4colorchanged}" />
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
