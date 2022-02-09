@@ -30,20 +30,20 @@
   </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
+  <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-dark-mode-only" height="120" width="120"/>
   <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/w.png#gh-dark-mode-only" height="120" width="120"/>
 </p>
 
 - Consistent numerical flux function 
-  <p align="center">
+  <!-- <p align="center">
     <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;\inline&space;\widetilde{F}^{n}_{j-1/2}\left(u^{n}_{j-1},u^{n}_{j}\right)" title="\bg_white \inline \widetilde{F}^{n}_{j-1/2}\left(u^{n}_{j-1},u^{n}_{j}\right)" /> and <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;\inline&space;\widetilde{F}^{n}_{j&plus;1/2}\left(u^{n}_{j},u^{n}_{j&plus;1}\right)" title="\bg_white \inline \widetilde{F}^{n}_{j+1/2}\left(u^{n}_{j},u^{n}_{j\+1}\right)" />
-  </p>
+  </p> -->
 - Upwind-to-the-left (UWL): 
-  <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&plus;\frac{\Delta&space;t}{\Delta&space;x}\Big(f(u^{n}_{j-1})&space;-&space;f(u^{n}_{j})\Big)" title="\bg_white u^{n+1}_{j} = u^{n}_{j}+\frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)" />
+  <!-- <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&plus;\frac{\Delta&space;t}{\Delta&space;x}\Big(f(u^{n}_{j-1})&space;-&space;f(u^{n}_{j})\Big)" title="\bg_white u^{n+1}_{j} = u^{n}_{j}+\frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1}) - f(u^{n}_{j})\Big)" /> -->
 - Upwind-to-the-right (UWR): 
-  <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(f(u^{n}_{j})&space;-&space;f(u^{n}_{j&plus;1})\Big)" title="\bg_white u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)" />
+  <!-- <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;u^{n&plus;1}_{j}&space;=&space;u^{n}_{j}&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(f(u^{n}_{j})&space;-&space;f(u^{n}_{j&plus;1})\Big)" title="\bg_white u^{n+1}_{j} = u^{n}_{j} + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j}) - f(u^{n}_{j+1})\Big)" /> -->
 - **Lax-Friedrichs** (LF): 
-  <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;u^{n&plus;1}_{j}&space;=&space;\frac{1}{2}\Big(&space;u^{n}_{j-1}&space;&plus;&space;u^{n}_{j&plus;1}&space;\Big)&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(f(u^{n}_{j-1})-f(u^{n}_{j&plus;1})\Big)" title="\bg_white u^{n+1}_{j} = \frac{1}{2}\Big( u^{n}_{j-1} + u^{n}_{j+1} \Big) + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1})-f(u^{n}_{j+1})\Big)" />
+  <!-- <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;u^{n&plus;1}_{j}&space;=&space;\frac{1}{2}\Big(&space;u^{n}_{j-1}&space;&plus;&space;u^{n}_{j&plus;1}&space;\Big)&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(f(u^{n}_{j-1})-f(u^{n}_{j&plus;1})\Big)" title="\bg_white u^{n+1}_{j} = \frac{1}{2}\Big( u^{n}_{j-1} + u^{n}_{j+1} \Big) + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1})-f(u^{n}_{j+1})\Big)" /> -->
 - **Lax-Wendroff** (LW)
 - Numerical Analysis: **Lax** Equivalence Theorem: **Consistency** $+$ **Stability** $\Leftrightarrow$ **Convergence**
   - Nonlinear numerical methods
