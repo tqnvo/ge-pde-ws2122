@@ -24,9 +24,9 @@
     
     ---
 
-    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-dark-mode-only" title="1+sin^2x" />
+    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-light-mode-only" title="1+li^2x" />
 
-    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-dark-mode-only" title="1+cos^2x" />
+    <img src="https://latex.codecogs.com/svg.image?1&plus;sin^2x#gh-dark-mode-only" title="1+da^2x" />
   </p>
 
 <p align="center">
