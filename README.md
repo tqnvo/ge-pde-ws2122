@@ -2,14 +2,14 @@
 
 ## Class of **Numerical methods for Partial Differential Equations (NumPDE)** - WS 2021-2022
 ### Global exercises (GEs): GE09-GE10-GE11-GE12-GE13-GE14-GE15-GE15e
-- Linear $+$ Nonlinear **Hyperbolic systems** of **conservation laws**
+- Linear ![](./eqns/plus_w.svg#gh-dark-mode-only) ![](./eqns/plus_b.svg#gh-light-mode-only)  Nonlinear **Hyperbolic systems** of **conservation laws**
 - **Cauchy**'s problems
 - **Riemann**'s problems
 - Linear scalar advection equation
-- Nonlinear viscous **Burgers**' $+$ inviscid **Burgers**' equations
+- Nonlinear viscous **Burgers**' ![](./eqns/plus_w.svg#gh-dark-mode-only) ![](./eqns/plus_b.svg#gh-light-mode-only) inviscid **Burgers**' equations
 - Hyperbolic systems of first order PDE: 
   - (strictly) hyperbolicity: disctinct eigenvalues
-  - diagonalizable matrix $A = R\Lambda R^{-1}$
+  - diagonalizable matrix ![](./eqns/ARLR_w.svg#gh-dark-mode-only) ![](./eqns/ARLR_b.svg#gh-light-mode-only) 
   - Decomposition of system of first order PDEs into separated first order PDEs
 - **Shock** solution vs **Rarefaction** solution
 - **Finite Volume Methods**
