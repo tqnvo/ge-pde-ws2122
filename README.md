@@ -76,7 +76,7 @@
 
 ### Unnoted materials
 
-TODO
+#TODO
 
 - [x] [GE09](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-09.pdf) 
 - [x] [GE10](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE10/ge-10.pdf)
@@ -89,7 +89,7 @@ TODO
 ---
 ### Noted materials
 
-TODO
+#TODO
 
 - [x] CW49/2021 ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) [GE09-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE09/ge-09.pdf) 
 - [x] CW50/2021 ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) [GE10-offline](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE10/ge-10.pdf)
