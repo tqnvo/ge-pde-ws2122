@@ -56,7 +56,7 @@
   - Local **Lax-Friedrichs** (LLF) solver
   - **Harten-Lax-van Leer** (HLL) solver
 - Structure of Finite Volume Method
-  - **Monotone** ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) **$L_{1}$-Contraction** ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) **Total-Variation-Diminishing** (TVD) ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) **Monotonicity-Preserving**
+  - **Monotone** ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) ![](./eqns/L1_w.svg#gh-dark-mode-only) ![](./eqns/L1_b.svg#gh-light-mode-only)-**Contraction** ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) **Total-Variation-Diminishing** (TVD) ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) **Monotonicity-Preserving**
 - Nonlinear + higher order numerical scheme: 
   - **Harten** theorem
   - Incremental form
