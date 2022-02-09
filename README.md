@@ -36,7 +36,10 @@
   </p>
   
    ![plot](./eqns/cunda.svg#gh-dark-mode-only)
+
    ![plot](./eqns/cunli.svg#gh-light-mode-only)
+   
+   ![plot](./eqns/cunno1.svg#gh-dark-mode-only)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
