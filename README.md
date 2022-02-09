@@ -47,7 +47,8 @@
 - **Lax-Friedrichs** (LF): 
   <!-- <img src="https://latex.codecogs.com/gif.image?\dpi{80}&space;\bg_white&space;u^{n&plus;1}_{j}&space;=&space;\frac{1}{2}\Big(&space;u^{n}_{j-1}&space;&plus;&space;u^{n}_{j&plus;1}&space;\Big)&space;&plus;&space;\frac{\Delta&space;t}{\Delta&space;x}\Big(f(u^{n}_{j-1})-f(u^{n}_{j&plus;1})\Big)" title="\bg_white u^{n+1}_{j} = \frac{1}{2}\Big( u^{n}_{j-1} + u^{n}_{j+1} \Big) + \frac{\Delta t}{\Delta x}\Big(f(u^{n}_{j-1})-f(u^{n}_{j+1})\Big)" /> -->
 - **Lax-Wendroff** (LW)
-- Numerical Analysis: **Lax** Equivalence Theorem: **Consistency** $+$ **Stability** $\Leftrightarrow$ **Convergence**
+- Numerical Analysis: **Lax** Equivalence Theorem: 
+  **Consistency** ![](./eqns/plus_w.svg#gh-dark-mode-only) ![](./eqns/plus_b.svg#gh-light-mode-only) **Stability** ![](./eqns/LRarrow_w.svg#gh-dark-mode-only) ![](./eqns/LRarrow_b.svg#gh-light-mode-only)  **Convergence**
   - Nonlinear numerical methods
   - Non-oscillatory behaviours of higher order numerical methods
 - Exact **Riemann** solver: **Godunov**'s scheme
