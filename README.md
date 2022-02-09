@@ -28,8 +28,8 @@
 
     <img src="https://latex.codecogs.com/svg.image?1&plus;da^2x#gh-dark-mode-only" title="1+da^2x" />
 
-    <img src="https://latex.codecogs.com/png.image?\dpi{110}&space;1&plus;pngli^2x#gh-light-mode-only" title="1+sin^2x" />
-    <img src="https://latex.codecogs.com/png.image?\dpi{110}&space;1&plus;pngda^2x#gh-dark-mode-only" title="1+sin^2x" />
+    <img src="https://latex.codecogs.com/png.image?\dpi{110}&space;1&plus;pngli^2x#gh-light-mode-only" />
+    <img src="https://latex.codecogs.com/png.image?\dpi{110}&space;1&plus;pngda^2x#gh-dark-mode-only" />
   </p>
   </p>
 
