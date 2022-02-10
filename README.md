@@ -10,9 +10,9 @@
 
     where unknown conserved quantity ![](./eqns/U_w.svg#gh-dark-mode-only) ![](./eqns/U_b.svg#gh-light-mode-only) is defined as follows
     
-    ![](./eqns/CL_w.svg#gh-dark-mode-only) 
+    ![](./eqns/Udf_w.svg#gh-dark-mode-only) 
 
-    ![](./eqns/CL_b.svg#gh-light-mode-only)
+    ![](./eqns/Udf_b.svg#gh-light-mode-only)
 
 - **Cauchy**'s problems
 - **Riemann**'s problems
@@ -86,15 +86,6 @@
   - Incremental form
   - TVD scheme
 - A bit insight into **Godunov**'s solver with graphical explanations
-
-<!-- <img src="https://render.githubusercontent.com/render/math?math=%5Cbbox%5Bwhite%5D%7B%5Clarge%5Cf(x)=sin(x)%7D"> 
-
-<img src="https://render.githubusercontent.com/render/math?math=\bbox[white]\displaystyle\sum_{n=0}^\infty\frac{1}{2^n}">
-
-- <img src="https://latex.codecogs.com/gif.latex?O_t=\text { Onset event at time bin } t " > 
-- <img src="https://latex.codecogs.com/gif.latex?s=\text { sensor reading }" > 
-- <img src="https://latex.codecogs.com/gif.latex?P(s | O_t )=\text { Probability of a sensor reading value when sleep onset is observed at a time bin } t" >
--->
  
 ## Teaching assistant's extra materials and supplements
 
