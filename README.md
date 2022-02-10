@@ -46,11 +46,15 @@
 
     ![](./eqns/LFcon_b.svg#gh-light-mode-only)
 
-    where
+    where the consistent numerical flux functions are defined as follows
 
     ![](./eqns/LFflux_left_w.svg#gh-dark-mode-only) 
 
     ![](./eqns/LFflux_left_b.svg#gh-light-mode-only)
+
+    ![](./eqns/LFflux_right_w.svg#gh-dark-mode-only) 
+
+    ![](./eqns/LFflux_right_b.svg#gh-light-mode-only)
 
 - **Lax-Wendroff** (LW) in conservation form:
   
