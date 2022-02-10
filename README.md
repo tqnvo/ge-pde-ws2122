@@ -34,6 +34,10 @@
 
 - **Lax-Friedrichs** (LF): 
   
+    ![](./eqns/LF_w.svg#gh-dark-mode-only) 
+
+    ![](./eqns/LF_b.svg#gh-light-mode-only)
+
 - **Lax-Wendroff** (LW):
 
 - **Lax-Friedrichs** (LF) in conservation form: 
