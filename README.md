@@ -8,10 +8,12 @@
 
     ![](./eqns/CL_b.svg#gh-light-mode-only)
 
-    where unknown conserved quantity ![](./eqns/U_w.svg#gh-dark-mode-only)![](./eqns/U_b.svg#gh-light-mode-only) is defined as follows
-
-
+    where unknown conserved quantity ![](./eqns/U_w.svg#gh-dark-mode-only) ![](./eqns/U_b.svg#gh-light-mode-only) is defined as follows
     
+    ![](./eqns/CL_w.svg#gh-dark-mode-only) 
+
+    ![](./eqns/CL_b.svg#gh-light-mode-only)
+
 - **Cauchy**'s problems
 - **Riemann**'s problems
 - Linear scalar advection equation
