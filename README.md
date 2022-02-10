@@ -1,8 +1,8 @@
 # Teaching assistant ge-pde-ws2122
-
+<!-- 
 ![](./eqns/ghw.png#gh-dark-mode-only) 
 
-![](./eqns/ghb.png#gh-light-mode-only)
+![](./eqns/ghb.png#gh-light-mode-only) -->
 
 ## Class of **Numerical methods for Partial Differential Equations (NumPDE)** - WS 2021-2022
 ### Global exercises (GEs): GE09![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE10![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE11![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE12![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE13![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE14![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE15![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE15e
@@ -124,6 +124,6 @@
 - [x] CW05/2022 ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) [GE15-noted-online](https://github.com/tuanvo-git/ge-pde-ws2122/blob/main/GE15/ge-15-noted.pdf) ![](./eqns/rightarrow_w.svg#gh-dark-mode-only) ![](./eqns/rightarrow_b.svg#gh-light-mode-only) Better open in web
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/b.png#gh-light-mode-only" height="120" width="120"/>
-    <img src="https://raw.githubusercontent.com/GiorgosXou/Random-stuff/main/StackOverflow/Answers/70200610_11465149/w.png#gh-dark-mode-only" height="120" width="120"/>
+    <img src="https://raw.githubusercontent.com/tuanvo-git/ge-pde-ws2122/main/eqns/ghw.png#gh-dark-mode-only" height="120" width="120"/>
+    <img src="https://raw.githubusercontent.com/tuanvo-git/ge-pde-ws2122/main/eqns/ghb.png#gh-light-mode-only" height="120" width="120"/>
 </p>
