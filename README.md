@@ -3,6 +3,15 @@
 ## Class of **Numerical methods for Partial Differential Equations (NumPDE)** - WS 2021-2022
 ### Global exercises (GEs): GE09![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE10![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE11![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE12![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE13![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE14![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE15![](./eqns/rightarrow_w.svg#gh-dark-mode-only)![](./eqns/rightarrow_b.svg#gh-light-mode-only)GE15e
 - Linear ![](./eqns/plus_w.svg#gh-dark-mode-only) ![](./eqns/plus_b.svg#gh-light-mode-only)  Nonlinear **Hyperbolic systems** of **conservation laws**
+  
+    ![](./eqns/CL_w.svg#gh-dark-mode-only) 
+
+    ![](./eqns/CL_b.svg#gh-light-mode-only)
+
+    where unknown conserved quantity ![](./eqns/U_w.svg#gh-dark-mode-only)![](./eqns/U_b.svg#gh-light-mode-only) is defined as follows
+
+
+    
 - **Cauchy**'s problems
 - **Riemann**'s problems
 - Linear scalar advection equation
