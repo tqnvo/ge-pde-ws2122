@@ -42,9 +42,9 @@
 
 - **Lax-Friedrichs** (LF) in conservation form: 
 
-    ![](./eqns/LF_w.svg#gh-dark-mode-only) 
+    ![](./eqns/LFcon_w.svg#gh-dark-mode-only) 
 
-    ![](./eqns/LF_b.svg#gh-light-mode-only)
+    ![](./eqns/LFcon_b.svg#gh-light-mode-only)
 
     where
 
