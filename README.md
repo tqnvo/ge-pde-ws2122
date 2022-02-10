@@ -48,9 +48,9 @@
 
     where
 
-    ![](./eqns/LF_w.svg#gh-dark-mode-only) 
+    ![](./eqns/LFflux_left_w.svg#gh-dark-mode-only) 
 
-    ![](./eqns/LF_b.svg#gh-light-mode-only)
+    ![](./eqns/LFflux_left_b.svg#gh-light-mode-only)
 
 - **Lax-Wendroff** (LW) in conservation form:
   
